@@ -7,9 +7,10 @@ using QuizNSwap.Models;
 
 namespace QuizNSwap.Infrastructure
 {
-    public class DataContext : DbContext
+    public class QuizNSwapContext : DbContext
     {
-        public DataContext(DbContextOptions<DataContext> options) : base(options)
+
+        public QuizNSwapContext(DbContextOptions<QuizNSwapContext> options) : base(options)
         {
         }
 

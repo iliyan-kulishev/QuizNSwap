@@ -25,6 +25,7 @@
       "QuizNSwap/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Sqlite": "3.1.0-preview3.19554.8",
+          "Microsoft.EntityFrameworkCore.Tools": "3.1.0-preview3.19554.8",
           "Microsoft.AspNetCore.Antiforgery": "3.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.0.0.0",
@@ -102,7 +103,7 @@
           "Microsoft.AspNetCore.StaticFiles": "3.0.0.0",
           "Microsoft.AspNetCore.WebSockets": "3.0.0.0",
           "Microsoft.AspNetCore.WebUtilities": "3.0.0.0",
-          "Microsoft.CSharp": "4.0.0.0",
+          "Microsoft.CSharp.Reference": "4.0.0.0",
           "Microsoft.Extensions.Configuration.CommandLine": "3.0.0.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "3.0.0.0",
           "Microsoft.Extensions.Configuration.FileExtensions": "3.0.0.0",
@@ -320,6 +321,7 @@
           "ref/netcoreapp2.1/Microsoft.Bcl.HashCode.dll": {}
         }
       },
+      "Microsoft.CSharp/4.7.0-preview3.19551.4": {},
       "Microsoft.Data.Sqlite.Core/3.1.0-preview3.19554.8": {
         "dependencies": {
           "SQLitePCLRaw.core": "2.0.2"
@@ -380,6 +382,18 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/3.1.0-preview3.19554.8": {},
+      "Microsoft.EntityFrameworkCore.Design/3.1.0-preview3.19554.8": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0-preview3.19551.4",
+          "Microsoft.EntityFrameworkCore.Relational": "3.1.0-preview3.19554.8"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.100.19.55408"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/3.1.0-preview3.19554.8": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "3.1.0-preview3.19554.8"
@@ -415,6 +429,11 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Sqlite.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Tools/3.1.0-preview3.19554.8": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "3.1.0-preview3.19554.8"
         }
       },
       "Microsoft.Extensions.Caching.Abstractions/3.1.0-preview3.19553.2": {
@@ -1234,7 +1253,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.CSharp/4.0.0.0": {
+      "Microsoft.CSharp.Reference/4.0.0.0": {
         "compile": {
           "Microsoft.CSharp.dll": {}
         },
@@ -2384,6 +2403,13 @@
       "path": "microsoft.bcl.hashcode/1.1.0-preview3.19551.4",
       "hashPath": "microsoft.bcl.hashcode.1.1.0-preview3.19551.4.nupkg.sha512"
     },
+    "Microsoft.CSharp/4.7.0-preview3.19551.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-F5D3jDBs7Mo4i+uVH0Xxmz5gEXU9nhCznpwfPIsXiX/VP7obgonRABt7hh6KiJyVieF6GO7W/r/V+5vCvAANBQ==",
+      "path": "microsoft.csharp/4.7.0-preview3.19551.4",
+      "hashPath": "microsoft.csharp.4.7.0-preview3.19551.4.nupkg.sha512"
+    },
     "Microsoft.Data.Sqlite.Core/3.1.0-preview3.19554.8": {
       "type": "package",
       "serviceable": true,
@@ -2419,6 +2445,13 @@
       "path": "microsoft.entityframeworkcore.analyzers/3.1.0-preview3.19554.8",
       "hashPath": "microsoft.entityframeworkcore.analyzers.3.1.0-preview3.19554.8.nupkg.sha512"
     },
+    "Microsoft.EntityFrameworkCore.Design/3.1.0-preview3.19554.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bDDebdf6XtqP8wZ7rB/y14dzhAKjijWaZfKT34coovu1fnlotcE3EWWHwk0/QafpWNYWlkfHSfJUmGx8XlvkRQ==",
+      "path": "microsoft.entityframeworkcore.design/3.1.0-preview3.19554.8",
+      "hashPath": "microsoft.entityframeworkcore.design.3.1.0-preview3.19554.8.nupkg.sha512"
+    },
     "Microsoft.EntityFrameworkCore.Relational/3.1.0-preview3.19554.8": {
       "type": "package",
       "serviceable": true,
@@ -2439,6 +2472,13 @@
       "sha512": "sha512-tn1EUp/JQwUvRmyDjan1egW0WKRd1nBGNCJ7U4Rx3Nc/5anLVy3sdPgjksbvRfdNw9L8uWhODuRmY0EDeDH+4A==",
       "path": "microsoft.entityframeworkcore.sqlite.core/3.1.0-preview3.19554.8",
       "hashPath": "microsoft.entityframeworkcore.sqlite.core.3.1.0-preview3.19554.8.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Tools/3.1.0-preview3.19554.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3F+a76sbyX72Co4P065Oy9rUlsqm0XsFIwQbGsKjnIGQW1SchIkecZ8ZBsbPfHUYvXAU494362PhGrNDU3Cxyw==",
+      "path": "microsoft.entityframeworkcore.tools/3.1.0-preview3.19554.8",
+      "hashPath": "microsoft.entityframeworkcore.tools.3.1.0-preview3.19554.8.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/3.1.0-preview3.19553.2": {
       "type": "package",
@@ -2986,7 +3026,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.CSharp/4.0.0.0": {
+    "Microsoft.CSharp.Reference/4.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
