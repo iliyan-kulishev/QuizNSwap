@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ilian\\Source\\Repos\\iliyan89\\QuizNSwap\\QuizNSwap.csproj",
+      "projectUniqueName": "C:\\Users\\Ilian\\Documents\\GitHub\\QuizNSwap\\QuizNSwap.csproj",
       "projectName": "QuizNSwap",
-      "projectPath": "C:\\Users\\Ilian\\Source\\Repos\\iliyan89\\QuizNSwap\\QuizNSwap.csproj",
+      "projectPath": "C:\\Users\\Ilian\\Documents\\GitHub\\QuizNSwap\\QuizNSwap.csproj",
       "packagesPath": "C:\\Users\\Ilian\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ilian\\Source\\Repos\\iliyan89\\QuizNSwap\\obj\\",
+      "outputPath": "C:\\Users\\Ilian\\Documents\\GitHub\\QuizNSwap\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
