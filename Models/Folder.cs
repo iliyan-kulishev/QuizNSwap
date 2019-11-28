@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _1_Domain.Entities
+namespace QuizNSwap.Models
 {
     public class Folder
     {

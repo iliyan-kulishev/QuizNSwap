@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace _1_Domain.Entities
+namespace QuizNSwap.Models
 {
     public class QuestionSet
     {

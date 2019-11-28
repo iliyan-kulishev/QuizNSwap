@@ -1,4 +1,4 @@
-﻿namespace _1_Domain.Entities
+﻿namespace QuizNSwap.Models
 {
     public class QnA
     {
