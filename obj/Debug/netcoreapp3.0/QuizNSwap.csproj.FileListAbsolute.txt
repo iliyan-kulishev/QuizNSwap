@@ -28,7 +28,6 @@ C:\Users\Ilian\Documents\GitHub\QuizNSwap\bin\Debug\netcoreapp3.0\QuizNSwap.pdb
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.csprojAssemblyReference.cache
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\staticwebassets\QuizNSwap.StaticWebAssets.Manifest.cache
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\staticwebassets\QuizNSwap.StaticWebAssets.xml
-C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.AssemblyInfoInputs.cache
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.AssemblyInfo.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.RazorTargetAssemblyInfo.cache

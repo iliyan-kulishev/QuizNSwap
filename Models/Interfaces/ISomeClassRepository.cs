@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using _1_Domain.Entities;
 
-namespace QuizNSwap.Models.Repositories
+namespace QuizNSwap.Models.Interfaces
 {
-    interface ISomeClassRepository: IRepository<SomeClass>
+    interface ISomeClassRepository: IRepository<Folder>
     {
 
     }
