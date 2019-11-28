@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ilian\\source\\repos\\QuizNSwap\\QuizNSwap.csproj": {}
+    "C:\\Users\\Ilian\\Source\\Repos\\iliyan89\\QuizNSwap\\QuizNSwap.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ilian\\source\\repos\\QuizNSwap\\QuizNSwap.csproj": {
+    "C:\\Users\\Ilian\\Source\\Repos\\iliyan89\\QuizNSwap\\QuizNSwap.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ilian\\source\\repos\\QuizNSwap\\QuizNSwap.csproj",
+        "projectUniqueName": "C:\\Users\\Ilian\\Source\\Repos\\iliyan89\\QuizNSwap\\QuizNSwap.csproj",
         "projectName": "QuizNSwap",
-        "projectPath": "C:\\Users\\Ilian\\source\\repos\\QuizNSwap\\QuizNSwap.csproj",
+        "projectPath": "C:\\Users\\Ilian\\Source\\Repos\\iliyan89\\QuizNSwap\\QuizNSwap.csproj",
         "packagesPath": "C:\\Users\\Ilian\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ilian\\source\\repos\\QuizNSwap\\obj\\",
+        "outputPath": "C:\\Users\\Ilian\\Source\\Repos\\iliyan89\\QuizNSwap\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
