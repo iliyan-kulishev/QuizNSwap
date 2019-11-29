@@ -1,38 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="QuizNSwap.Models.Folder">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAQAQAAAAAAAAAAgAAAAAACAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>Models\Folder.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="QuizNSwap.Models.Game">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+  <Class Name="QuizNSwap.Models.QuestionCard">
+    <Position X="0.5" Y="2.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Game.cs</FileName>
+      <HashCode>AAACCAAAAAAAAAAAAAAAAAACAAAAAAAEAAAAAgAAAAA=</HashCode>
+      <FileName>Models\QuestionCard.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="QuizNSwap.Models.Player">
-    <Position X="4" Y="0.5" Width="1.5" />
+  <Class Name="QuizNSwap.Models.Topic">
+    <Position X="3.75" Y="2.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Player.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="QuizNSwap.Models.Question">
-    <Position X="0.5" Y="3" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgAAAAA=</HashCode>
-      <FileName>Models\Question.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="QuizNSwap.Models.Quiz">
-    <Position X="2.25" Y="3" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Quiz.cs</FileName>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Topic.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
