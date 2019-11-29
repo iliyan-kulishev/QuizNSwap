@@ -2,10 +2,10 @@
 
 namespace QuizNSwap.Models
 {
-    public class QuestionSet
+    public class Quiz
     {
         public long Id { get; set; }
-        public ICollection<QnA> Questions { get; set; }
+        public ICollection<Question> Questions { get; set; }
 
     }
 }
