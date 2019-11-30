@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Infrastructure",
-    "\\Migrations"
+    "\\Areas",
+    "\\Areas\\Start",
+    "\\Data"
   ],
   "SelectedNode": "\\Properties",
   "PreviewInSolutionExplorer": false
