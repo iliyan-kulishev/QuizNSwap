@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace QuizNSwap.Data
+namespace QuizNSwap.Data.UnitOfWork
 {
-    interface IUnitOfWork
+    public interface IUnitOfWork
     {
     }
 }

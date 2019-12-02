@@ -4,11 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using QuizNSwap.Data;
+using QuizNSwap.Data.UnitOfWork;
+using QuizNSwap.Data.Models;
 
 namespace QuizNSwap
 {
@@ -24,8 +28,22 @@ namespace QuizNSwap
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<QuizNSwapContext>();
-            services.AddSingleton<IUnitOfWork, UnitOfWork>();
+
+            services.AddDbContext<QuizNSwapContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentity<User, IdentityRole>(opts => {
+                opts.User.RequireUniqueEmail = true;
+                opts.Password.RequiredLength = 6;
+                opts.Password.RequireNonAlphanumeric = false;
+                opts.Password.RequireLowercase = false;
+                opts.Password.RequireUppercase = false;
+                opts.Password.RequireDigit = false;
+            })
+            .AddEntityFrameworkStores<QuizNSwapContext>()
+            .AddDefaultTokenProviders();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -44,15 +62,44 @@ namespace QuizNSwap
             app.UseStaticFiles();
 
             app.UseRouting();
+            /*Adds ASP.NET Core Identity to the request-handing pipeline,
+            which allows user credentials to be associated with requests based on cookies or URL rewriting, meaning
+            that details of user accounts are not directly included in the HTTP requests sent to the application or the
+            responses it generates.*/
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "areas",
+                    //pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                    pattern: "{area=Users}/{controller=Registration}/{action=Index}"
+                    );
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                /*
+                 *         endpoints.MapControllerRoute(
+            name: "areaRoute",
+            pattern: "{area:exists}/{controller}/{action}",
+            defaults: new { action = "Index" });
+
+        endpoints.MapControllerRoute(
+            name: "default",
+            pattern: "{controller}/{action}/{id?}",
+            defaults: new { controller = "Home", action = "Index" });
+
+        endpoints.MapControllerRoute(
+            name: "api",
+            pattern: "{controller}/{id?}");
+
+                 */
+
+
             });
+
         }
     }
 }

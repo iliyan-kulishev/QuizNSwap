@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace QuizNSwap.Data
+namespace QuizNSwap.Data.Models
 {
     public class QuestionCard
     {

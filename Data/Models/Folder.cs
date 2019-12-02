@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace QuizNSwap.Data
+namespace QuizNSwap.Data.Models
 {
     public class Folder
     {
@@ -18,8 +18,6 @@ namespace QuizNSwap.Data
         */
         //navigation property
 
-
-        //TODO: Reference to Users table 
 
         /*TODO: Automatically storing of creation date - slightly different code for update date
          * 
