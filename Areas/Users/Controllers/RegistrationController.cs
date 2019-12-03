@@ -10,6 +10,7 @@ using QuizNSwap.Data.UnitOfWork;
 
 namespace QuizNSwap.Areas.Users.Controllers
 {
+    [Area("Users")]
     public class RegistrationController : Controller
     {
         private UserManager<User> userManager;

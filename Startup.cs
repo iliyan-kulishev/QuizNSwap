@@ -13,7 +13,7 @@ using Microsoft.Extensions.Configuration;
 using QuizNSwap.Data;
 using QuizNSwap.Data.UnitOfWork;
 using QuizNSwap.Data.Models;
-using QuizNSwap.Areas.Game.SIgnalRHubs;
+using QuizNSwap.Areas.Play.SIgnalRHubs;
 
 namespace QuizNSwap
 {
@@ -35,7 +35,8 @@ namespace QuizNSwap
             services.AddDbContext<QuizNSwapContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<User, IdentityRole>(opts => {
+            services.AddIdentity<User, IdentityRole>(opts =>
+            {
                 opts.User.RequireUniqueEmail = true;
                 opts.Password.RequiredLength = 6;
                 opts.Password.RequireNonAlphanumeric = false;
@@ -45,6 +46,15 @@ namespace QuizNSwap
             })
             .AddEntityFrameworkStores<QuizNSwapContext>()
             .AddDefaultTokenProviders();
+
+            /*
+             * although  /Account/Login is the default Url that clients are redirected to when authorization is
+                required, you can specify your own Url in the  ConfigureServices method of the  Startup class by
+                changing a configuration option when setting up the aSp.net Core identity services, like this:
+                ...
+                services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Users/Login");
+             */
+            //services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Users/Login");
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
@@ -80,27 +90,31 @@ namespace QuizNSwap
                 endpoints.MapControllerRoute(
                     name: "areas",
                     //pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                    pattern: "{area=Users}/{controller=Registration}/{action=Index}"
+                    pattern: "{area=Start}/{controller=Home}/{action=Index}"
                     );
+
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-                /*
-                 *         endpoints.MapControllerRoute(
-            name: "areaRoute",
-            pattern: "{area:exists}/{controller}/{action}",
-            defaults: new { action = "Index" });
+                    pattern: "{area:exists}/{controller}/{action}/{id?}"
+                );
 
-        endpoints.MapControllerRoute(
-            name: "default",
-            pattern: "{controller}/{action}/{id?}",
-            defaults: new { controller = "Home", action = "Index" });
+                /*    
+                     endpoints.MapControllerRoute(
+                name: "areaRoute",
+                pattern: "{area:exists}/{controller}/{action}",
+                defaults: new { action = "Index" });
 
-        endpoints.MapControllerRoute(
-            name: "api",
-            pattern: "{controller}/{id?}");
+            endpoints.MapControllerRoute(
+                name: "default",
+                pattern: "{controller}/{action}/{id?}",
+                defaults: new { controller = "Home", action = "Index" });
 
-                 */
+            endpoints.MapControllerRoute(
+                name: "api",
+                pattern: "{controller}/{id?}");
+
+        */
+
 
                 endpoints.MapHub<ChatHub>("/chatHub");//name of hub class
 

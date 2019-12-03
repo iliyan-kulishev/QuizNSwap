@@ -1,8 +1,23 @@
 ﻿
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Areas/Users/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+@model Login
+
+<div class=""><h4>Log In</h4></div>
+<div class="" asp-validation-summary="All"></div>
+<form asp-action="Login" method="post">
+    <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+    <div class="">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="" />
+    </div>
+    <div class="">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="" />
+    </div>
+    <button class="" type="submit">Log In</button>
+</form>
 

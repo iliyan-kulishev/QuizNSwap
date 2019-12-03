@@ -12,13 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Folders\Controllers\API\" />
-    <Folder Include="Areas\Folders\Views\Shared\Components\" />
-    <Folder Include="Areas\Game\ViewModels\" />
-    <Folder Include="Areas\Game\Views\Shared\Components\" />
-    <Folder Include="Areas\Start\Controllers\" />
+    <Folder Include="Areas\Dashboard\Controllers\API\" />
+    <Folder Include="Areas\Dashboard\Views\Shared\Components\" />
+    <Folder Include="Areas\Play\ViewModels\" />
+    <Folder Include="Areas\Play\Views\Shared\Components\" />
     <Folder Include="Areas\Start\ViewModels\" />
-    <Folder Include="Areas\Folders\ViewModels\" />
+    <Folder Include="Areas\Dashboard\ViewModels\" />
     <Folder Include="Areas\Start\Views\Shared\Components\" />
     <Folder Include="Areas\Users\Views\Shared\Components\" />
     <Folder Include="wwwroot\css\" />
@@ -41,27 +40,27 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Areas\Folders\Views\Shared\_Layout.cshtml">
+    <Content Update="Areas\Dashboard\Views\Shared\_Layout.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Areas\Folders\Views\_ViewImports.cshtml">
+    <Content Update="Areas\Dashboard\Views\_ViewImports.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Areas\Folders\Views\_ViewStart.cshtml">
+    <Content Update="Areas\Dashboard\Views\_ViewStart.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Areas\Game\Views\Shared\_Layout.cshtml">
+    <Content Update="Areas\Play\Views\Shared\_Layout.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Areas\Game\Views\_ViewImports.cshtml">
+    <Content Update="Areas\Play\Views\_ViewImports.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Areas\Game\Views\_ViewStart.cshtml">
+    <Content Update="Areas\Play\Views\_ViewStart.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
