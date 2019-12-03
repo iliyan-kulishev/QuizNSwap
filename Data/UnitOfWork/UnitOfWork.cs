@@ -17,11 +17,11 @@ namespace QuizNSwap.Data.UnitOfWork
 
         public UnitOfWork(QuizNSwapContext context) 
         {
-            /*this.context = context;
+            this.context = context;
             Folders = new FolderRepository(context);
             Topics = new TopicRepository(context);
-            QuestionCard = new QuestionCardRepository(context);
-            Users = new UserRepository(context);*/
+            QuestionCards = new QuestionCardRepository(context);
+            Users = new UserRepository(context);
         }
 
         public int Complete() 

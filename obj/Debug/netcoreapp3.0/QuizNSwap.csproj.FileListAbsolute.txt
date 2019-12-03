@@ -190,6 +190,8 @@ C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Us
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Users\Views\_ViewStart.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.RazorTargetAssemblyInfo.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.Views.pdb
-C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.csprojAssemblyReference.cache
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Users\Views\Registration\Index.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Users\Views\Profile\Index.cshtml.g.cs
+C:\Users\Ilian\Documents\GitHub\QuizNSwap\bin\Debug\netcoreapp3.0\libman.json
+C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Users\Views\Login\Index.cshtml.g.cs
+C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Game\Views\Play\Index.cshtml.g.cs

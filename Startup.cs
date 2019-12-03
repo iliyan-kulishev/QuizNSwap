@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using QuizNSwap.Data;
 using QuizNSwap.Data.UnitOfWork;
 using QuizNSwap.Data.Models;
+using QuizNSwap.Areas.Game.SIgnalRHubs;
 
 namespace QuizNSwap
 {
@@ -28,6 +29,8 @@ namespace QuizNSwap
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddSignalR();
 
             services.AddDbContext<QuizNSwapContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
@@ -55,6 +58,8 @@ namespace QuizNSwap
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. 
+                // You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -96,6 +101,8 @@ namespace QuizNSwap
             pattern: "{controller}/{id?}");
 
                  */
+
+                endpoints.MapHub<ChatHub>("/chatHub");//name of hub class
 
 
             });

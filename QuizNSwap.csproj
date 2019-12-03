@@ -14,7 +14,6 @@
   <ItemGroup>
     <Folder Include="Areas\Folders\Controllers\API\" />
     <Folder Include="Areas\Folders\Views\Shared\Components\" />
-    <Folder Include="Areas\Game\Controllers\" />
     <Folder Include="Areas\Game\ViewModels\" />
     <Folder Include="Areas\Game\Views\Shared\Components\" />
     <Folder Include="Areas\Start\Controllers\" />
@@ -23,7 +22,6 @@
     <Folder Include="Areas\Start\Views\Shared\Components\" />
     <Folder Include="Areas\Users\Views\Shared\Components\" />
     <Folder Include="wwwroot\css\" />
-    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
   <ItemGroup>

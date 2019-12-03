@@ -5,9 +5,13 @@ using System.Threading.Tasks;
 
 namespace QuizNSwap.Data.Repositories
 {
-    public class FolderRepository : Repository , IFolderRepository
+    public class FolderRepository : IFolderRepository
     {
-        public FolderRepository(QuizNSwapContext context) : base(context)
-        { }
+        private readonly QuizNSwapContext context;
+
+        public FolderRepository(QuizNSwapContext context)
+        {
+            this.context = context;
+        }
     }
 }

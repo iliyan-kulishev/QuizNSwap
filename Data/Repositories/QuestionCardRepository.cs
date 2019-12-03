@@ -5,7 +5,14 @@ using System.Threading.Tasks;
 
 namespace QuizNSwap.Data.Repositories
 {
-    public class QuestionCardRepository
+    public class QuestionCardRepository : IQuestionCardRepository
     {
+        private readonly QuizNSwapContext context;
+
+        public QuestionCardRepository(QuizNSwapContext context)
+        {
+            this.context = context;
+        }
+
     }
 }
