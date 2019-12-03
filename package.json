@@ -1,0 +1,13 @@
+{
+    "license": "UNLICENSED",
+    "scripts": {
+        "build": "parcel build assets/js/app.js --out-dir ./wwwroot",
+        "serve": "parcel watch assets/js/app.js --out-dir ./wwwroot"
+    },
+    "devDependencies": {
+        "parcel-bundler": "^1.12.4",
+        "prettier": "1.19.1",
+        "prettier-plugin-csharp": "0.6.0-development",
+        "sass": "^1.23.7"
+    }
+}
