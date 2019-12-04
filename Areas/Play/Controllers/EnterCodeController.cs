@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using QuizNSwap.Areas.Play.ViewModels;
 
 namespace QuizNSwap.Areas.Play.Controllers
 {
@@ -14,7 +15,7 @@ namespace QuizNSwap.Areas.Play.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(string s)
+        public IActionResult Index(EnterCode model)
         {
             return View();
         }

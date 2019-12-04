@@ -95,8 +95,7 @@ namespace QuizNSwap
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{area:exists}/{controller}/{action}/{id?}",
-                    defaults: new {action = "Index"}
+                    pattern: "{area:exists}/{controller}/{action}/{id?}"
                 );
 
                 /*    

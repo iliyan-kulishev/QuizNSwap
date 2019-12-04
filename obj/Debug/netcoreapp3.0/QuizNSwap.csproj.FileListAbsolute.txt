@@ -199,4 +199,3 @@ C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Us
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\User\Views\_ViewImports.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\User\Views\_ViewStart.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.csprojAssemblyReference.cache
-C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\User\Views\SignIn\Index.cshtml.g.cs
