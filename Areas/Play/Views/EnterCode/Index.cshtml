@@ -1,0 +1,12 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model EnterCode
+<div class=""><h4>Join game</h4></div>
+<div class="" asp-validation-summary="All"></div>
+<form asp-controller="EnterCode" asp-action="Index" method="post">
+        <input asp-for="GameCode" placeholder="Enter Game Code" class="" />
+        <button type="submit" class="">Enter Game Code </button>
+</form>

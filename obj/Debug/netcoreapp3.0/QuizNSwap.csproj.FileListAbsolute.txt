@@ -179,12 +179,8 @@ C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.Razo
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Start\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Start\Views\_ViewImports.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Start\Views\_ViewStart.cshtml.g.cs
-C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Users\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Users\Views\_ViewImports.cshtml.g.cs
-C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Users\Views\_ViewStart.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.RazorTargetAssemblyInfo.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.Views.pdb
-C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Users\Views\Registration\Index.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\bin\Debug\netcoreapp3.0\libman.json
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Dashboard\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Dashboard\Views\_ViewImports.cshtml.g.cs
@@ -197,5 +193,10 @@ C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Pl
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Dashboard\Views\Home\Index.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\bin\Debug\netcoreapp3.0\package.json
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Dashboard\Views\Profile\Index.cshtml.g.cs
+C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Play\Views\EnterCode\Index.cshtml.g.cs
+C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\User\Views\Registration\Index.cshtml.g.cs
+C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\User\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\User\Views\_ViewImports.cshtml.g.cs
+C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\User\Views\_ViewStart.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.csprojAssemblyReference.cache
-C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Users\Views\Login\Login.cshtml.g.cs
+C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\User\Views\SignIn\Index.cshtml.g.cs

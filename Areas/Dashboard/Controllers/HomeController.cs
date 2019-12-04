@@ -12,12 +12,6 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-
-        /*
-         * The key tool in Identity for restricting
-           access to action methods is the Authorize attribute, which tells MVC that only requests from authenticated
-           users should be processed.
-         */
         
         public IActionResult Index()
         {

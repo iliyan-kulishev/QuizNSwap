@@ -14,11 +14,10 @@
   <ItemGroup>
     <Folder Include="Areas\Dashboard\Controllers\API\" />
     <Folder Include="Areas\Dashboard\Views\Shared\Components\" />
-    <Folder Include="Areas\Play\ViewModels\" />
     <Folder Include="Areas\Play\Views\Shared\Components\" />
     <Folder Include="Areas\Start\ViewModels\" />
     <Folder Include="Areas\Start\Views\Shared\Components\" />
-    <Folder Include="Areas\Users\Views\Shared\Components\" />
+    <Folder Include="Areas\User\Views\Shared\Components\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
 

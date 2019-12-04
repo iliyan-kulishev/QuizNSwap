@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using QuizNSwap.Areas.Users.ViewModels;
+using QuizNSwap.Areas.User.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using QuizNSwap.Data.Models;
 using QuizNSwap.Data.UnitOfWork;
 
-namespace QuizNSwap.Areas.Users.Controllers
+namespace QuizNSwap.Areas.User.Controllers
 {
-    [Area("Users")]
+    [Area("User")]
     public class RegistrationController : Controller
     {
-        private UserManager<User> userManager;
+        private UserManager<QuizNSwap.Data.Models.User> userManager;
 
         private IUnitOfWork UnitOfWork;
 
-        public RegistrationController(UserManager<User> usrMngr, IUnitOfWork untfwrk) 
+        public RegistrationController(UserManager<QuizNSwap.Data.Models.User> usrMngr, IUnitOfWork untfwrk) 
         {
             userManager = usrMngr;
             UnitOfWork = untfwrk;
@@ -32,7 +32,7 @@ namespace QuizNSwap.Areas.Users.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User
+                QuizNSwap.Data.Models.User user = new QuizNSwap.Data.Models.User
                 {
                     UserName = model.Name,
                     Email = model.Email

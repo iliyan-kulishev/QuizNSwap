@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using QuizNSwap.Data.Models;
 using QuizNSwap.Data.UnitOfWork;
-using QuizNSwap.Areas.Users.ViewModels;
+using QuizNSwap.Areas.User.ViewModels;
 
-namespace QuizNSwap.Areas.Users.Controllers
+namespace QuizNSwap.Areas.User.Controllers
 {
     /*
     * Controllers that manage user
@@ -20,15 +20,15 @@ namespace QuizNSwap.Areas.Users.Controllers
    ValidateAntiForgeryToken attribute, which I described in Chapter 24 and which works in conjunction with
    the form element tag helper to protect against cross-site request forgery.
     */
-    [Area("Users")]
+    [Area("User")]
     [Authorize]
-    public class LoginController : Controller
+    public class SignInController : Controller
     {
         private readonly IUnitOfWork unitOfWork;
-        private UserManager<User> userManager;
-        private SignInManager<User> signInManager;
+        private readonly UserManager<QuizNSwap.Data.Models.User> userManager;
+        private readonly SignInManager<QuizNSwap.Data.Models.User> signInManager;
 
-        public LoginController(IUnitOfWork unitOfWork, UserManager<User> userMgr, SignInManager<User> signinMgr)
+        public SignInController(IUnitOfWork unitOfWork, UserManager<QuizNSwap.Data.Models.User> userMgr, SignInManager<QuizNSwap.Data.Models.User> signinMgr)
         {
             this.unitOfWork = unitOfWork;
             userManager = userMgr;
@@ -36,7 +36,7 @@ namespace QuizNSwap.Areas.Users.Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult Login(string returnUrl)
+        public IActionResult Index(string returnUrl)
         {
             ViewBag.returnUrl = returnUrl;
             return View();
@@ -48,7 +48,7 @@ namespace QuizNSwap.Areas.Users.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = await userManager.FindByEmailAsync(details.Email);
+                QuizNSwap.Data.Models.User user = await userManager.FindByEmailAsync(details.Email);
                 if (user != null)
                 {
                     //This method cancels any existing session that the user has
@@ -63,7 +63,7 @@ namespace QuizNSwap.Areas.Users.Controllers
                     if (result.Succeeded)
                     {
                         //redirect the user to the returnUrl location if it is true
-                        return Redirect(returnUrl ?? "/");
+                        return Redirect(returnUrl ?? "/dashboard/home");
                     }
                 }
                 //add a validation error and redisplay the Login view to the user so they can try again

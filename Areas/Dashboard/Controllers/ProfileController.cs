@@ -15,8 +15,8 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
     public class ProfileController : Controller
     {
         private readonly IUnitOfWork unitOfWork;
-        private readonly UserManager<User> userManager;
-        public ProfileController(IUnitOfWork unitOfWork, UserManager<User> userManager)
+        private readonly UserManager<QuizNSwap.Data.Models.User> userManager;
+        public ProfileController(IUnitOfWork unitOfWork, UserManager<QuizNSwap.Data.Models.User> userManager)
         {
             this.unitOfWork = unitOfWork;
             this.userManager = userManager;

@@ -6,9 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace QuizNSwap.Areas.Play.Controllers
 {
-    public class JoinGameController : Controller
+    [Area("Play")]
+    public class EnterCodeController : Controller
     {
         public IActionResult Index()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Index(string s)
         {
             return View();
         }

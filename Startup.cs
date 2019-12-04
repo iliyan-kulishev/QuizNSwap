@@ -54,7 +54,7 @@ namespace QuizNSwap
                 ...
                 services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Users/Login");
              */
-            services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Users/Login/Login");
+            services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Users/SignIn");
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }

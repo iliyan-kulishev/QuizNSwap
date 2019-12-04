@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
-namespace QuizNSwap.Areas.Users.ViewModels
+
+namespace QuizNSwap.Areas.User.ViewModels
 {
-    public class Login
+    public class Registration
     {
         [Required]
-        [UIHint("email")]
+        public string Name { get; set; }
+        [Required]
+        [EmailAddress]
         public string Email { get; set; }
         [Required]
-        [UIHint("password")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
     }
 }
