@@ -17,7 +17,6 @@
     <Folder Include="Areas\Play\ViewModels\" />
     <Folder Include="Areas\Play\Views\Shared\Components\" />
     <Folder Include="Areas\Start\ViewModels\" />
-    <Folder Include="Areas\Dashboard\ViewModels\" />
     <Folder Include="Areas\Start\Views\Shared\Components\" />
     <Folder Include="Areas\Users\Views\Shared\Components\" />
     <Folder Include="wwwroot\css\" />

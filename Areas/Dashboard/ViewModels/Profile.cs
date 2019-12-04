@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace QuizNSwap.Areas.Users.ViewModels
+namespace QuizNSwap.Areas.Dashboard.ViewModels
 {
     public class Profile
     {

@@ -54,7 +54,7 @@ namespace QuizNSwap
                 ...
                 services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Users/Login");
              */
-            //services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Users/Login");
+            services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Users/Login/Login");
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
@@ -95,7 +95,8 @@ namespace QuizNSwap
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{area:exists}/{controller}/{action}/{id?}"
+                    pattern: "{area:exists}/{controller}/{action}/{id?}",
+                    defaults: new {action = "Index"}
                 );
 
                 /*    

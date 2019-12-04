@@ -185,9 +185,7 @@ C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Us
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.RazorTargetAssemblyInfo.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.Views.pdb
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Users\Views\Registration\Index.cshtml.g.cs
-C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Users\Views\Profile\Index.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\bin\Debug\netcoreapp3.0\libman.json
-C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.csprojAssemblyReference.cache
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Dashboard\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Dashboard\Views\_ViewImports.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Dashboard\Views\_ViewStart.cshtml.g.cs
@@ -196,5 +194,8 @@ C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Pl
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Play\Views\_ViewStart.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Start\Views\Home\Index.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Play\Views\Play\Index.cshtml.g.cs
-C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Users\Views\Login\Index.cshtml.g.cs
 C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Dashboard\Views\Home\Index.cshtml.g.cs
+C:\Users\Ilian\Documents\GitHub\QuizNSwap\bin\Debug\netcoreapp3.0\package.json
+C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Dashboard\Views\Profile\Index.cshtml.g.cs
+C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\QuizNSwap.csprojAssemblyReference.cache
+C:\Users\Ilian\Documents\GitHub\QuizNSwap\obj\Debug\netcoreapp3.0\Razor\Areas\Users\Views\Login\Login.cshtml.g.cs

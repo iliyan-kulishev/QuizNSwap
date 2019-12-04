@@ -35,14 +35,8 @@ namespace QuizNSwap.Areas.Users.Controllers
             signInManager = signinMgr;
         }
 
-        /* public IActionResult Index()
-         {
-
-             return View();
-         }*/
-
         [AllowAnonymous]
-        public IActionResult Index(string returnUrl)
+        public IActionResult Login(string returnUrl)
         {
             ViewBag.returnUrl = returnUrl;
             return View();
@@ -69,11 +63,11 @@ namespace QuizNSwap.Areas.Users.Controllers
                     if (result.Succeeded)
                     {
                         //redirect the user to the returnUrl location if it is true
-                        return Redirect(returnUrl ?? "/dashboard/home/index");
+                        return Redirect(returnUrl ?? "/");
                     }
                 }
                 //add a validation error and redisplay the Login view to the user so they can try again
-                ModelState.AddModelError(nameof(QuizNSwap.Areas.Users.ViewModels.Login.Email),
+                ModelState.AddModelError(nameof(ViewModels.Login.Email),
                 "Invalid user or password");
                 /*
                  * As part of the authentication process, Identity adds a cookie to the response, which the browser then
