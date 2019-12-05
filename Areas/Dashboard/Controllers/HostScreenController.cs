@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace QuizNSwap.Areas.Dashboard.Controllers
 {
-    public class FolderDetailsController : Microsoft.AspNetCore.Mvc.Controller
+    [Area("Dashboard")]
+    [Authorize]
+    public class HostScreenController : Controller
     {
-        [Area("Dashboard")]
-        [Authorize]
         public IActionResult Index()
         {
             return View();
