@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace QuizNSwap.Areas.Play.ViewModels
+namespace QuizNSwap.Areas.Player.ViewModels
 {
     public class EnterCode
     {

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using QuizNSwap.Areas.Play.ViewModels;
+using QuizNSwap.Areas.Player.ViewModels;
 
-namespace QuizNSwap.Areas.Play.Controllers
+namespace QuizNSwap.Areas.Player.Controllers
 {
-    [Area("Play")]
+    [Area("Player")]
     public class EnterCodeController : Controller
     {
         public IActionResult Index()

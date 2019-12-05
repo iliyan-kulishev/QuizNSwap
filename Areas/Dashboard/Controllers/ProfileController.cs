@@ -12,7 +12,7 @@ using QuizNSwap.Areas.Dashboard;
 namespace QuizNSwap.Areas.Dashboard.Controllers
 {
     [Area("Dashboard")]
-    public class ProfileController : Controller
+    public class ProfileController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly UserManager<QuizNSwap.Data.Models.User> userManager;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 
-namespace QuizNSwap.Areas.Play.SIgnalRHubs
+namespace QuizNSwap.Areas.Player.SIgnalRHubs
 {
    /*The ChatHub class inherits from the SignalR Hub class. 
      The Hub class manages connections, groups, and messaging.

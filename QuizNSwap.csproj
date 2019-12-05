@@ -14,7 +14,7 @@
   <ItemGroup>
     <Folder Include="Areas\Dashboard\Controllers\API\" />
     <Folder Include="Areas\Dashboard\Views\Shared\Components\" />
-    <Folder Include="Areas\Play\Views\Shared\Components\" />
+    <Folder Include="Areas\Player\Views\Shared\Components\" />
     <Folder Include="Areas\Start\ViewModels\" />
     <Folder Include="Areas\Start\Views\Shared\Components\" />
     <Folder Include="Areas\User\Views\Shared\Components\" />
@@ -50,15 +50,15 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Areas\Play\Views\Shared\_Layout.cshtml">
+    <Content Update="Areas\Player\Views\Shared\_Layout.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Areas\Play\Views\_ViewImports.cshtml">
+    <Content Update="Areas\Player\Views\_ViewImports.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Areas\Play\Views\_ViewStart.cshtml">
+    <Content Update="Areas\Player\Views\_ViewStart.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>

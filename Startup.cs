@@ -13,7 +13,7 @@ using Microsoft.Extensions.Configuration;
 using QuizNSwap.Data;
 using QuizNSwap.Data.UnitOfWork;
 using QuizNSwap.Data.Models;
-using QuizNSwap.Areas.Play.SIgnalRHubs;
+using QuizNSwap.Areas.Player.SIgnalRHubs;
 
 namespace QuizNSwap
 {

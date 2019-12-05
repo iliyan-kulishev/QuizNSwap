@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuizNSwap.Areas.User.ViewModels
 {
-    public class Login
+    public class SignIn
     {
         [Required]
         public string Email { get; set; }

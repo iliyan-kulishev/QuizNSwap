@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace QuizNSwap.Areas.Play.Controllers
+namespace QuizNSwap.Areas.Player.Controllers
 {
-    [Area("Play")]
+    [Area("Player")]
     public class PlayController : Controller
     {
         public IActionResult Index()
