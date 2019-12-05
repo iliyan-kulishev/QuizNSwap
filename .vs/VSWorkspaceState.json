@@ -2,9 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Areas",
-    "\\Areas\\Start",
-    "\\Data"
+    "\\Data",
+    "\\Views"
   ],
-  "SelectedNode": "\\Properties",
+  "SelectedNode": "\\Startup.cs",
   "PreviewInSolutionExplorer": false
 }

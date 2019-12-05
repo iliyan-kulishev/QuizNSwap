@@ -13,7 +13,7 @@ using Microsoft.Extensions.Configuration;
 using QuizNSwap.Data;
 using QuizNSwap.Data.UnitOfWork;
 using QuizNSwap.Data.Models;
-using QuizNSwap.Areas.Player.SIgnalRHubs;
+using QuizNSwap.Areas.Gameplay.SignalRHubs;
 
 namespace QuizNSwap
 {
@@ -54,7 +54,7 @@ namespace QuizNSwap
                 ...
                 services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Users/Login");
              */
-            services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Users/SignIn");
+            //services.ConfigureApplicationCookie(opts => opts.LoginPath = "/Users/SignIn");
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
@@ -90,7 +90,7 @@ namespace QuizNSwap
                 endpoints.MapControllerRoute(
                     name: "areas",
                     //pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                    pattern: "{area=Start}/{controller=Home}/{action=Index}"
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}"
                     );
 
                 endpoints.MapControllerRoute(

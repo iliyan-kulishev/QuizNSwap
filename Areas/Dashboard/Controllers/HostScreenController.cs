@@ -9,7 +9,7 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
 {
     [Area("Dashboard")]
     [Authorize]
-    public class TopicDetailsController : Controller
+    public class HostScreenController : Controller
     {
         public IActionResult Index()
         {

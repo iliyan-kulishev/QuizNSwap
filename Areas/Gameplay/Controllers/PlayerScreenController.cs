@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace QuizNSwap.Areas.Dashboard.Controllers
+namespace QuizNSwap.Areas.Gameplay.Controllers
 {
-    [Area("Dashboard")]
-    [Authorize]
-    public class TopicDetailsController : Controller
+    [Area("Gameplay")]
+    public class PlayerScreenController : Controller
     {
         public IActionResult Index()
         {
