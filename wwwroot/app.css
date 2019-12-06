@@ -1,2 +1,75 @@
+@import url("https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap");
+.btn {
+  height: 48px;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font: 700 16px "Muli", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.05);
+}
+.btn--blue {
+  background-color: #66A2F0;
+}
+.btn--green {
+  background-color: #50B895;
+}
+
+body {
+  font: 16px "Muli", sans-serif;
+  color: #ffffff;
+  background-color: #3F2B96;
+}
+
+.wrapper {
+  margin: 0 24px;
+  height: 100vh;
+  display: grid;
+}
+
+.start__h1 {
+  font-weight: 900;
+  font-size: 48px;
+  text-align: center;
+}
+
+.login__form {
+  display: grid;
+}
+.login__input {
+  height: 48px;
+  border: none;
+  border-radius: 5px;
+  margin: 0 0 16px 0;
+  padding-left: 8px;
+  font: 14px "Muli", sans-serif;
+  color: #1F2041;
+}
+.login__input--psw {
+  margin: 0 0 32px;
+}
+.login__input::placeholder {
+  font: 14px "Muli", sans-serif;
+  color: #8F8FA0;
+}
+.login__text {
+  text-align: center;
+}
+.login__text--link {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.game-cta {
+  text-align: center;
+}
+.game-cta__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  text-decoration: none;
+}
 
 /*# sourceMappingURL=/app.css.map */
