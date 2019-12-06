@@ -84,6 +84,13 @@ body{
         &__heading{
             display: block;
         }
+        &__text--link{
+            color:$dark75;
+        }
+
+        &__form{
+            margin-bottom:48px;
+        }
     
   }
 }
@@ -101,8 +108,8 @@ body{
     }
     
     .login{
-        max-width: 360px;
-        color: $dark;
+        width: 360px;
+        color: $dark75;
         &__input{
             border:1px solid $dark25;
             

@@ -92,6 +92,12 @@ body {
   .login__heading {
     display: block;
   }
+  .login__text--link {
+    color: #575870;
+  }
+  .login__form {
+    margin-bottom: 48px;
+  }
 }
 @media only screen and (min-width: 1000px) {
   .wrapper {
@@ -105,8 +111,8 @@ body {
   }
 
   .login {
-    max-width: 360px;
-    color: #1F2041;
+    width: 360px;
+    color: #575870;
   }
   .login__input {
     border: 1px solid #C7C7CF;
