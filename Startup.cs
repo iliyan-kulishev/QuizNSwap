@@ -79,7 +79,11 @@ namespace QuizNSwap
                 {
                     endpoints
                         .MapControllerRoute(name: "default",
-                        pattern: "{area:exists}/{controller=User}/{action=Index}/{id?}");
+                        pattern: "{controller=User}/{action=Index}/{id?}");
+
+                    endpoints
+                        .MapControllerRoute(name: "areas",
+                        pattern: "{area=Start}/{controller=Home}/{action=Index}/{id?}");
 
                     endpoints.MapHub<ChatHub>("/chatHub"); //name of hub class
                 });
