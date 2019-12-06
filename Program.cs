@@ -15,7 +15,6 @@ namespace QuizNSwap
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
-            //BuildWebHost(args).Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -24,9 +23,5 @@ namespace QuizNSwap
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-        /*public static IWebHost BuildWebHost(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-        .UseStartup<Startup>()
-        .Build();*/
     }
 }

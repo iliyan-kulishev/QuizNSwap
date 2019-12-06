@@ -9,7 +9,7 @@ using QuizNSwap.ViewModels;
 
 namespace QuizNSwap.Controllers
 {
-    
+    [Area("")]
     public class UserController : Controller
     {
         private readonly UserManager<QuizNSwap.Data.Models.User> userManager;

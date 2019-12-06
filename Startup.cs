@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using QuizNSwap.Areas.Player.SIgnalRHubs;
+using QuizNSwap.Areas.Gameplay.SignalRHubs;
 using QuizNSwap.Data;
 using QuizNSwap.Data.Models;
 using QuizNSwap.Data.UnitOfWork;
@@ -78,12 +78,8 @@ namespace QuizNSwap
                 .UseEndpoints(endpoints =>
                 {
                     endpoints
-                        .MapControllerRoute(name: "areas",
-                        pattern: "{area=Start}/{controller=Home}/{action=Index}");
-
-                    endpoints
                         .MapControllerRoute(name: "default",
-                        pattern: "{area:exists}/{controller}/{action}/{id?}");
+                        pattern: "{area:exists}/{controller=User}/{action=Index}/{id?}");
 
                     endpoints.MapHub<ChatHub>("/chatHub"); //name of hub class
                 });
