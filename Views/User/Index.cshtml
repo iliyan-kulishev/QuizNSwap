@@ -1,4 +1,4 @@
-@model QuizNSnap.ViewModels.User
+@model QuizNSwap.ViewModels.UserViewModel
 
 <!DOCTYPE html>
 
@@ -15,17 +15,17 @@
     <body>
 
     <div asp-validation-summary="All"></div>
-    <form asp-area="" asp-controller="User" asp-action="Login" method="post">
-        <label asp-for="Name">Username</label>
+    <form asp-controller="User" asp-action="Login" method="post">
+        <label asp-for="Email">Email</label>
         <input asp-for="Email" type="text"/>
         <label asp-for="Password">Password</label>
         <input asp-for="Password" type="text"/>
         <button type="submit">Log In</button>
     </form>
 
-    <button asp-area="Gameplay" asp-controller="EnterCode" asp-action="Index">Play game</button>
+    <a asp-area="Gameplay" asp-controller="EnterCode" asp-action="Index">Play game</a>
     Don't have an account? 
-    <button asp-area="" asp-controller="User" asp-action="Signup">Sign Up</button>
+    <a asp-controller="Register" asp-action="Index">Sign Up</a>
 
     <script src="/app.js"></script>
     </body>

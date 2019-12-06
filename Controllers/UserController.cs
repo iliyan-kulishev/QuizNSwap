@@ -11,8 +11,8 @@ namespace QuizNSwap.Controllers
 {
     public class UserController : Controller
     {
-        private readonly UserManager<QuizNSwap.Data.Models.User> userManager;
         private readonly SignInManager<QuizNSwap.Data.Models.User> signInManager;
+        private readonly UserManager<QuizNSwap.Data.Models.User> userManager;
 
         public UserController(UserManager<QuizNSwap.Data.Models.User> userMgr, SignInManager<QuizNSwap.Data.Models.User> signinMgr)
         {
@@ -20,45 +20,10 @@ namespace QuizNSwap.Controllers
             signInManager = signinMgr;
         }
 
-        [HttpGet]
-        public IActionResult Start()
+        public IActionResult Index()
         {
             return View();
         }
-
-        [HttpGet]
-        public IActionResult Signup()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Signup(UserViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                QuizNSwap.Data.Models.User user = new QuizNSwap.Data.Models.User
-                {
-                    UserName = model.Name,
-                    Email = model.Email
-                };
-                IdentityResult result
-                = await userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    foreach (IdentityError error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
-                }
-            }
-            return View("Index");
-        }
-
 
         [HttpPost]
         [AllowAnonymous]

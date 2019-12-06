@@ -1,0 +1,13 @@
+@model QuizNSwap.ViewModels.UserViewModel
+
+   <div asp-validation-summary="All"></div>
+    <form asp-controller="Register" asp-action="Signup" method="post">
+        <label asp-for="Name">Email</label>
+        <input asp-for="Name" type="text"/>
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" type="text"/>
+        <label asp-for="Password">Password</label>
+        <input asp-for="Password" type="text"/>
+
+        <button type="submit">Sign Up</button>
+    </form>

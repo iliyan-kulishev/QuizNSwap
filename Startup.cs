@@ -84,6 +84,7 @@ namespace QuizNSwap
                     endpoints
                         .MapControllerRoute(name: "default",
                         pattern: "{controller=User}/{action=Index}");
+                    //TODO: I don't want action methods and Index appended to the address bar.
 
                     endpoints.MapHub<ChatHub>("/chatHub"); //name of hub class
                 });
