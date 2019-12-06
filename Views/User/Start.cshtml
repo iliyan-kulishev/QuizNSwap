@@ -1,0 +1,33 @@
+@model QuizNSnap.ViewModels.User
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Quiz & Swap</title>
+        <link rel="stylesheet" href="/app.css" />
+    </head>
+
+    <body>
+
+    <div asp-validation-summary="All"></div>
+    <form asp-area="" asp-controller="User" asp-action="Login" method="post">
+        <label asp-for="Name">Username</label>
+        <input asp-for="Email" type="text"/>
+        <label asp-for="Password">Password</label>
+        <input asp-for="Password" type="text"/>
+        <button type="submit">Log In</button>
+    </form>
+
+    <button asp-area="Gameplay" asp-controller="EnterCode" asp-action="Index">Play game</button>
+    Don't have an account? 
+    <button asp-area="" asp-controller="User" asp-action="Signup">Sign Up</button>
+
+    <script src="/app.js"></script>
+    </body>
+
+</html>

@@ -4,7 +4,8 @@ using QuizNSwap.Data.Models;
 
 namespace QuizNSwap.Data
 {
-    public class QuizNSwapContext : IdentityDbContext<User>
+    //TODO: Maybe it should have been IdentityDbContext<User>
+    public class QuizNSwapContext : DbContext
     {
         public QuizNSwapContext()
         {
