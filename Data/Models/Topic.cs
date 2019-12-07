@@ -15,8 +15,8 @@ namespace QuizNSwap.Data.Models
         //navigation
         public IdentityUser User { get; set; } //the type is IDENTITY USER. Important.
         */
-
-
+        [Required]
+        public string Name {get; set;}
         public long? FolderId { get; set; } // can be null, not every topic is in a folder
         //navigation
         public Folder Folder { get; set; }

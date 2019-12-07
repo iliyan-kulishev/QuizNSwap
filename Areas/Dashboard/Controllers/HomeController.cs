@@ -14,7 +14,7 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
     public class HomeController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly IUnitOfWork unitOfWork;
-        //private readonly Home viewModel;
+        private readonly Home viewModel;
 
         public HomeController(IUnitOfWork unitOfWork)
         {
@@ -23,7 +23,14 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            // must get all topics without a folder
+            // must get all folder
+            var result = unitOfWork.
+            Home vmdl = new Home()
+            {
+
+            };
+            return View(vmdl);
         }
     }
 }
