@@ -9,8 +9,8 @@ using QuizNSwap.Data;
 namespace QuizNSwap.Migrations
 {
     [DbContext(typeof(QuizNSwapContext))]
-    [Migration("20191207143858_createanew")]
-    partial class createanew
+    [Migration("20191207151520_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -68,17 +68,14 @@ namespace QuizNSwap.Migrations
                     b.Property<long?>("FolderId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<long>("UserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.HasIndex("FolderId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Topics");
                 });
@@ -153,7 +150,7 @@ namespace QuizNSwap.Migrations
 
                     b.HasOne("QuizNSwap.Data.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

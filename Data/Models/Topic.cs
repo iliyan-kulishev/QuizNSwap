@@ -1,17 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+
 
 namespace QuizNSwap.Data.Models
 {
     public class Topic
     {
         public long Id { get; set; }
-        
-        [Required]
-        [Key, ForeignKey("User")]
-        public long UserId { get; set; } 
-        //navigation
-        public User User {get; set;}
+
+        public User User { get; set; }
+
 
         public long? FolderId { get; set; } // can be null, not every topic is in a folder
         //navigation

@@ -33,5 +33,6 @@ namespace QuizNSwap.Data
         public DbSet<Folder> Folders { get; set; }
         public DbSet<Topic> Topics { get; set; }
         public DbSet<QuestionCard> QuestionCards { get; set; }
+        
     }
 }

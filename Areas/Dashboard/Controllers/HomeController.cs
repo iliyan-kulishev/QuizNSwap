@@ -14,7 +14,7 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
     public class HomeController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly IUnitOfWork unitOfWork;
-        private readonly Home viewModel;
+        //private readonly Home viewModel;
 
         public HomeController(IUnitOfWork unitOfWork)
         {
