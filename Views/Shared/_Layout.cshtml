@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-     <link rel="stylesheet" href="/app.css">
-     <link href="https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap" rel="stylesheet">
+<html lang="en">
 
-</head>
-<body>
-    <div class="wrapper">
-        @RenderBody()
-    </div>
-</body>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+
+        <link rel="stylesheet" href="/assets/app.css">
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="wrapper">
+            @RenderBody()
+        </div>
+
+        <script src="/assets/app.js"></script>
+    </body>
+
 </html>
