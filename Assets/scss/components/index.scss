@@ -1,0 +1,27 @@
+//BUTTONS
+
+.btn {
+    height: 48px;
+    border: none;
+    border-radius: 5px;
+    color: $white;
+    font: $button-font;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    @include shadow;
+
+    &--blue {
+        background-color: $blue;
+
+    }
+
+    &--green {
+        background-color: $green;
+    }
+}
+
+
+
+
+
+

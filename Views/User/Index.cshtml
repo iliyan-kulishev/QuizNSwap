@@ -1,33 +1,35 @@
 @model QuizNSwap.ViewModels.UserViewModel
 
-<!DOCTYPE html>
 
-<html lang="en">
+<section class="main">
+    <section class="login">
+        <h1 class="start__h1">Quiz & Swap</h1>
+        <h2 class="login__heading">Log in</h2>
+        <form class="login__form" asp-controller="User" asp-action="Login" method="post">
+            <div asp-validation-summary="All"></div>
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Quiz & Swap</title>
-        <link rel="stylesheet" href="/app.css" />
-    </head>
+            <input class="login__input login__input--email" type="text" placeholder="Enter Email" name="email" required
+                asp-for="Email">
 
-    <body>
+            <input class="login__input login__input--psw" type="password" placeholder="Enter Password" name="password"
+                required asp-for="Password">
 
-    <div asp-validation-summary="All"></div>
-    <form asp-controller="User" asp-action="Login" method="post">
-        <label asp-for="Email">Email</label>
-        <input asp-for="Email" type="text"/>
-        <label asp-for="Password">Password</label>
-        <input asp-for="Password" type="text"/>
-        <button type="submit">Log In</button>
-    </form>
+            <button class="btn btn--blue" type="submit">Log In</button>
 
-    <a asp-area="Gameplay" asp-controller="EnterCode" asp-action="Index">Play game</a>
-    Don't have an account? 
-    <a asp-controller="Register" asp-action="Index">Sign Up</a>
+            <p class="login__text">Don't have an account?
+                <a href="" class="login__text--link" asp-controller="Register" asp-action="Index"> Sign up.</a>
+            </p>
+        </form>
+        <section class="game-cta">
+            <p class="game-cta__text">Are you a student?</p>
+            <a asp-area="Gameplay" asp-controller="EnterCode" asp-action="Index"
+                class="game-cta__btn btn btn--green">Enter game code</a>
+        </section>
 
-    <script src="/app.js"></script>
-    </body>
+    </section>
+</section>
 
-</html>
+
+<section class="illustrations">
+    <img class="illustrations__img--main" alt="illustration" src="/images/start-illustration.svg">
+</section>
