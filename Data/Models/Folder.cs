@@ -10,14 +10,9 @@ namespace QuizNSwap.Data.Models
         public long Id { get; set; }
         [Required]
         public string Name { get; set; }
+        
         public ICollection<Topic> Topics { get; set; }
-        /*
-        public long? ParentFolderId { get; set; } // can be null, but has to be unique (job for Fluent API)
-        //navigation property
-        //public Folder ParentFolder { get; set; }
-        */
-        //navigation property
-
+ 
 
         /*TODO: Automatically storing of creation date - slightly different code for update date
          * 

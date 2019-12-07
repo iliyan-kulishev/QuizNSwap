@@ -9,7 +9,7 @@ namespace QuizNSwap.ViewModels
     public class UserViewModel
     {
         [Required]
-        public string Name { get; set; }
+        public string Username { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }

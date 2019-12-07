@@ -8,5 +8,6 @@ namespace QuizNSwap.Data.Models
 {
     public class User : IdentityUser
     {
+
     }
 }
