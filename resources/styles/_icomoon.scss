@@ -1,0 +1,35 @@
+// Script-generated file, do not modify by hand
+
+$icon-error-content: "\e900";
+$icon-error_outline-content: "\e901";
+$icon-library_addqueueadd_to_photos-content: "\e902";
+$icon-add-content: "\e903";
+$icon-content_copy-content: "\e904";
+$icon-createmode_editedit-content: "\e905";
+$icon-remove-content: "\e906";
+$icon-folder-content: "\e907";
+$icon-folder_open-content: "\e908";
+$icon-create_new_folder-content: "\e909";
+$icon-more_vert-content: "\e90a";
+$icon-person-content: "\e90b";
+$icon-delete-content: "\e90c";
+$icon-home-content: "\e90d";
+$icon-settings-content: "\e90e";
+
+@mixin icon-classes {
+    .icon-error:before { content: $icon-error-content; }
+    .icon-error_outline:before { content: $icon-error_outline-content; }
+    .icon-library_addqueueadd_to_photos:before { content: $icon-library_addqueueadd_to_photos-content; }
+    .icon-add:before { content: $icon-add-content; }
+    .icon-content_copy:before { content: $icon-content_copy-content; }
+    .icon-createmode_editedit:before { content: $icon-createmode_editedit-content; }
+    .icon-remove:before { content: $icon-remove-content; }
+    .icon-folder:before { content: $icon-folder-content; }
+    .icon-folder_open:before { content: $icon-folder_open-content; }
+    .icon-create_new_folder:before { content: $icon-create_new_folder-content; }
+    .icon-more_vert:before { content: $icon-more_vert-content; }
+    .icon-person:before { content: $icon-person-content; }
+    .icon-delete:before { content: $icon-delete-content; }
+    .icon-home:before { content: $icon-home-content; }
+    .icon-settings:before { content: $icon-settings-content; }
+}

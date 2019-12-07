@@ -1,4 +1,4 @@
-.wrapper--start{
+.wrapper--start {
     margin: 0 24px;
     height: 100vh;
     display: grid;
@@ -19,25 +19,25 @@
     &__form {
         display: grid;
     }
-    &__input{
-        height:44px;
-        border:2px solid $white;
+    &__input {
+        height: 44px;
+        border: 2px solid $white;
         border-radius: 5px;
         margin: 0 0 16px 0;
         padding: 0 12px;
-        font:$input-placeholder;
-        color:$dark;
-        &--psw{
+        font: $input-placeholder;
+        color: $dark;
+        &--psw {
             margin: 0 0 32px;
         }
     }
-    &__input:focus{
+    &__input:focus {
         border: 2px solid $green;
         outline: none;
         //box-sizing: border-box;
     }
 
-    &__input::placeholder{
+    &__input::placeholder {
         color: $dark50;
     }
 
@@ -84,7 +84,7 @@
 }
 
 @media only screen and (min-width: 1000px) {
-    .wrapper {
+    .wrapper--start {
         display: grid;
         grid-template-columns: 50% 50%;
         margin: 0;

@@ -5,12 +5,16 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-     <link rel="stylesheet" href="/app.css">
+     <link rel="stylesheet" href="/assets/app.css">
      <link href="https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap" rel="stylesheet">
+             <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+
 </head>
-<body class="body--white"> 
+<body class="body--purple"> 
     <div class="wrapper--register">
-    <a class="link--home" asp-controller="User" asp-action="Index"> Back</a>
+    <section class="main--register">
+        <div class="register--container">
+       
     <h1>Create account</h1>
    <div asp-validation-summary="All"></div>
     <form class="register" asp-controller="Register" asp-action="Signup" method="post">
@@ -25,5 +29,12 @@
         <button class="btn btn--blue" type="submit">Sign Up</button>
     </form>
     </div>
+   
+    </section>
+    <section class="illustrations">
+    <img class="illustrations__img--main" alt="illustration" src="/images/start-illustration.svg">
+    </section>
+</div>
+    
 </body>
 </html>
