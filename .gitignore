@@ -273,3 +273,5 @@ bin
 # Node packages
 node_modules
 .cache
+
+.DS_Store

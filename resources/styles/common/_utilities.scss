@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    font: $body-text;
+}
+.body--white {
+    background-color: $white;
+}
+
+.body--purple {
+    color: $white;
+    background-color: $purple;
+}
+
+.validation-summary-errors {
+    color: $red;
+    font: $input-placeholder;
+    ul {
+        padding-inline-start: 0;
+        li {
+            list-style: none;
+        }
+    }
+}
