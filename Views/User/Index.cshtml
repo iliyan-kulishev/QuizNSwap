@@ -1,42 +1,35 @@
-﻿
+@model QuizNSwap.ViewModels.UserViewModel
 
 
+<section class="main">
+    <section class="login">
+        <h1 class="start__h1">Quiz & Swap</h1>
+        <h2 class="login__heading">Log in</h2>
+        <form class="login__form" asp-controller="User" asp-action="Login" method="post">
+            <div asp-validation-summary="All"></div>
 
-<section class="main">  
-<section class="login">
-     <h1 class="start__h1">Quiz & Swap</h1>
-    <h2 class="login__heading">Log in</h2>
-    <form class="login__form" action="" method="post">
-  
-    <!-- <label for="email"><b>Email</b></label> -->
-    <input class="login__input login__input--email" type="text" placeholder="Enter Email" name="email" required>
+            <input class="login__input login__input--email" type="text" placeholder="Enter Email" name="email" required
+                asp-for="Email">
 
-    <!-- <label for="psw"><b>Password</b></label> -->
-    <input class="login__input login__input--psw" type="password" placeholder="Enter Password" name="psw" required>
+            <input class="login__input login__input--psw" type="password" placeholder="Enter Password" name="password"
+                required asp-for="Password">
 
-    <button class="btn btn--blue" type="submit">Log In</button>
-  
-<p class="login__text">Don't have an account? <a href="" class="login__text--link"> Sign up.</a></p>
-</form>
-<section class="game-cta">
-    <p class="game-cta__text">Are you a student?</p>
-    <a asp-area="Gameplay" asp-controller="EnterCode" asp-action="Index" class="game-cta__btn btn btn--green">Enter game code</a>
+            <button class="btn btn--blue" type="submit">Log In</button>
+
+            <p class="login__text">Don't have an account?
+                <a href="" class="login__text--link" asp-controller="Register" asp-action="Index"> Sign up.</a>
+            </p>
+        </form>
+        <section class="game-cta">
+            <p class="game-cta__text">Are you a student?</p>
+            <a asp-area="Gameplay" asp-controller="EnterCode" asp-action="Index"
+                class="game-cta__btn btn btn--green">Enter game code</a>
+        </section>
+
+    </section>
 </section>
-
-</section>
-</section> 
 
 
 <section class="illustrations">
-<img class="illustrations__img--main" alt="illustration" src="/images/start-illustration.svg">
-<!-- <img class="illustrations__img--blob1" alt="blob" src="/images/blob1.svg">
-<img class="illustrations__img--blob2" alt="blob" src="/images/blob2.svg"> -->
+    <img class="illustrations__img--main" alt="illustration" src="/images/start-illustration.svg">
 </section>
-
-
-
-
-
-
-
-

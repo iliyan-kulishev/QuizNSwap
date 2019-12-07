@@ -11,8 +11,8 @@ namespace QuizNSwap.Controllers
 {
     public class UserController : Controller
     {
-        private readonly UserManager<QuizNSwap.Data.Models.User> userManager;
         private readonly SignInManager<QuizNSwap.Data.Models.User> signInManager;
+        private readonly UserManager<QuizNSwap.Data.Models.User> userManager;
 
         public UserController(UserManager<QuizNSwap.Data.Models.User> userMgr, SignInManager<QuizNSwap.Data.Models.User> signinMgr)
         {
@@ -20,44 +20,15 @@ namespace QuizNSwap.Controllers
             signInManager = signinMgr;
         }
 
-
         public IActionResult Index()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Signup(UserRegistration model)
-        {
-            if (ModelState.IsValid)
-            {
-                QuizNSwap.Data.Models.User user = new QuizNSwap.Data.Models.User
-                {
-                    UserName = model.Name,
-                    Email = model.Email
-                };
-                IdentityResult result
-                = await userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    foreach (IdentityError error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
-                }
-            }
-            return View("Index");
-        }
-
-
-        [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(UserLogin details, string returnUrl)
+        public async Task<IActionResult> Login(UserViewModel details, string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +51,7 @@ namespace QuizNSwap.Controllers
                     }
                 }
                 //add a validation error and redisplay the Login view to the user so they can try again
-                ModelState.AddModelError(nameof(UserLogin.Email),
+                ModelState.AddModelError(nameof(UserViewModel.Email),
                 "Invalid user or password");
                 /*
                  * As part of the authentication process, Identity adds a cookie to the response, which the browser then
