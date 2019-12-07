@@ -1,4 +1,11 @@
 body {
-  font: "Muli", sans-serif;
+  margin: 0;
+  font: 16px "Muli", sans-serif;
+}
+.body--white {
+  background-color: #fff;
+}
+.body--purple {
+  color: #fff;
   background-color: #3f2b96;
 }

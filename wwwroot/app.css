@@ -1,4 +1,29 @@
 @import url("https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap");
+body {
+  margin: 0;
+  font: 16px "Muli", sans-serif;
+}
+
+.body--white {
+  background-color: #ffffff;
+}
+
+.body--purple {
+  color: #ffffff;
+  background-color: #3F2B96;
+}
+
+.validation-summary-errors {
+  color: #F6736E;
+  font: 14px "Muli", sans-serif;
+}
+.validation-summary-errors ul {
+  padding-inline-start: 0;
+}
+.validation-summary-errors ul li {
+  list-style: none;
+}
+
 .btn {
   height: 48px;
   border: none;
@@ -16,14 +41,7 @@
   background-color: #50B895;
 }
 
-body {
-  margin: 0;
-  font: 16px "Muli", sans-serif;
-  color: #ffffff;
-  background-color: #3F2B96;
-}
-
-.wrapper {
+.wrapper--start {
   margin: 0 24px;
   height: 100vh;
   display: grid;
@@ -46,19 +64,22 @@ body {
   display: grid;
 }
 .login__input {
-  height: 48px;
-  border: none;
+  height: 44px;
+  border: 2px solid #ffffff;
   border-radius: 5px;
   margin: 0 0 16px 0;
-  padding-left: 12px;
+  padding: 0 12px;
   font: 14px "Muli", sans-serif;
   color: #1F2041;
 }
 .login__input--psw {
   margin: 0 0 32px;
 }
+.login__input:focus {
+  border: 2px solid #50B895;
+  outline: none;
+}
 .login__input::placeholder {
-  font: 14px "Muli", sans-serif;
   color: #8F8FA0;
 }
 .login__text {
@@ -136,6 +157,40 @@ body {
     margin: 0 auto;
     width: 70%;
   }
+}
+.wrapper--register {
+  color: #575870;
+  margin: 0 24px;
+}
+
+.link--home {
+  padding: 32px 0;
+  color: #8F8FA0;
+}
+
+.register {
+  display: grid;
+}
+.register__input {
+  border: 1px solid #E9E9EC;
+  height: 48px;
+  border-radius: 5px;
+  margin: 4px 0 16px 0;
+  padding: 0 12px;
+  font: 14px "Muli", sans-serif;
+  color: #1F2041;
+}
+.register__input:focus {
+  border: 1px solid #50B895;
+  outline: none;
+}
+.register__label {
+  font: 14px "Muli", sans-serif;
+  color: #8F8FA0;
+}
+.register__message-password {
+  font-size: 14px;
+  color: #8F8FA0;
 }
 
 /*# sourceMappingURL=/app.css.map */

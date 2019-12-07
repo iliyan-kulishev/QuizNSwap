@@ -1,12 +1,4 @@
-body{
-    margin:0;
-    font: $body-text;
-    color: $white;
-    background-color: $purple;
-    
-}
-
-.wrapper{
+.wrapper--start{
     margin: 0 24px;
     height:100vh;
     display: grid;
@@ -29,21 +21,25 @@ body{
         display: grid;   
     }
     &__input{
-        height:48px;
-        border:none;
+        height:44px;
+        border:2px solid $white;
         border-radius: 5px;
         margin: 0 0 16px 0;
-        padding-left: 12px;
+        padding: 0 12px;
         font:$input-placeholder;
         color:$dark;
         &--psw{
             margin: 0 0 32px;
         }
     }
+    &__input:focus{
+        border: 2px solid $green;
+        outline: none;
+        //box-sizing: border-box;
+    }
 
 
     &__input::placeholder{
-        font: $input-placeholder;
         color: $dark50;
         
 

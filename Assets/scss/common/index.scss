@@ -6,6 +6,7 @@ $input-placeholder: 14px 'Muli', sans-serif;
 $purple: #3F2B96;
 $green: #50B895;
 $blue: #66A2F0;
+$red: #F6736E;
 $dark: #1F2041;
 $dark75:#575870;
 $dark50: #8F8FA0;
@@ -19,4 +20,31 @@ $white: #ffffff;
 
 @mixin center{
     text-align:center;
+}
+
+body{
+    margin:0;
+    font: $body-text;
+    
+}
+.body--white{
+    background-color: $white;
+}
+
+.body--purple{
+    color: $white;
+    background-color: $purple;
+}
+
+.validation-summary-errors{
+    color:$red;
+    font:$input-placeholder;
+    ul{
+        padding-inline-start: 0;
+        li{
+            list-style: none;
+            
+        }
+    }
+   
 }

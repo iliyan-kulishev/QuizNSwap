@@ -1,7 +1,17 @@
-@model QuizNSwap.ViewModels.UserViewModel
+﻿@model QuizNSwap.ViewModels.UserViewModel
 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+     <link rel="stylesheet" href="/app.css">
+     <link href="https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap" rel="stylesheet">
 
-<section class="main">
+</head>
+<body class="body--purple">
+    <div class="wrapper--start">
+       <section class="main">
     <section class="login">
         <h1 class="start__h1">Quiz & Swap</h1>
         <h2 class="login__heading">Log in</h2>
@@ -17,7 +27,7 @@
             <button class="btn btn--blue" type="submit">Log In</button>
 
             <p class="login__text">Don't have an account?
-                <a href="" class="login__text--link" asp-controller="Register" asp-action="Index"> Sign up.</a>
+                <a class="login__text--link" asp-controller="Register" asp-action="Index"> Sign up.</a>
             </p>
         </form>
         <section class="game-cta">
@@ -33,3 +43,9 @@
 <section class="illustrations">
     <img class="illustrations__img--main" alt="illustration" src="/images/start-illustration.svg">
 </section>
+    </div>
+</body>
+</html>
+
+
+

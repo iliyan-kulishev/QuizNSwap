@@ -1,13 +1,29 @@
 @model QuizNSwap.ViewModels.UserViewModel
 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+     <link rel="stylesheet" href="/app.css">
+     <link href="https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap" rel="stylesheet">
+</head>
+<body class="body--white"> 
+    <div class="wrapper--register">
+    <a class="link--home" asp-controller="User" asp-action="Index"> Back</a>
+    <h1>Create account</h1>
    <div asp-validation-summary="All"></div>
-    <form asp-controller="Register" asp-action="Signup" method="post">
-        <label asp-for="Name">Email</label>
-        <input asp-for="Name" type="text"/>
-        <label asp-for="Email">Email</label>
-        <input asp-for="Email" type="text"/>
-        <label asp-for="Password">Password</label>
-        <input asp-for="Password" type="text"/>
+    <form class="register" asp-controller="Register" asp-action="Signup" method="post">
+        <label class="register__label" asp-for="Name">Username</label>
+        <input class="register__input" asp-for="Name" type="text"/>
+        <label class="register__label" asp-for="Email">Email</label>
+        <input class="register__input" asp-for="Email" type="text"/>
+        <label class="register__label" asp-for="Password">Password</label>
+        <input class="register__input" asp-for="Password" type="password"/>
+        <p class="register__message-password">Password must contain at least 6 characters.</p>
 
-        <button type="submit">Sign Up</button>
+        <button class="btn btn--blue" type="submit">Sign Up</button>
     </form>
+    </div>
+</body>
+</html>
