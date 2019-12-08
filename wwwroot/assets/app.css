@@ -522,7 +522,8 @@ body {
 
 .link--home {
   padding: 32px 0;
-  color: #8f8fa0;
+  color: #575870;
+  font-weight: 700;
 }
 
 .main--register {
@@ -562,8 +563,11 @@ body {
 
 @media only screen and (min-width: 600px) {
   .main--register {
-    max-width: 500px;
     margin: 0 auto;
+  }
+
+  .register--container {
+    max-width: 500px;
   }
 }
 @media only screen and (min-width: 1000px) {
@@ -588,6 +592,7 @@ body {
 
   .register--container {
     width: 360px;
+    margin: 0 auto;
   }
 
   .illustrations {

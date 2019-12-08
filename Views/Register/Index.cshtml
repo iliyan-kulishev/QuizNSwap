@@ -14,7 +14,8 @@
     <div class="wrapper--register">
     <section class="main--register">
         <div class="register--container">
-       
+            <p>Already have an account? <a asp-controller="User" asp-action="Index" class="link--home">Log in</a></p>
+      
     <h1>Create account</h1>
    <div asp-validation-summary="All"></div>
     <form class="register" asp-controller="Register" asp-action="Signup" method="post">
