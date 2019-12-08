@@ -1,0 +1,51 @@
+.nav {
+    height: 56px;
+    padding: 0 24px;
+    @include shadow;
+    display: flex;
+    background-color: $purple;
+    color: white;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+
+    &__logo {
+        font-size: 20px;
+    }
+    &__button {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        font: $subtitle;
+        letter-spacing: 2px;
+        .icon-add {
+            margin: 0 4px 0 0;
+            font-size: 18px;
+        }
+    }
+
+    &__section {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    &__section2 {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .nav {
+        justify-content: space-between;
+        align-items: baseline;
+        &__section2 {
+            display: flex;
+        }
+        &__section {
+            width: 30%;
+        }
+    }
+}
