@@ -1,9 +1,9 @@
 {
     "license": "UNLICENSED",
     "scripts": {
-        "icon": "node_modules/.bin/icomoon-build -p quiznswap.json --scss resources/assets/styles/_icomoon.scss --fonts resources/assets/fonts/",
-        "build": "parcel build resources/scripts/app.js --out-dir ./wwwroot/assets",
-        "serve": "parcel resources/scripts/app.js --out-dir ./wwwroot/assets"
+        "icon": "node_modules/.bin/icomoon-build -p quiznswap.json --scss resources/styles/_icomoon.scss --fonts resources/fonts/",
+        "build": "parcel build resources/scripts/app.js --out-dir ./wwwroot/assets --public-url /assets",
+        "serve": "parcel resources/scripts/app.js --out-dir ./wwwroot/assets --public-url /assets"
     },
     "devDependencies": {
         "icomoon-build": "^0.2.8",

@@ -1,34 +1,51 @@
-@model QuizNSwap.ViewModels.UserViewModel
+﻿@model QuizNSwap.ViewModels.UserViewModel
 
-<section class="main">
-    <section class="login">
-        <h1 class="start__h1">Quiz & Swap</h1>
-        <h2 class="login__heading">Log in</h2>
-        <form class="login__form" asp-controller="User" asp-action="Login" method="post">
-            <div asp-validation-summary="All"></div>
+<!DOCTYPE html>
+<html>
 
-            <input class="login__input login__input--email" type="text" placeholder="Enter Email" name="email" required
-                asp-for="Email">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="/assets/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+</head>
 
-            <input class="login__input login__input--psw" type="password" placeholder="Enter Password" name="password"
-                required asp-for="Password">
+<body class="body--purple">
+    <div class="wrapper--start">
+        <section class="main">
+            <section class="login">
+                <h1 class="start__h1">Quiz & Swap</h1>
+                <h2 class="login__heading">Log in</h2>
+                <form class="login__form" asp-controller="User" asp-action="Login" method="post">
+                    <div asp-validation-summary="All"></div>
 
-            <button class="btn btn--blue" type="submit">Log In</button>
+                    <input class="login__input login__input--email" type="text" placeholder="Enter Email" name="email"
+                        required asp-for="Email">
 
-            <p class="login__text">Don't have an account?
-                <a class="login__text--link" asp-controller="Register" asp-action="Index"> Sign up.</a>
-            </p>
-        </form>
-        <section class="game-cta">
-            <p class="game-cta__text">Are you a student?</p>
-            <a asp-area="Gameplay" asp-controller="EnterCode" asp-action="Index"
-                class="game-cta__btn btn btn--green">Enter game code</a>
+                    <input class="login__input login__input--psw" type="password" placeholder="Enter Password"
+                        name="password" required asp-for="Password">
+
+                    <button class="btn btn--blue" type="submit">Log In</button>
+
+                    <p class="login__text">Don't have an account?
+                        <a class="login__text--link" asp-controller="Register" asp-action="Index"> Sign up.</a>
+                    </p>
+                </form>
+                <section class="game-cta">
+                    <p class="game-cta__text">Are you a student?</p>
+                    <a asp-area="Gameplay" asp-controller="EnterCode" asp-action="Index"
+                        class="game-cta__btn btn btn--green">Enter game code</a>
+                </section>
+
+            </section>
         </section>
 
-    </section>
-</section>
 
+        <section class="illustrations">
+            <img class="illustrations__img--main" alt="illustration" src="/images/start-illustration.svg">
+        </section>
+    </div>
+</body>
 
-<section class="illustrations">
-    <img class="illustrations__img--main" alt="illustration" src="/images/start-illustration.svg">
-</section>
+</html>
