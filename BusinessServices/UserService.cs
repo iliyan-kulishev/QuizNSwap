@@ -4,17 +4,37 @@ using System.Linq;
 using System.Threading.Tasks;
 using QuizNSwap.Data.Models;
 using QuizNSwap.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace QuizNSwap.BusinessServices
 {
-    public static class UserService
+    public class UserService
     {
-        private static readonly QuizNSwapContext dbContext;
-        /*
-        public static IEnumerable<string> GetFolderNamesForUser(string userId)
+        private readonly QuizNSwapContext dbContext;
+
+        public UserService(QuizNSwapContext dbContext)
         {
-            //return dbContext.Folders.Where(f => f.)
+            this.dbContext = dbContext;
         }
-        */
+
+        public List<Tuple<long,string>> GetFolderNamesWithIdByUser(string userId)
+        {
+            var folders = dbContext.Folders.
+                Where(f => f.UserId == userId).
+                Select(f => new Tuple<long,string>(f.Id,f.Name)).
+                ToList();
+
+            return folders;
+        }
+
+        public List<Tuple<long, string>> GetTopicNamesWithIdByUser(string userId)
+        {
+            var topics = dbContext.Topics.
+                Where(f => f.UserId == userId).
+                Select(f => new Tuple<long, string>(f.Id, f.Name)).
+                ToList();
+
+            return topics;
+        }
     }
 }
