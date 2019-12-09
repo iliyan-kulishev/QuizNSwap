@@ -9,6 +9,13 @@ namespace QuizNSwap.Data.Models
     public class Folder
     {
         public long Id { get; set; }
+
+        [Required]
+        public string UserId { get; set; } // By default the Id in the generated Identity table is textual
+        //navigation
+        public User User { get; set; }
+
+
         [Required]
         public string Name { get; set; } //making this unique with Fluent API in the context class
         

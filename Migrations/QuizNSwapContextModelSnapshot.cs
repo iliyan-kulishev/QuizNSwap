@@ -154,10 +154,16 @@ namespace QuizNSwap.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Name")
                         .IsUnique();
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Folders");
                 });
@@ -324,6 +330,15 @@ namespace QuizNSwap.Migrations
                 {
                     b.HasOne("QuizNSwap.Data.Models.User", null)
                         .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("QuizNSwap.Data.Models.Folder", b =>
+                {
+                    b.HasOne("QuizNSwap.Data.Models.User", "User")
+                        .WithMany("Folders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

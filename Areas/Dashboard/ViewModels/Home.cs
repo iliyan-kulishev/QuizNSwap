@@ -10,17 +10,16 @@ namespace QuizNSwap.Areas.Dashboard.ViewModels
 {
     public class Home
     {
+        IEnumerable<Folder> UserFolders {get; set;}
+        IEnumerable<Topic> TopicsNotInFolder {get;set;}
 
-        IEnumerable<FolderPersistenceModel> UserFolders {get; set;}
-        IEnumerable<TopicPersistenceModel> UserTopicsLoose {get;set;}
-
-        public class FolderPersistenceModel
+        public class Folder
         {
             public string FolderName {get;set;}
             public int TopicsCount {get; set;}
         } 
 
-        public class TopicPersistenceModel
+        public class Topic
         {
             public int QuestionCardsCount { get; set; }
             public string TopicName {get; set; }

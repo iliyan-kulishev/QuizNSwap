@@ -11,5 +11,6 @@ namespace QuizNSwap.Data.Models
     public class User : IdentityUser
     {
         public ICollection<Topic> Topics { get; set; }
+        public ICollection<Folder> Folders { get; set; }
     }
 }
