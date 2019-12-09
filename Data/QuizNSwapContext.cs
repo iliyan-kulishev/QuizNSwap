@@ -25,6 +25,10 @@ namespace QuizNSwap.Data
                 .HasForeignKey(s => s.FolderId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<Folder>()
+                .HasIndex(u => u.Name)
+                .IsUnique();
+
             // Keys of Identity tables are mapped in IdentityDbContext.OnModelCreating method  
             // and if this method is not called, attempting to add migration throws an error
             base.OnModelCreating(modelBuilder);
@@ -33,6 +37,6 @@ namespace QuizNSwap.Data
         public DbSet<Folder> Folders { get; set; }
         public DbSet<Topic> Topics { get; set; }
         public DbSet<QuestionCard> QuestionCards { get; set; }
-        
+
     }
 }

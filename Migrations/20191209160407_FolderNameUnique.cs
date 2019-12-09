@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace QuizNSwap.Migrations
 {
-    public partial class init : Migration
+    public partial class FolderNameUnique : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -249,6 +249,12 @@ namespace QuizNSwap.Migrations
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Folders_Name",
+                table: "Folders",
+                column: "Name",
                 unique: true);
 
             migrationBuilder.CreateIndex(

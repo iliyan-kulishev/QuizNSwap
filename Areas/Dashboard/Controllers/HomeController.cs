@@ -27,21 +27,8 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
         */
         public IActionResult Index()
         {
-            return View(PopulateViewModel());
+            return View();
         }
 
-        private Home PopulateViewModel()
-        {
-            Home viewModel = new Home();
-
-            using (var context = new QuizNSwapContext())
-            {
-
-            }
-
-
-
-            return viewModel;
-        }
     }
 }

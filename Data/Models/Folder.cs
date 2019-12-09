@@ -10,7 +10,7 @@ namespace QuizNSwap.Data.Models
     {
         public long Id { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string Name { get; set; } //making this unique with Fluent API in the context class
         
         public ICollection<Topic> Topics { get; set; }
  

@@ -9,8 +9,8 @@ using QuizNSwap.Data;
 namespace QuizNSwap.Migrations
 {
     [DbContext(typeof(QuizNSwapContext))]
-    [Migration("20191209062641_init")]
-    partial class init
+    [Migration("20191209160407_FolderNameUnique")]
+    partial class FolderNameUnique
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -157,6 +157,9 @@ namespace QuizNSwap.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Folders");
                 });
