@@ -1,12 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using QuizNSwap.Data.Models;
-using Microsoft.AspNetCore.Identity;
 
 
 namespace QuizNSwap.Data
 {
-    //TODO: Maybe it should have been IdentityDbContext<User>
     public class QuizNSwapContext : IdentityDbContext<User>
     {
         public QuizNSwapContext()
@@ -28,7 +26,7 @@ namespace QuizNSwap.Data
                 .OnDelete(DeleteBehavior.Cascade);
 
             // Keys of Identity tables are mapped in IdentityDbContext.OnModelCreating method  
-            // and, if this method is not called, attempting to add migration throws an error
+            // and if this method is not called, attempting to add migration throws an error
             base.OnModelCreating(modelBuilder);
         }
 

@@ -31,6 +31,16 @@ namespace QuizNSwap
 
             services.AddSignalR();
 
+            /* MSDN:
+             * 
+             * Entity Framework contexts
+
+Entity Framework contexts are usually added to the service container using the scoped lifetime 
+because web app database operations are normally scoped to the client request. 
+The default lifetime is scoped if a lifetime isn't specified by an AddDbContext<TContext> overload 
+when registering the database context. Services of a given lifetime shouldn't use a database context 
+with a shorter lifetime than the service.
+             */
             services
                 .AddDbContext<QuizNSwapContext>(options =>
                     options
