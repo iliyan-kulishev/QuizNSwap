@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using QuizNSwap.Areas.Dashboard;
 using QuizNSwap.Data.Models;
-using QuizNSwap.Data.UnitOfWork;
 
 namespace QuizNSwap.Areas.Dashboard.Controllers
 {
@@ -15,16 +14,13 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
     [Authorize]
     public class ProfileController : Microsoft.AspNetCore.Mvc.Controller
     {
-        private readonly IUnitOfWork unitOfWork;
 
         private readonly UserManager<QuizNSwap.Data.Models.User> userManager;
 
         public ProfileController(
-            IUnitOfWork unitOfWork,
             UserManager<QuizNSwap.Data.Models.User> userManager
         )
         {
-            this.unitOfWork = unitOfWork;
             this.userManager = userManager;
         }
 

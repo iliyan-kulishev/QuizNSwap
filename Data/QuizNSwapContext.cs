@@ -1,11 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using QuizNSwap.Data.Models;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace QuizNSwap.Data
 {
     //TODO: Maybe it should have been IdentityDbContext<User>
-    public class QuizNSwapContext : DbContext
+    public class QuizNSwapContext : IdentityDbContext<User>
     {
         public QuizNSwapContext()
         {

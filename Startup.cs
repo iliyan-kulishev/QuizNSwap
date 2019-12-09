@@ -13,7 +13,6 @@ using Microsoft.Extensions.Hosting;
 using QuizNSwap.Areas.Gameplay.SignalRHubs;
 using QuizNSwap.Data;
 using QuizNSwap.Data.Models;
-using QuizNSwap.Data.UnitOfWork;
 
 namespace QuizNSwap
 {
@@ -51,7 +50,6 @@ namespace QuizNSwap
                 .AddEntityFrameworkStores<QuizNSwapContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
