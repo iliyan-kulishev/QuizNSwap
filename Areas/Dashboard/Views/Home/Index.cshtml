@@ -1,8 +1,20 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Areas/Dashboard/Views/Shared/_Layout.cshtml";
-}
+﻿@model HomeViewModel
 
 <h1>dashboard - home</h1>
+
+@if (Model.Empty)
+{
+    <div>Nothing here</div>
+}
+else
+{
+    if (!Model.FoldersEmpty)
+    {
+        <div>The Folders container</div>
+    }
+    if (!Model.TopicsEmpty) 
+    {
+        <div>The Topics container</div>
+    }
+}
 
