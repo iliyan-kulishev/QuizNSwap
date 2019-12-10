@@ -5,6 +5,7 @@ namespace QuizNSwap.Data.Models
     public class QuestionCard
     {
         public long Id { get; set; }
+        [Required]
         public long TopicId { get; set; }//should be required
         public Topic Topic { get; set; }
         [Required]
