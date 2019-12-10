@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using QuizNSwap.Areas.Gameplay.SignalRHubs;
 using QuizNSwap.Data;
 using QuizNSwap.Data.Models;
+using QuizNSwap.BusinessServices;
 
 namespace QuizNSwap
 {
@@ -60,6 +61,10 @@ with a shorter lifetime than the service.
                 .AddEntityFrameworkStores<QuizNSwapContext>()
                 .AddDefaultTokenProviders();
 
+            //in hope this will inject the dbcontext to these classes as well :)
+            services.AddScoped<UserService>();
+            services.AddScoped<FolderService>();
+            services.AddScoped<TopicService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

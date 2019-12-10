@@ -37,7 +37,7 @@ namespace QuizNSwap.Controllers
                 = await userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Home", new { area = "Dashboard" });
                 }
                 else
                 {
