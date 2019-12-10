@@ -12,14 +12,27 @@
         <link rel="stylesheet" href="/assets/app.css" />
     </head>
 
-    <body>
-        <div>
-            Status bar - coming from layout
+
+    <body class="body--grey">
+        <nav class="nav">
+        <div class="nav__section nav__section1">
+            <a asp-controller="Home" asp-action="Index" class="nav__logo"><h1>Quiz & Swap</h1></a>
+        
+        <a asp-controller="Home" asp-action="Index" class="nav__button"> 
+           <span class="icon-add"></span> 
+            CREATE TOPIC
+        </a>
         </div>
-        <div>
-            The specific content of the View
-            @RenderBody();
+        <div class="nav__section nav__section2">
+        <a asp-controller="Profile" asp-action="Index" class="nav__settings">
+            <span class="icon-settings"></span>
+            Settings
+        </a>
+        <a class="nav__logout">Log out</a>
         </div>
+        </nav>
+        @RenderBody()
+
 
         <script src="/assets/app.js"></script>
     </body>

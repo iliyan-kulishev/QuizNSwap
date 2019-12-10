@@ -11,6 +11,10 @@ body {
     background-color: $purple;
 }
 
+.body--grey {
+    background-color: $dark5;
+}
+
 .validation-summary-errors {
     color: $red;
     font: $input-placeholder;

@@ -605,6 +605,40 @@ body {
     width: 70%;
   }
 }
+.wrapper--code {
+  background-color: #3f2b96;
+  height: 100vh;
+  overflow: hidden;
+  color: #ffffff;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.code h1 {
+  font-size: 48px;
+  font-weight: 900;
+}
+.code__form {
+  display: grid;
+}
+.code__input {
+  height: 44px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  margin: 0 0 16px 0;
+  padding: 0 12px;
+  font: 14px "Muli", sans-serif;
+  color: #1f2041;
+}
+.code__input:focus {
+  border: 2px solid #50b895;
+  outline: none;
+}
+.code__input::placeholder {
+  color: #8f8fa0;
+}
+
 @font-face {
   font-family: "icomoon";
   src: url("/assets/icomoon.f4584dc3.eot");

@@ -1,0 +1,70 @@
+.nav {
+    height: 56px;
+    padding: 0 24px;
+    @include shadow;
+    display: flex;
+    background-color: $purple;
+    color: white;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    a {
+        color: $white;
+        text-decoration: none;
+        transition: opacity 200ms ease-in-out;
+    }
+    a:hover {
+        opacity: 0.5;
+    }
+
+    &__logo {
+        h1 {
+            font-size: 20px;
+            font-weight: 900;
+        }
+    }
+    &__button {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        font: $subtitle;
+        letter-spacing: 2px;
+        .icon-add {
+            margin: 0 4px 0 0;
+            font-size: 18px;
+        }
+    }
+
+    &__section1 {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        width: 100%;
+    }
+    &__section2 {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .nav {
+        height: 72px;
+        justify-content: space-between;
+        align-items: center;
+        &__section2 {
+            display: inline-flex;
+            max-width: 250px;
+            box-sizing: border-box;
+            font: $subtitle;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        &__settings {
+            padding: 0 24px 0;
+            justify-content: center;
+        }
+        &__section1 {
+            max-width: 300px;
+        }
+    }
+}
