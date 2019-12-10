@@ -1,6 +1,7 @@
 .nav {
     height: 56px;
     padding: 0 24px;
+    margin-bottom: 56px;
     @include shadow;
     display: flex;
     background-color: $purple;

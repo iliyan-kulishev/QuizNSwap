@@ -1,9 +1,24 @@
 ﻿@model HomeViewModel
 
 
-@if (Model.Empty)
+@if (true)
 {
-    <div>Nothing here</div>
+    <div class="wrapper--dashboard wrapper--empty">
+
+        <div class="empty">
+
+        <h1 class="empty__heading">
+You don&apos;t have any topics.
+        </h1>
+        <p>Create new topics and organize them into folders.</p>
+        <a asp-area="Dashboard" asp-controller="CreateTopic" asp-action="Index" class="btn btn--green btn--add">CREATE TOPIC</a>
+    </div>
+
+    <div class="illustration--dashboard">
+        <img src="/images/dashboard-illustration.svg">
+    </div>
+    </div>
+    
 }
 else
 {
