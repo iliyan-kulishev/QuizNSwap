@@ -10,7 +10,15 @@ else
 {
     if (!Model.FoldersEmpty)
     {
-        <div>The Folders container</div>
+        //Folders container
+        <div>
+            @foreach(HomeViewModel.Folder folder in Model.Folders)
+            { 
+                <div>
+                    <li>Folder name</li>
+                </div>
+            }
+        </div>
     }
     if (!Model.TopicsEmpty) 
     {
