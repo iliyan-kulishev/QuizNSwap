@@ -28,7 +28,7 @@ namespace QuizNSwap.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(UserViewModel details, string returnUrl)
+        public async Task<IActionResult> Login(LoginViewModel details, string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -51,7 +51,7 @@ namespace QuizNSwap.Controllers
                     }
                 }
                 //add a validation error and redisplay the Login view to the user so they can try again
-                ModelState.AddModelError(nameof(UserViewModel.Email),
+                ModelState.AddModelError(nameof(LoginViewModel.Email),
                 "Invalid user or password");
                 /*
                  * As part of the authentication process, Identity adds a cookie to the response, which the browser then

@@ -24,7 +24,7 @@ namespace QuizNSwap.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Signup(UserViewModel model)
+        public async Task<IActionResult> Signup(RegistrationViewModel model)
         {
             if (ModelState.IsValid)
             {
