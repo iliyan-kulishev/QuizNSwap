@@ -5,3 +5,8 @@
 @mixin center {
     text-align: center;
 }
+
+@mixin subtitle {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}

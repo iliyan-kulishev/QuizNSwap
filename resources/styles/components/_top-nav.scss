@@ -1,7 +1,6 @@
 .nav {
     height: 56px;
     padding: 0 24px;
-    margin-bottom: 56px;
     @include shadow;
     display: flex;
     background-color: $purple;
@@ -66,6 +65,11 @@
         }
         &__section1 {
             max-width: 300px;
+        }
+
+        &__button {
+            border-left: 2px solid white;
+            padding: 0 0 0 12px;
         }
     }
 }
