@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,13 +17,15 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
     public class HomeController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly UserManager<User> userManager;
+        private readonly SignInManager<User> signInManager;
         private readonly UserService userService;
         private readonly FolderService folderService;
         private readonly TopicService topicService;
 
-        public HomeController(UserManager<User> userManager, UserService userService, 
+        public HomeController(UserManager<User> userManager, SignInManager<User> signInManager, UserService userService, 
             FolderService folderService, TopicService topicService)
         {
+            this.signInManager = signInManager;
             this.userManager = userManager;
             this.userService = userService;
             this.folderService = folderService;
@@ -70,6 +72,13 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
             #endregion
 
             return View(homeViewModel);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Signout()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Index", "User");
         }
 
     }
