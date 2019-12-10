@@ -49,7 +49,7 @@ namespace QuizNSwap.Controllers
                     if (result.Succeeded)
                     {
                         //redirect the user to the returnUrl location if it is true
-                        return Redirect("/dashboard/home");
+                        return RedirectToAction("Index", "Home", new { area = "Dashboard" });
                     }
                 }
                 //add a validation error and redisplay the Login view to the user so they can try again

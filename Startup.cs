@@ -91,8 +91,21 @@ with a shorter lifetime than the service.
                 .UseEndpoints(endpoints =>
                 {
                     endpoints
+                        .MapControllerRoute(name: "defaultDashboardAreaView",
+                        pattern: "{area:exists}/{controller=Home}/{action=Index}");
+
+
+                    endpoints
+                        .MapControllerRoute(name: "areas",
+                        pattern: "{area:exists}/{controller}/{action=Index}");
+
+                    endpoints
                         .MapControllerRoute(name: "areas",
                         pattern: "{area:exists}/{controller}/{action}");
+
+                    endpoints
+                        .MapControllerRoute(name: "default",
+                        pattern: "{controller}/{action=Index}");
 
                     endpoints
                         .MapControllerRoute(name: "default",
