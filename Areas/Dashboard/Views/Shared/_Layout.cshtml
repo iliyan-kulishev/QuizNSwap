@@ -16,21 +16,22 @@
     <body class="body--grey">
         <nav class="nav">
         <div class="nav__section nav__section1">
-            <a asp-controller="Home" asp-action="Index" class="nav__logo"><h1>Quiz & Swap</h1></a>
+            <a asp-area="Dashboard" asp-controller="Home" asp-action="Index" class="nav__logo"><h1>Quiz & Swap</h1></a>
         
-        <a asp-controller="Home" asp-action="Index" class="nav__button"> 
+        <a asp-area="Dashboard" asp-controller="CreateTopic" asp-action="Index" class="nav__button"> 
            <span class="icon-add"></span> 
             CREATE TOPIC
         </a>
         </div>
         <div class="nav__section nav__section2">
-        <a asp-controller="Profile" asp-action="Index" class="nav__settings">
+        <a asp-area="Dashboard" asp-controller="Profile" asp-action="Index" class="nav__settings">
             <span class="icon-settings"></span>
             Settings
         </a>
         <a class="nav__logout">Log out</a>
         </div>
         </nav>
+        
         @RenderBody()
 
 
