@@ -1,13 +1,42 @@
 @model QuizNSwap.ViewModels.UserViewModel
 
-   <div asp-validation-summary="All"></div>
-    <form asp-controller="Register" asp-action="Signup" method="post">
-        <label asp-for="Username">Username</label>
-        <input asp-for="Username" type="text"/>
-        <label asp-for="Email">Email</label>
-        <input asp-for="Email" type="text"/>
-        <label asp-for="Password">Password</label>
-        <input asp-for="Password" type="text"/>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+     <link rel="stylesheet" href="/assets/app.css">
+     <link href="https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap" rel="stylesheet">
+             <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
 
-        <button type="submit">Sign Up</button>
+</head>
+<body class="body--purple"> 
+    <div class="wrapper--register">
+    <section class="main--register">
+        <div class="register--container">
+            <p>Already have an account? <a asp-controller="User" asp-action="Index" class="link--home">Log in</a></p>
+      
+    <h1>Create account</h1>
+   <div asp-validation-summary="All"></div>
+
+    <form class="register" asp-controller="Register" asp-action="Signup" method="post">
+        <label class="register__label" asp-for="Name">Username</label>
+        <input class="register__input" asp-for="Name" type="text"/>
+        <label class="register__label" asp-for="Email">Email</label>
+        <input class="register__input" asp-for="Email" type="text"/>
+        <label class="register__label" asp-for="Password">Password</label>
+        <input class="register__input" asp-for="Password" type="password"/>
+        <p class="register__message-password">Password must contain at least 6 characters.</p>
+
+        <button class="btn btn--blue" type="submit">Sign Up</button>
     </form>
+    </div>
+   
+    </section>
+    <section class="illustrations">
+    <img class="illustrations__img--main" alt="illustration" src="/images/start-illustration.svg">
+    </section>
+</div>
+    
+</body>
+</html>

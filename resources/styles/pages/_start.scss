@@ -1,59 +1,50 @@
-body{
-    margin:0;
-    font: $body-text;
-    color: $white;
-    background-color: $purple;
-    
-}
-
-.wrapper{
+.wrapper--start {
     margin: 0 24px;
-    height:100vh;
+    height: 100vh;
     display: grid;
     align-items: center;
 }
 
-.start__h1{
+.start__h1 {
     font-weight: 900;
     font-size: 48px;
     @include center;
-
 }
 
-.login{
+.login {
     max-width: 500px;
-    &__heading{
-        display:none;
+    &__heading {
+        display: none;
     }
-    &__form{
-        display: grid;   
+    &__form {
+        display: grid;
     }
-    &__input{
-        height:48px;
-        border:none;
+    &__input {
+        height: 44px;
+        border: 2px solid $white;
         border-radius: 5px;
         margin: 0 0 16px 0;
-        padding-left: 12px;
-        font:$input-placeholder;
-        color:$dark;
-        &--psw{
+        padding: 0 12px;
+        font: $input-placeholder;
+        color: $dark;
+        &--psw {
             margin: 0 0 32px;
         }
     }
-
-
-    &__input::placeholder{
-        font: $input-placeholder;
-        color: $dark50;
-        
-
+    &__input:focus {
+        border: 2px solid $green;
+        outline: none;
+        //box-sizing: border-box;
     }
 
+    &__input::placeholder {
+        color: $dark50;
+    }
 
-    &__text{
+    &__text {
         @include center;
-        &--link{
-            color:$white;
+        &--link {
+            color: $white;
             font-weight: 700;
         }
     }
@@ -67,73 +58,65 @@ body{
         align-items: center;
         height: 48px;
         text-decoration: none;
-
     }
 }
 
-.illustrations{
+.illustrations {
     display: none;
 }
 
 @media only screen and (min-width: 600px) {
-   
-    .login{
+    .login {
         max-width: 500px;
         margin: 0 auto;
-        
-        &__heading{
+
+        &__heading {
             display: block;
         }
-        &__text--link{
-            color:$dark75;
+        &__text--link {
+            color: $dark75;
         }
 
-        &__form{
-            margin-bottom:48px;
+        &__form {
+            margin-bottom: 48px;
         }
-    
-  }
+    }
 }
 
-  @media only screen and (min-width: 1000px) {
-    .wrapper{
-        display:grid;
+@media only screen and (min-width: 1000px) {
+    .wrapper--start {
+        display: grid;
         grid-template-columns: 50% 50%;
         margin: 0;
     }
 
-    .start__h1{
-       display:none;
-    
+    .start__h1 {
+        display: none;
     }
-    
-    .login{
+
+    .login {
         width: 360px;
         color: $dark75;
-        &__input{
-            border:1px solid $dark25;
-            
+        &__input {
+            border: 1px solid $dark25;
+        }
     }
-}
-    .main{
+    .main {
         display: flex;
         height: 100vh;
         align-items: center;
         background-color: $white;
-        margin:0;
+        margin: 0;
         grid-column: 1/2;
     }
 
-    .illustrations{
+    .illustrations {
         height: 100vh;
         overflow: hidden;
         display: flex;
-        &__img--main{
+        &__img--main {
             margin: 0 auto;
-            width:70%;
+            width: 70%;
         }
     }
-  }
-
-
-
+}

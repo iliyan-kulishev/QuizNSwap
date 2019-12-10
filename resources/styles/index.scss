@@ -1,9 +1,11 @@
-// Split styles into modules and multiple folders
-// then import them here
 @import url('https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap');
+
+@import 'normalize.css';
 
 @import 'common';
 
 @import 'components';
 
-@import 'start';
+@import 'pages';
+
+@import 'icon';

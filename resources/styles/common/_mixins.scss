@@ -1,0 +1,7 @@
+@mixin shadow {
+    box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.05);
+}
+
+@mixin center {
+    text-align: center;
+}
