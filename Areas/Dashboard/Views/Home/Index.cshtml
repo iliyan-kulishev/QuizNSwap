@@ -1,7 +1,27 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Areas/Dashboard/Views/Shared/_Layout.cshtml";
-}
+﻿@model HomeViewModel
 
+
+@if (Model.Empty)
+{
+    <div>Nothing here</div>
+}
+else
+{
+    if (!Model.FoldersEmpty)
+    {
+        //Folders container
+        <div>
+            @foreach(HomeViewModel.Folder folder in Model.Folders)
+            { 
+                <div>
+                    <li>Folder name</li>
+                </div>
+            }
+        </div>
+    }
+    if (!Model.TopicsEmpty) 
+    {
+        <div>The Topics container</div>
+    }
+}
 
