@@ -30,7 +30,7 @@ namespace QuizNSwap.Controllers
             {
                 QuizNSwap.Data.Models.User user = new QuizNSwap.Data.Models.User
                 {
-                    UserName = model.Name,
+                    UserName = model.UserName,
                     Email = model.Email
                 };
                 IdentityResult result
