@@ -154,7 +154,16 @@ namespace QuizNSwap.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Folders");
                 });
@@ -194,9 +203,19 @@ namespace QuizNSwap.Migrations
                     b.Property<long?>("FolderId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.HasIndex("FolderId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Topics");
                 });
@@ -316,6 +335,15 @@ namespace QuizNSwap.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("QuizNSwap.Data.Models.Folder", b =>
+                {
+                    b.HasOne("QuizNSwap.Data.Models.User", "User")
+                        .WithMany("Folders")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("QuizNSwap.Data.Models.QuestionCard", b =>
                 {
                     b.HasOne("QuizNSwap.Data.Models.Topic", "Topic")
@@ -331,6 +359,12 @@ namespace QuizNSwap.Migrations
                         .WithMany("Topics")
                         .HasForeignKey("FolderId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("QuizNSwap.Data.Models.User", "User")
+                        .WithMany("Topics")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

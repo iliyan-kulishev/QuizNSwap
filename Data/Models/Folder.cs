@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
+
 namespace QuizNSwap.Data.Models
 {
     public class Folder
     {
         public long Id { get; set; }
-        [Required]
-        public string Name { get; set; }
-        public ICollection<Topic> Topics { get; set; }
-        /*
-        public long? ParentFolderId { get; set; } // can be null, but has to be unique (job for Fluent API)
-        //navigation property
-        //public Folder ParentFolder { get; set; }
-        */
-        //navigation property
 
+        [Required]
+        public string UserId { get; set; } // By default the Id in the generated Identity table is textual
+        //navigation
+        public User User { get; set; }
+
+
+        [Required]
+        public string Name { get; set; } //making this unique with Fluent API in the context class
+        
+        public ICollection<Topic> Topics { get; set; }
+ 
 
         /*TODO: Automatically storing of creation date - slightly different code for update date
          * 

@@ -1,9 +1,13 @@
 ﻿
 
 @model EnterCode
-<div class=""><h4>Join game</h4></div>
+<div class="wrapper--code">
+    <section class="code">
+    <h1>Quiz & Swap</h1>
 <div class="" asp-validation-summary="All"></div>
-<form asp-controller="EnterCode" asp-action="Index" method="post">
-        <input asp-for="GameCode" placeholder="Enter Game Code" class="" />
-        <button type="submit" class="">Enter Game Code </button>
+<form class="code__form" asp-controller="EnterCode" asp-action="Index" method="post">
+        <input class="code__input" asp-for="GameCode" placeholder="Enter Game Code" />
+        <button class="btn btn--green" type="submit" class="">Enter Game Code </button>
 </form>
+</section>
+</div>
