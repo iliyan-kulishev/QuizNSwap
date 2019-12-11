@@ -60,8 +60,12 @@ with a shorter lifetime than the service.
                 })
                 .AddEntityFrameworkStores<QuizNSwapContext>()
                 .AddDefaultTokenProviders();
+            //I don't want unauthorized visitors to be even aware
+            //that the path they entered is a real one
+            //No redirection - just 404 
+            services.ConfigureApplicationCookie(options => options.LoginPath = null);
 
-            
+
             services.AddScoped<UserService>();
             services.AddScoped<FolderService>();
             services.AddScoped<TopicService>();
@@ -82,6 +86,7 @@ with a shorter lifetime than the service.
             }
 
             app.UseHttpsRedirection();
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseRouting();
