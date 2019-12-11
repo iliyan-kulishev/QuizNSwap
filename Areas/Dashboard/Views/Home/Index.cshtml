@@ -29,38 +29,22 @@ else
             <div class="folders">
                 <div class="folders__heading">
                     <h1 class="folders__heading--text">Folders</h1>
-                    @**Create folder click handled with javscript*@
-                    <a onclick="toggleCreateFolderOverlay()" class="btn btn--green btn--add">CREATE Folder</a>
+                    @**Create folder click handled with javascript*@
+                    <a  id="btn_createFolderToggle" class="btn btn--green btn--add">CREATE Folder</a>
                 </div>
                 <ul class="grid">
-                    <li>
-                        <a asp-controller="Home" class="folder-component">
-                            <span class="icon-folder"></span>
-                            <div class="folder-component__div">
-                                <p class="folder-component__number">3 topics</p>
-                                <h6 class="folder-component__name"> Folder Name</h6>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="Home" class="folder-component">
-                            <span class="icon-folder"></span>
-                            <div class="folder-component__div">
-                                <p class="folder-component__number">3 topics</p>
-                                <h6 class="folder-component__name"> Folder Name</h6>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-controller="Home" class="folder-component">
-                            <span class="icon-folder"></span>
-                            <div class="folder-component__div">
-                                <p class="folder-component__number">3 topics</p>
-                                <h6 class="folder-component__name"> Folder Name</h6>
-                            </div>
-                        </a>
-                    </li>
-
+                    @foreach (HomeViewModel.Folder folder in Model.Folders)
+                    {
+                        <li>
+                            <a asp-area="Dashboard" asp-controller="FolderDetails" asp-action="Index" class="folder-component">
+                                <span class="icon-folder"></span>
+                                <div class="folder-component__div">
+                                    <p class="folder-component__number">@folder.TopicCount</p>
+                                    <h6 class="folder-component__name">@folder.Name</h6>
+                                </div>
+                            </a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
@@ -68,12 +52,7 @@ else
         //Folders container
         <!-- <div class="wrapper--dashboard">
         <ul class="grid">
-            @foreach(HomeViewModel.Folder folder in Model.Folders)
-            {
 
-
-
-            }
         </ul>
         </div> -->
     }
@@ -125,7 +104,7 @@ else
 
 
         @*asynchronously wasn't helping*@
-        <partial name="_CreateFolderPartial" for="FolderName"/>
+        <partial name="_CreateFolderPartial" for="FolderName" />
 
 
 
