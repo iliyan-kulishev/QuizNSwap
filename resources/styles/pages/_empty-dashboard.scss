@@ -1,0 +1,33 @@
+.wrapper--empty {
+    height: 90vh;
+    display: grid;
+    align-items: center;
+    margin: 0 24px;
+}
+
+.empty {
+    h1 {
+        color: $dark75;
+        font-size: 24px;
+    }
+    p {
+        color: $dark50;
+        font-size: 16px;
+    }
+}
+
+.illustration--dashboard {
+    img {
+        max-width: 100%;
+        align-self: flex-start;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .wrapper--empty {
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+}

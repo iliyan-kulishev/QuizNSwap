@@ -28,3 +28,46 @@ body {
         }
     }
 }
+
+li {
+    list-style: none;
+}
+
+.wrapper--dashboard {
+    padding-top: 56px;
+    margin: 0 24px;
+}
+
+//Dashboard grid for the folders and topics
+.grid {
+    padding-inline-start: 0;
+    display: grid;
+    grid-gap: $base-spacing * 1.5;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.topics,
+.folders {
+    &__heading {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
+        &--text {
+            color: $dark50;
+            font-size: 12px;
+            @include subtitle;
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .wrapper--dashboard {
+        padding-top: 72px;
+    }
+    .topics,
+    .folders {
+        max-width: 70%;
+        margin: 48px auto 0;
+    }
+}

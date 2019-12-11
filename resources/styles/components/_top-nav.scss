@@ -66,5 +66,10 @@
         &__section1 {
             max-width: 300px;
         }
+
+        &__button {
+            border-left: 2px solid white;
+            padding: 0 0 0 12px;
+        }
     }
 }

@@ -3,25 +3,123 @@
 
 @if (Model.Empty)
 {
-    <div>Nothing here</div>
+    <div class="wrapper--dashboard wrapper--empty">
+
+        <div class="empty">
+
+        <h1 class="empty__heading">
+You don&apos;t have any topics.
+        </h1>
+        <p>Create topics and organize them into folders.</p>
+        <a asp-area="Dashboard" asp-controller="CreateTopic" asp-action="Index" class="btn btn--green btn--add">CREATE TOPIC</a>
+    </div>
+
+    <div class="illustration--dashboard">
+        <img src="/images/dashboard-illustration.svg">
+    </div>
+    </div>
+    
 }
 else
 {
     if (!Model.FoldersEmpty)
     {
+
+        <div class="wrapper--dashboard TWO">
+             <div class="folders">
+                 <div class="folders__heading">
+             <h1 class="folders__heading--text">Folders</h1>
+              <a asp-area="Dashboard" asp-controller="CreateFolder" asp-action="Index" class="btn btn--green btn--add">CREATE Folder</a>
+              </div>
+        <ul class="grid">
+                    <li >
+                        <a asp-controller="Home" class="folder-component">
+                        <span class="icon-folder"></span>
+                        <div class="folder-component__div">
+                        <p class="folder-component__number">3 topics</p>
+                        <h6 class="folder-component__name"> Folder Name</h6>
+                        </div>
+                        </a>  
+                    </li>
+                    <li >
+                        <a asp-controller="Home" class="folder-component">
+                        <span class="icon-folder"></span>
+                        <div class="folder-component__div">
+                        <p class="folder-component__number">3 topics</p>
+                        <h6 class="folder-component__name"> Folder Name</h6>
+                        </div>
+                        </a>  
+                    </li>
+                    <li >
+                        <a asp-controller="Home" class="folder-component">
+                        <span class="icon-folder"></span>
+                        <div class="folder-component__div">
+                        <p class="folder-component__number">3 topics</p>
+                        <h6 class="folder-component__name"> Folder Name</h6>
+                        </div>
+                        </a>  
+                    </li>
+                
+                    </ul>
+                    </div>
+                    </div>
+
         //Folders container
-        <div>
+        <!-- <div class="wrapper--dashboard">
+        <ul class="grid">
             @foreach(HomeViewModel.Folder folder in Model.Folders)
             { 
-                <div>
-                    <li>Folder name</li>
-                </div>
+                
+                   
+                
             }
-        </div>
+        </ul>
+        </div> -->
     }
     if (!Model.TopicsEmpty) 
     {
-        <div>The Topics container</div>
+
+        <div class="wrapper--dashboard TWO">
+              <div class="folders">
+                 <div class="folders__heading">
+             <h1 class="folders__heading--text">Topics</h1>
+              <a asp-area="Dashboard" asp-controller="CreateTopics" asp-action="Index" class="btn btn--green btn--add">CREATE Topic</a>
+              </div>
+        <ul class="grid">
+                    <li class="topic-component">
+                        <div class="topic-component__div">
+                        <p class="topic-component__number">30 questions</p>
+                        <h6 class="topic-component__name">Topic name</h6>
+                        </div>    
+                    </li>
+                    <li class="topic-component">
+                        <div class="topic-component__div">
+                        <p class="topic-component__number">30 questions</p>
+                        <h6 class="topic-component__name">Topic name</h6>
+                        </div>    
+                    </li>
+                    <li class="topic-component">
+                        <div class="topic-component__div">
+                        <p class="topic-component__number">30 questions</p>
+                        <h6 class="topic-component__name">Topic name</h6>
+                        </div>    
+                    </li>
+
+                    </ul>
+                    </div>
+                    </div>
+         
+        <ul class="grid">
+            
+            
+
+             @foreach(HomeViewModel.Folder folder in Model.Folders)
+            { 
+                
+                    
+            }
+        </ul>
+
     }
 }
 
