@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using QuizNSwap.Data.Models;
+using QuizNSwap.Data.ApiModels;
 
 
 namespace QuizNSwap.Areas.Dashboard.ViewModels
@@ -13,7 +13,7 @@ namespace QuizNSwap.Areas.Dashboard.ViewModels
         public List<Folder> Folders { get; set; } = new List<Folder>();
         public List<Topic> Topics { get; set; } = new List<Topic>();
 
-        [Required] // for the creation of new folder   
+        [Required] // for the creation of new folder, probably getting rid of it after delegating this to API controller 
         public string FolderName { get; set; }
         
         public bool Empty 
@@ -44,7 +44,6 @@ namespace QuizNSwap.Areas.Dashboard.ViewModels
         {
             public string Name {get;set;}
             public int TopicCount {get; set;}
-
         } 
 
         public class Topic

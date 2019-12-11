@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Dashboard\Controllers\API\" />
     <Folder Include="Areas\Gameplay\Views\Shared\Components\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>

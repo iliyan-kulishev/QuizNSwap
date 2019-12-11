@@ -81,6 +81,7 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
             return RedirectToRoute("start", new { controller = "User", action = "Index" });
         }
 
+        /*
         [HttpPost]
         public IActionResult CreateFolder(HomeViewModel viewModel)
         {
@@ -103,6 +104,7 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
             return PartialView("_CreateFolderPartial", viewModel);
 
         }
+        */
 
 
     }
