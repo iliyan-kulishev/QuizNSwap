@@ -95,21 +95,24 @@ with a shorter lifetime than the service.
                         .MapControllerRoute(name: "defaultDashboardAreaView",
                         pattern: "{area:exists}/{controller=Home}/{action=Index}");
 
-
+                    //this one will try to get you to index if you specify area and controller
                     endpoints
-                        .MapControllerRoute(name: "areas",
+                        .MapControllerRoute(name: "defaultActionSpecifiedAreaNController",
                         pattern: "{area:exists}/{controller}/{action=Index}");
 
+                    //this one is for the action methods of the start-no-area place
                     endpoints
-                        .MapControllerRoute(name: "areas",
+                        .MapControllerRoute(name: "ThreeParamsSpecified",
                         pattern: "{area:exists}/{controller}/{action}");
 
+                    //this one is for appending index to a controller you specify in the start-no-area place
                     endpoints
-                        .MapControllerRoute(name: "default",
+                        .MapControllerRoute(name: "startDefaultAction",
                         pattern: "{controller}/{action=Index}");
 
+                    //the start page
                     endpoints
-                        .MapControllerRoute(name: "default",
+                        .MapControllerRoute(name: "start",
                         pattern: "{controller=User}/{action=Index}");
                     //TODO: I don't want action methods and Index appended to the address bar.
 

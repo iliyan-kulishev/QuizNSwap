@@ -78,7 +78,7 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
         public async Task<IActionResult> Signout()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home", new { area = "Dashboard" });
+            return RedirectToRoute("start", new { controller = "User", action = "Index" });
         }
 
     }
