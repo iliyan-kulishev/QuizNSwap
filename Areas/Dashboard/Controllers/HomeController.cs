@@ -100,7 +100,7 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
                 }
             }
             //I want to return error message without reload hmm
-            return Json(viewModel);
+            return PartialView("_CreateFolderPartial", viewModel);
 
         }
 

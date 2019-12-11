@@ -13,9 +13,9 @@ namespace QuizNSwap.Areas.Dashboard.ViewModels
         public List<Folder> Folders { get; set; } = new List<Folder>();
         public List<Topic> Topics { get; set; } = new List<Topic>();
 
-        [Required] // for the creation of new folder
+        [Required] // for the creation of new folder   
         public string FolderName { get; set; }
-
+        
         public bool Empty 
         { 
             get 
@@ -42,7 +42,6 @@ namespace QuizNSwap.Areas.Dashboard.ViewModels
 
         public class Folder
         {
-            
             public string Name {get;set;}
             public int TopicCount {get; set;}
 

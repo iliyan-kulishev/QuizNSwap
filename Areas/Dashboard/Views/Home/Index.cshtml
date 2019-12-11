@@ -124,31 +124,10 @@ else
 
 
 
+        @*asynchronously wasn't helping*@
+        <partial name="_CreateFolderPartial" for="FolderName"/>
 
 
-
-
-
-        <div id="createFolder_div" style="display:none">
-            <form class="" asp-area="Dashboard" asp-controller="Home" asp-action="CreateFolder" method="post">
-                <label class="" asp-for="FolderName">Folder Name</label>
-                <input class="" asp-for="FolderName" type="text" />
-                <p class="">Folder name must be unique</p>
-
-                <button class="btn btn--blue" type="submit">Create folder</button>
-            </form>
-
-        </div>
-
-        <script>
-            function toggleCreateFolderOverlay() {
-                var x = document.getElementById("createFolder_div");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-        </script>
 
     }
 }
