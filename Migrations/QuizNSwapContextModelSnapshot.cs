@@ -215,6 +215,9 @@ namespace QuizNSwap.Migrations
 
                     b.HasIndex("FolderId");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Topics");

@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using QuizNSwap.Data.Models;
 
@@ -28,6 +28,11 @@ namespace QuizNSwap.Data
             modelBuilder.Entity<Folder>()
                 .HasIndex(u => u.Name)
                 .IsUnique();
+
+            modelBuilder.Entity<Topic>()
+                .HasIndex(u => u.Name)
+                .IsUnique();
+
 
             // Keys of Identity tables are mapped in IdentityDbContext.OnModelCreating method  
             // and if this method is not called, attempting to add migration throws an error

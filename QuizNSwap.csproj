@@ -5,15 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Dashboard\Views\Shared\Components\**" />
     <Compile Remove="Areas\Start\**" />
+    <Content Remove="Areas\Dashboard\Views\Shared\Components\**" />
     <Content Remove="Areas\Start\**" />
+    <EmbeddedResource Remove="Areas\Dashboard\Views\Shared\Components\**" />
     <EmbeddedResource Remove="Areas\Start\**" />
+    <None Remove="Areas\Dashboard\Views\Shared\Components\**" />
     <None Remove="Areas\Start\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Areas\Dashboard\Controllers\API\" />
-    <Folder Include="Areas\Dashboard\Views\Shared\Components\" />
     <Folder Include="Areas\Gameplay\Views\Shared\Components\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,6 +9,7 @@ using QuizNSwap.ViewModels;
 
 namespace QuizNSwap.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         private readonly SignInManager<QuizNSwap.Data.Models.User> signInManager;
@@ -20,6 +21,7 @@ namespace QuizNSwap.Controllers
             signInManager = signinMgr;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
@@ -28,7 +30,7 @@ namespace QuizNSwap.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(UserViewModel details, string returnUrl)
+        public async Task<IActionResult> Login(LoginViewModel details)
         {
             if (ModelState.IsValid)
             {
@@ -47,11 +49,11 @@ namespace QuizNSwap.Controllers
                     if (result.Succeeded)
                     {
                         //redirect the user to the returnUrl location if it is true
-                        return Redirect(returnUrl ?? "/dashboard/home");
+                        return RedirectToAction("Index", "Home", new { area = "Dashboard" });
                     }
                 }
                 //add a validation error and redisplay the Login view to the user so they can try again
-                ModelState.AddModelError(nameof(UserViewModel.Email),
+                ModelState.AddModelError(nameof(LoginViewModel.Email),
                 "Invalid user or password");
                 /*
                  * As part of the authentication process, Identity adds a cookie to the response, which the browser then

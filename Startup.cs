@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using QuizNSwap.Areas.Gameplay.SignalRHubs;
 using QuizNSwap.Data;
 using QuizNSwap.Data.Models;
+using QuizNSwap.BusinessServices;
 
 namespace QuizNSwap
 {
@@ -60,6 +61,11 @@ with a shorter lifetime than the service.
                 .AddEntityFrameworkStores<QuizNSwapContext>()
                 .AddDefaultTokenProviders();
 
+            
+            services.AddScoped<UserService>();
+            services.AddScoped<FolderService>();
+            services.AddScoped<TopicService>();
+            services.AddScoped<QuestionCardService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -86,8 +92,21 @@ with a shorter lifetime than the service.
                 .UseEndpoints(endpoints =>
                 {
                     endpoints
+                        .MapControllerRoute(name: "defaultDashboardAreaView",
+                        pattern: "{area:exists}/{controller=Home}/{action=Index}");
+
+
+                    endpoints
+                        .MapControllerRoute(name: "areas",
+                        pattern: "{area:exists}/{controller}/{action=Index}");
+
+                    endpoints
                         .MapControllerRoute(name: "areas",
                         pattern: "{area:exists}/{controller}/{action}");
+
+                    endpoints
+                        .MapControllerRoute(name: "default",
+                        pattern: "{controller}/{action=Index}");
 
                     endpoints
                         .MapControllerRoute(name: "default",

@@ -1,4 +1,4 @@
-﻿@model QuizNSwap.ViewModels.UserViewModel
+@model QuizNSwap.ViewModels.LoginViewModel
 
 <!DOCTYPE html>
 <html>
@@ -20,11 +20,11 @@
                 <form class="login__form" asp-controller="User" asp-action="Login" method="post">
                     <div asp-validation-summary="All"></div>
 
-                    <input class="login__input login__input--email" type="text" placeholder="Enter Email" name="email"
-                        required asp-for="Email">
+                    <input class="login__input login__input--email" type="text" placeholder="Enter Email" 
+                        asp-for="Email">
 
-                    <input class="login__input login__input--psw" type="password" placeholder="Enter Password"
-                        name="password" required asp-for="Password">
+                    <input class="login__input login__input--psw" placeholder="Enter Password"
+                         asp-for="Password">
 
                     <button class="btn btn--blue" type="submit">Log In</button>
 

@@ -24,7 +24,7 @@ namespace QuizNSwap.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Signup(UserViewModel model)
+        public async Task<IActionResult> Signup(RegistrationViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -37,7 +37,7 @@ namespace QuizNSwap.Controllers
                 = await userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Home", new { area = "Dashboard" });
                 }
                 else
                 {
