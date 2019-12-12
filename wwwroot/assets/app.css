@@ -364,6 +364,10 @@ body {
   background-color: #3f2b96;
 }
 
+.body--grey {
+  background-color: #f7f7f7;
+}
+
 .validation-summary-errors {
   color: #f6736e;
   font: 14px "Muli", sans-serif;
@@ -378,15 +382,70 @@ body {
   content: "";
 }
 
+li {
+  list-style: none;
+}
+
+.wrapper--dashboard {
+  padding-top: 56px;
+  margin: 0 24px;
+}
+
+.grid {
+  padding-inline-start: 0;
+  display: grid;
+  grid-gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.topics__heading,
+.folders__heading {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.topics__heading--text,
+.folders__heading--text {
+  color: #8f8fa0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font: 12px "Muli", sans-serif;
+}
+
+.wrapper--folder {
+  padding-top: 0;
+  margin-top: 24px;
+}
+
+@media only screen and (min-width: 600px) {
+  .wrapper--dashboard {
+    padding-top: 72px;
+  }
+
+  .wrapper--folder {
+    max-width: 70%;
+    margin: 0 auto;
+    padding-top: 24px;
+  }
+
+  .topics,
+.folders {
+    max-width: 70%;
+    margin: 48px auto 0;
+  }
+}
 .btn {
   height: 48px;
   border: none;
   border-radius: 5px;
   color: #ffffff;
-  font: 700 14px "Muli", sans-serif;
+  font: 700 12px "Muli", sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
-  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
 }
 .btn--blue {
   background-color: #66a2f0;
@@ -394,7 +453,191 @@ body {
 .btn--green {
   background-color: #50b895;
 }
+.btn--add {
+  width: 185px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+@media only screen and (min-width: 1000px) {
+  .btn {
+    height: 36px;
+  }
+}
+.nav {
+  height: 56px;
+  padding: 0 24px;
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  background-color: #3f2b96;
+  color: white;
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+}
+.nav a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 200ms ease-in-out;
+}
+.nav a:hover {
+  opacity: 0.5;
+}
+.nav__logo h1 {
+  font-size: 20px;
+  font-weight: 900;
+}
+.nav__button {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  font: 12px "Muli", sans-serif;
+  letter-spacing: 2px;
+}
+.nav__button .icon-add {
+  margin: 0 4px 0 0;
+  font-size: 18px;
+}
+.nav__section1 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+}
+.nav__section2 {
+  display: none;
+}
+
+@media only screen and (min-width: 1000px) {
+  .nav {
+    height: 72px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav__section2 {
+    display: inline-flex;
+    max-width: 250px;
+    box-sizing: border-box;
+    font: 12px "Muli", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .nav__settings {
+    padding: 0 24px 0;
+    justify-content: center;
+  }
+  .nav__section1 {
+    max-width: 300px;
+  }
+  .nav__button {
+    border-left: 2px solid white;
+    padding: 0 0 0 12px;
+  }
+}
+.folder-component {
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: 24px auto;
+  grid-column-gap: 12px;
+  align-items: center;
+  height: 72px;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 0 18px;
+  max-width: 330px;
+}
+.folder-component__number {
+  font: 12px "Muli", sans-serif;
+  color: #8f8fa0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font: 12px "Muli", sans-serif;
+  margin: 0 0 8px 0;
+}
+.folder-component__name {
+  font-size: 16px;
+  margin: 0;
+  color: #575870;
+}
+.folder-component .icon-folder {
+  font-size: 24px;
+  color: #c7c7cf;
+}
+
+.topic-component {
+  display: grid;
+  grid-column-gap: 12px;
+  align-items: center;
+  height: 72px;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 0 18px;
+  max-width: 330px;
+}
+.topic-component__number {
+  font: 12px "Muli", sans-serif;
+  color: #8f8fa0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font: 12px "Muli", sans-serif;
+  margin: 0 0 8px 0;
+}
+.topic-component__name {
+  font-size: 16px;
+  margin: 0;
+  color: #575870;
+}
+
+.folder-header {
+  padding: 80px 24px 24px;
+  background: #ffffff;
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.1);
+}
+.folder-header__count {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font: 12px "Muli", sans-serif;
+  color: #8f8fa0;
+  padding-top: 0;
+  margin: 0;
+}
+.folder-header__name {
+  font: bold 24px "Muli", sans-serif;
+  color: #575870;
+  margin-bottom: 0;
+}
+.folder-header__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.folder-header__icons {
+  color: #8f8fa0;
+  font-size: 24px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 12px;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 1000px) {
+  .folder-header {
+    padding: 120px 24px 48px;
+  }
+  .folder-header__name {
+    font-size: 36px;
+  }
+  .folder-header__container {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+  .folder-header__count {
+    margin: 0;
+  }
+}
 .wrapper--start {
   margin: 0 24px;
   height: 100vh;
@@ -534,7 +777,7 @@ body {
   display: grid;
 }
 .register__input {
-  border: 1px solid #e9e9ec;
+  border: 1px solid #f7f7f7;
   height: 48px;
   border-radius: 5px;
   margin: 4px 0 16px 0;
@@ -639,6 +882,35 @@ body {
   color: #8f8fa0;
 }
 
+.wrapper--empty {
+  height: 90vh;
+  display: grid;
+  align-items: center;
+  margin: 0 24px;
+}
+
+.empty h1 {
+  color: #575870;
+  font-size: 24px;
+}
+.empty p {
+  color: #8f8fa0;
+  font-size: 16px;
+}
+
+.illustration--dashboard img {
+  max-width: 100%;
+  align-self: flex-start;
+}
+
+@media only screen and (min-width: 600px) {
+  .wrapper--empty {
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
 @font-face {
   font-family: "icomoon";
   src: url("/assets/icomoon.f4584dc3.eot");
