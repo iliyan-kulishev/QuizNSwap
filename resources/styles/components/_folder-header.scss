@@ -1,4 +1,5 @@
-.folder-header {
+.folder-header,
+.topic-header {
     padding: 80px 24px 24px;
     background: $white;
     @include shadow;
@@ -31,8 +32,9 @@
 }
 
 @media only screen and (min-width: 1000px) {
-    .folder-header {
-        padding: 120px 24px 48px;
+    .folder-header,
+    .topic-header {
+        padding: 120px 0 48px;
         &__name {
             font-size: 36px;
         }
