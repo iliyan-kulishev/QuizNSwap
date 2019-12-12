@@ -29,6 +29,41 @@
         grid-gap: 12px;
         justify-content: center;
     }
+
+    &__textarea {
+        width: 100%;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid $dark50;
+        box-sizing: border-box;
+        resize: none;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    &__textarea::placeholder {
+        color: $dark25;
+        bottom: 0;
+        ::-moz-placeholder {
+            opacity: 1;
+        }
+    }
+    &__textarea:focus {
+        border-bottom: 2px solid $green;
+    }
+    &__label {
+        @include subtitle;
+        color: $dark50;
+        margin-top: 8px;
+    }
+
+    &--create {
+        .topic-header__name {
+            margin-bottom: 24px;
+            font-size: 20px;
+        }
+    }
 }
 
 @media only screen and (min-width: 1000px) {
@@ -44,6 +79,11 @@
         }
         &__count {
             margin: 0;
+        }
+        &--create {
+            .topic-header__name {
+                font-size: 32px;
+            }
         }
     }
 }
