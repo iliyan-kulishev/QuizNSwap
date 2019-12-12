@@ -9,4 +9,5 @@
 @mixin subtitle {
     text-transform: uppercase;
     letter-spacing: 2px;
+    font: $subtitle;
 }

@@ -1,15 +1,64 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Dashboard/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+<header class="topic-header">
+    <div class="topic-header__container">
+    <p class="topic-header__count">30 questions</p>
+    <div class="topic-header__title">
+    <h1 class="topic-header__name">Topic name</h1>
+    <div class="topic-header__icons">
+        <span class="icon-delete"></span>
+        <span class="icon-createmode_editedit"></span>
+        <span class="icon-content_copy"></span>
+    </div>
+    </div>
+    </div>
+</header>
+<div class="wrapper--folder folder-view wrapper--dashboard">
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-</body>
-</html>
+<div class="folder-views__topics">
+     <ul class="grid">
+                   
+                        <li class="topic-component">
+                            <div class="topic-component__div">
+                                <p class="topic-component__number">30 questions</p>
+                                <h6 class="topic-component__name">Topic name</h6>
+                            </div>
+                        </li>
+                        <li class="topic-component">
+                            <div class="topic-component__div">
+                                <p class="topic-component__number">30 questions</p>
+                                <h6 class="topic-component__name">Topic name</h6>
+                            </div>
+                        </li>
+                        <li class="topic-component">
+                            <div class="topic-component__div">
+                                <p class="topic-component__number">30 questions</p>
+                                <h6 class="topic-component__name">Topic name</h6>
+                            </div>
+                        </li>
+                        <li class="topic-component">
+                            <div class="topic-component__div">
+                                <p class="topic-component__number">30 questions</p>
+                                <h6 class="topic-component__name">Topic name</h6>
+                            </div>
+                        </li>
+                        <li class="topic-component">
+                            <div class="topic-component__div">
+                                <p class="topic-component__number">30 questions</p>
+                                <h6 class="topic-component__name">Topic name</h6>
+                            </div>
+                        </li>
+                        <li class="topic-component">
+                            <div class="topic-component__div">
+                                <p class="topic-component__number">30 questions</p>
+                                <h6 class="topic-component__name">Topic name</h6>
+                            </div>
+                        </li>
+                    
+    </ul>
+</div>
+
+</div>

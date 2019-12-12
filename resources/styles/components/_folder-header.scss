@@ -1,0 +1,49 @@
+.folder-header,
+.topic-header {
+    padding: 80px 24px 24px;
+    background: $white;
+    @include shadow;
+
+    &__count {
+        @include subtitle;
+        color: $dark50;
+        padding-top: 0;
+        margin: 0;
+    }
+    &__name {
+        font: $folder-name;
+        color: $dark75;
+        margin-bottom: 0;
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__icons {
+        color: $dark50;
+        font-size: 24px;
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 12px;
+        justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .folder-header,
+    .topic-header {
+        padding: 120px 0 48px;
+        &__name {
+            font-size: 36px;
+        }
+        &__container {
+            max-width: 70%;
+            margin: 0 auto;
+        }
+        &__count {
+            margin: 0;
+        }
+    }
+}
