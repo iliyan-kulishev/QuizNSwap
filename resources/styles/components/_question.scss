@@ -1,0 +1,62 @@
+.question {
+    text-decoration: none;
+    background-color: $white;
+    @include shadow;
+    border-radius: 5px;
+    padding: $base-spacing * 1.5;
+    &__textarea {
+        height: 100%;
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid $dark50;
+        display: block;
+        outline: none;
+        overflow: hidden;
+        resize: none;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        -webkit-font-smoothing: antialiased;
+        line-height: 24px;
+        height: 24px;
+    }
+
+    &__textarea::placeholder {
+        color: $dark25;
+        bottom: 0;
+        ::-moz-placeholder {
+            opacity: 1;
+        }
+    }
+    &__textarea:focus {
+        border-bottom: 2px solid $green;
+    }
+    &__label {
+        @include subtitle;
+        color: $dark50;
+        margin-top: 8px;
+    }
+    &__number {
+        color: $dark50;
+    }
+}
+.question--add {
+    border: 2px dashed $dark25;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 96px;
+
+    button {
+        width: 100%;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    height: 80px;
+    span {
+        color: $dark50;
+        @include subtitle;
+    }
+}
