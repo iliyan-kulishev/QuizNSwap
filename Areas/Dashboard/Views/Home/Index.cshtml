@@ -66,25 +66,15 @@ else
                     <a asp-area="Dashboard" asp-controller="CreateTopics" asp-action="Index" class="btn btn--green btn--add">CREATE Topic</a>
                 </div>
                 <ul class="grid">
-                    <li class="topic-component">
-                        <div class="topic-component__div">
-                            <p class="topic-component__number">30 questions</p>
-                            <h6 class="topic-component__name">Topic name</h6>
-                        </div>
-                    </li>
-                    <li class="topic-component">
-                        <div class="topic-component__div">
-                            <p class="topic-component__number">30 questions</p>
-                            <h6 class="topic-component__name">Topic name</h6>
-                        </div>
-                    </li>
-                    <li class="topic-component">
-                        <div class="topic-component__div">
-                            <p class="topic-component__number">30 questions</p>
-                            <h6 class="topic-component__name">Topic name</h6>
-                        </div>
-                    </li>
-
+                    @foreach (HomeViewModel.Topic topic in Model.Topics)
+                    {
+                        <li class="topic-component">
+                            <div class="topic-component__div">
+                                <p class="topic-component__number">@topic.QuestionCardCount questions</p>
+                                <h6 class="topic-component__name">@topic.Name</h6>
+                            </div>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
@@ -104,7 +94,7 @@ else
 
 
         @*asynchronously wasn't helping*@
-        <partial name="_CreateFolderPartial" for="FolderName" />
+        @Html.PartialAsync("_CreateFolderPartial");
 
 
 

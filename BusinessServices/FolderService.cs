@@ -20,14 +20,32 @@ namespace QuizNSwap.BusinessServices
             this.dbContext = dbContext;
         }
 
-        public int GetNumberTopicsPerFolder(long folderId)
+        public async Task<List<Folder>> GetFoldersByUser(string userId)
         {
-            return dbContext.Topics.Count(x => x.FolderId == folderId);
+            return await dbContext.Folders.Where(f => f.UserId == userId).ToListAsync();
         }
 
-        //returning int for the called to know if unique constraint was violated
-        public bool AddFolder(string userId, string name)
+        public async Task<List<Topic>> GetTopicsNotInFolderByUser(string userId)
         {
+            return await dbContext.Topics.
+                Where(t => t.UserId == userId && t.FolderId == null).ToListAsync();
+        }
+
+        
+        public int GetNumberTopicsPerFolder(string userId, long folderId)
+        {
+            return dbContext.Topics.Count(x => x.FolderId == folderId && x.UserId == userId);
+        }
+        
+
+        //returning int for the called to know if unique constraint was violated
+        public async Task<int> AddFolder(string userId, string name)
+        {
+            /*
+             The lifetime of the context begins when the instance is created and ends when the instance
+             is either disposed or garbage-collected. Use using if you want all the resources that the
+             context controls to be disposed at the end of the block. When you use using, the compiler
+             automatically creates a try/finally block and calls dispose in the finally block.*/
             using (dbContext)
             {
                 var folder = new Folder
@@ -37,21 +55,8 @@ namespace QuizNSwap.BusinessServices
                 };
 
                 dbContext.Folders.Add(folder);
-                try
-                {
-                    dbContext.SaveChanges();
-                }
-                catch(DbUpdateException e)
-                {
-                    var dbException = e.InnerException as SqliteException;
-                    //this should be the error code for violated unique constraint
-                    if (dbException.SqliteErrorCode == 2067)
-                    {
-                        return false;
-                    }
-                }
+                return await dbContext.SaveChangesAsync();
             }
-            return true;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,24 +17,6 @@ namespace QuizNSwap.BusinessServices
             this.dbContext = dbContext;
         }
 
-        public List<Tuple<long,string>> GetFolderNamesWithIdByUser(string userId)
-        {
-            var folders = dbContext.Folders.
-                Where(f => f.UserId == userId).
-                Select(f => new Tuple<long,string>(f.Id,f.Name)).
-                ToList();
 
-            return folders;
-        }
-
-        public List<Tuple<long, string>> GetTopicNamesWithIdByUser(string userId)
-        {
-            var topics = dbContext.Topics.
-                Where(f => f.UserId == userId).
-                Select(f => new Tuple<long, string>(f.Id, f.Name)).
-                ToList();
-
-            return topics;
-        }
     }
 }

@@ -1,11 +1,10 @@
-@model HomeViewModel
 
 
 <div id="createFolder_div" style="display:none">
-    <div asp-validation-summary="All"></div>
+    @*<div asp-validation-summary="All"></div>*@
     <form class="" action="javascript:void(0);" onsubmit="createFolder()" method="post">
-        <label class="" asp-for="FolderName">Folder Name</label>
-        <input id="folderName_input" class="" asp-for="FolderName" type="text" />
+        <label class="" @*asp-for="FolderName"*@>Folder Name</label>
+        <input id="folderName_input" class="" @*asp-for="FolderName"*@ type="text" />
         <p class="">Folder name must be unique</p>
 
         <button class="btn btn--blue" type="submit">Create folder</button>
@@ -30,7 +29,7 @@
 
         const viewModelJS = @Model.FolderName;
 
-        const uri = 'Dashboard/Home/CreateFolder';
+        const uri = 'api/folder';
 
         fetch(uri, {
             method: 'POST',
@@ -42,11 +41,10 @@
         })
             .then(response => response.json())
             .then(() => {
-                //successful shit here
-                //refresh the page
+                //success
                 refreshPage();
             })
-            .catch(error => console.error('Unable to add item.', error));
+            .catch(error => console.error('Unable to add folder.', error));
     }
 
     function refreshPage()

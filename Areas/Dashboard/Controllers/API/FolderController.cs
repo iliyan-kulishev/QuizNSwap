@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QuizNSwap.Areas.Dashboard.Controllers.API.Models;
+using System.Security.Claims;
+using QuizNSwap.BusinessServices;
 
 namespace QuizNSwap.Areas.Dashboard.Controllers.API
 {
@@ -15,26 +14,30 @@ namespace QuizNSwap.Areas.Dashboard.Controllers.API
     [ApiController]
     public class FolderController : ControllerBase
     {
-        [HttpPost]
-        public HttpResponseMessage CreateFolder(Folder folderModel)
-        {
-            /*
-            _context.TodoItems.Add(folderModel);
-            await _context.SaveChangesAsync();
+        private readonly FolderService folderService;
 
-            //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
-            return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
-            */
-            if (ModelState.IsValid)
+        public FolderController(FolderService folderService)
+        {
+            this.folderService = folderService;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateFolder(/*[FromBody]*/ Folder folderModel)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var success = await folderService.AddFolder(userId, folderModel.Name);
+
+            if (success > 0)
             {
-                // Do something with the product (not shown).
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                return Ok();
             }
             else
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                return BadRequest();
             }
-
         }
+
+
     }
 }

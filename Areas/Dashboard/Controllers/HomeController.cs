@@ -44,21 +44,21 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             #region prepare folders info
-            var folderNamesWithId = userService.GetFolderNamesWithIdByUser(userId);
+            var folderNamesWithId = userService.GetFoldersByUser(userId);
             
             foreach (Tuple<long, string> pair in folderNamesWithId)
             {
                 var folder = new HomeViewModel.Folder()
                 {
                     Name = pair.Item2,
-                    TopicCount = folderService.GetNumberTopicsPerFolder(pair.Item1) 
+                    TopicCount = folderService.GetNumberTopicsPerFolder(userId, pair.Item1) 
                 };
                 homeViewModel.Folders.Add(folder);
             }
             #endregion
 
             #region prepare the topics info
-            var topicsNamesWithId = userService.GetTopicNamesWithIdByUser(userId);
+            var topicsNamesWithId = userService.GetTopicNamesAndIdNotInFolderWithIdByUser(userId);
 
             foreach (Tuple<long, string> pair in topicsNamesWithId)
             {
