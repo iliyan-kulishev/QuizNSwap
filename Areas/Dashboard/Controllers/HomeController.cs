@@ -75,6 +75,7 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
             {
                 homeViewModel.Folders.Add(new HomeViewModel.Folder
                 {
+                    Id = (int)folder.Id,
                     Name = folder.Name,
                     TopicCount = folder.Count
                 });
@@ -84,6 +85,7 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
             {
                 homeViewModel.Topics.Add(new HomeViewModel.Topic
                 {
+                    Id = (int)topic.Id,
                     Name = topic.Name,
                     QuestionCardCount = topic.Count
                 });

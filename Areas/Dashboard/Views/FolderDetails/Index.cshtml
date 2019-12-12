@@ -1,13 +1,15 @@
-﻿@{
+@model FolderDetails
+
+@{
     ViewData["Title"] = "Index";
-    Layout = "~/Areas/Dashboard/Views/Shared/_Layout.cshtml";
 }
+
 
 <header class="folder-header">
     <div class="folder-header__container">
-    <p class="folder-header__count">3 topics</p>
+        <p class="folder-header__count">@Model.TopicCount @((Model.TopicCount > 1 || Model.TopicCount == 0) ? "topics" : "topic")</p>
     <div class="folder-header__title">
-    <h1 class="folder-header__name">Folder name</h1>
+    <h1 class="folder-header__name">@Model.FolderName</h1>
     <div class="folder-header__icons">
         <span class="icon-delete"></span>
         <span class="icon-createmode_editedit"></span>
@@ -18,45 +20,17 @@
 <div class="wrapper--folder folder-view wrapper--dashboard">
 
 <div class="folder-views__topics">
-     <ul class="grid">
-                   
-                        <li class="topic-component">
-                            <div class="topic-component__div">
-                                <p class="topic-component__number">30 questions</p>
-                                <h6 class="topic-component__name">Topic name</h6>
-                            </div>
-                        </li>
-                        <li class="topic-component">
-                            <div class="topic-component__div">
-                                <p class="topic-component__number">30 questions</p>
-                                <h6 class="topic-component__name">Topic name</h6>
-                            </div>
-                        </li>
-                        <li class="topic-component">
-                            <div class="topic-component__div">
-                                <p class="topic-component__number">30 questions</p>
-                                <h6 class="topic-component__name">Topic name</h6>
-                            </div>
-                        </li>
-                        <li class="topic-component">
-                            <div class="topic-component__div">
-                                <p class="topic-component__number">30 questions</p>
-                                <h6 class="topic-component__name">Topic name</h6>
-                            </div>
-                        </li>
-                        <li class="topic-component">
-                            <div class="topic-component__div">
-                                <p class="topic-component__number">30 questions</p>
-                                <h6 class="topic-component__name">Topic name</h6>
-                            </div>
-                        </li>
-                        <li class="topic-component">
-                            <div class="topic-component__div">
-                                <p class="topic-component__number">30 questions</p>
-                                <h6 class="topic-component__name">Topic name</h6>
-                            </div>
-                        </li>
-                    
+    <ul class="grid">
+        @foreach (FolderDetails.Topic topic in Model.Topics)
+        {
+            <li class="topic-component">
+                <div class="topic-component__div">
+                    <p class="topic-component__number">@topic.QuestionCardCount @((topic.QuestionCardCount > 1 || topic.QuestionCardCount == 0) ? "questions" : "question")</p>
+                    <h6 class="topic-component__name">@topic.Name</h6>
+                </div>
+            </li>
+        }
+
     </ul>
 </div>
 

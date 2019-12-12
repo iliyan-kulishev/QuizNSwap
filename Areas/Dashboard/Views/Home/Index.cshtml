@@ -36,7 +36,7 @@ else
                     @foreach (HomeViewModel.Folder folder in Model.Folders)
                     {
                         <li>
-                            <a asp-area="Dashboard" asp-controller="FolderDetails" asp-action="Index" class="folder-component">
+                            <a asp-area="Dashboard" asp-controller="FolderDetails" asp-action="Index" asp-route-id="@folder.Id" class="folder-component">
                                 <span class="icon-folder"></span>
                                 <div class="folder-component__div">
                                     <p class="folder-component__number">@folder.TopicCount @((folder.TopicCount > 1 || folder.TopicCount == 0) ? "topics" : "topic")</p>
@@ -122,7 +122,7 @@ else
                 if (response.status == 200)
                 {
                     location.reload();
-                }//OK
+                }
                 //bad request, empty input
                 if (response.status == 400)
                 {
@@ -133,7 +133,6 @@ else
                 {
                     errorTxtElem.innerText = "There already exists a folder with that name";
                 }
-
             })
             .catch(error => console.error('Unable to add folder.', error));
 

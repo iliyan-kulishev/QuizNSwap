@@ -41,6 +41,7 @@ namespace QuizNSwap.Areas.Dashboard.ViewModels
 
         public class Folder
         {
+            public int Id { get; set; } // for redirection
             public string Name {get;set;}
             public int TopicCount {get; set;}
 
@@ -56,6 +57,7 @@ namespace QuizNSwap.Areas.Dashboard.ViewModels
 
         public class Topic
         {
+            public int Id { get; set; } // for redirection
             public string Name { get; set; }
             public int QuestionCardCount { get; set; }
 
