@@ -27,7 +27,7 @@ namespace QuizNSwap.Areas.Dashboard.ViewModels
         {
             get
             {
-                return Folders.Any();
+                return Folders.Count == 0;
             }
         }
 
@@ -35,7 +35,7 @@ namespace QuizNSwap.Areas.Dashboard.ViewModels
         {
             get
             {
-                return Topics.Any();
+                return Topics.Count == 0;
             }
         }
 

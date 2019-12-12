@@ -22,11 +22,11 @@ namespace QuizNSwap.Areas.Dashboard.Controllers.API
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateFolder(/*[FromBody]*/ Folder folderModel)
+        public async Task<IActionResult> CreateFolder(/*[FromBody]*/ string folderName)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var success = await folderService.AddFolder(userId, folderModel.Name);
+            var success = await folderService.AddFolder(userId, folderName);
 
             if (success > 0)
             {

@@ -30,7 +30,7 @@ else
                 <div class="folders__heading">
                     <h1 class="folders__heading--text">Folders</h1>
                     @**Create folder click handled with javascript*@
-                    <a  id="btn_createFolderToggle" class="btn btn--green btn--add">CREATE Folder</a>
+                    <a id="btn_createFolderToggle" class="btn btn--green btn--add">CREATE Folder</a>
                 </div>
                 <ul class="grid">
                     @foreach (HomeViewModel.Folder folder in Model.Folders)
@@ -79,25 +79,65 @@ else
             </div>
         </div>
 
-        <ul class="grid">
+
+        <div id="createFolder_div" style="display:none">
+            
+                <label class="" >Folder Name</label>
+                <input id="folderName_input" class="" type="text" />
+                <p class="">Folder name must be unique</p>
+
+                <button class="btn btn--blue" type="submit">Create folder</button>          
+        </div>
 
 
 
-            @foreach (HomeViewModel.Folder folder in Model.Folders)
-            {
 
 
-            }
-        </ul>
+        <script type="text/javascript">
+
+    document.getElementById("btn_createFolderToggle").addEventListener("click", () =>
+    {
+        const x = document.getElementById("createFolder_div");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    })
 
 
 
+    function createFolder() {
+        const folderName_input = document.getElementById('folderName_input');
 
-        @*asynchronously wasn't helping*@
-        @Html.PartialAsync("_CreateFolderPartial");
+        const uri = 'api/folder';
+
+        const viewModelJS = folderName_input.value;
+
+        fetch(uri, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(viewModelJS)
+        })
+            .then(response => response.json())
+            .then(() => {
+                //success
+                refreshPage();
+            })
+            .catch(error => console.error('Unable to add folder.', error));
+    }
+
+    function refreshPage()
+    {
+        location.reload();
+    }
 
 
 
+        </script>
     }
 }
 
