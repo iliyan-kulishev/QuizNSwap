@@ -178,7 +178,9 @@ namespace QuizNSwap.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsImportant")
-                        .HasColumnType("INTEGER");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasDefaultValue(false);
 
                     b.Property<string>("Question")
                         .IsRequired()

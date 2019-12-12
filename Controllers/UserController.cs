@@ -24,6 +24,10 @@ namespace QuizNSwap.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
+            //trying to hide the stupid returnUrl param that Identity appends
+            if (!string.IsNullOrEmpty(Request.QueryString.Value))
+                return Redirect("/");
+
             return View();
         }
 

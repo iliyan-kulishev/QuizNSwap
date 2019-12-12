@@ -23,6 +23,11 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
             this.userManager = userManager;
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+
 
 
     }

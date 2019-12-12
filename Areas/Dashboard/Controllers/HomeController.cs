@@ -99,30 +99,6 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
             return RedirectToRoute("start", new { controller = "User", action = "Index" });
         }
 
-        /*
-        [HttpPost]
-        public IActionResult CreateFolder(HomeViewModel viewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                //check if unique constraint on Folder.Name was violated
-                if (!folderService.AddFolder(userId, viewModel.FolderName))
-                {
-                    ModelState.AddModelError(nameof(HomeViewModel.FolderName),
-                        "There exists a folder with that name");
-                }
-                else
-                {
-                    //success here
-                    return RedirectToAction("Index", "Home", new { area = "Dashboard" });
-                }
-            }
-            //I want to return error message without reload hmm
-            return PartialView("_CreateFolderPartial", viewModel);
-
-        }
-        */
 
 
     }
