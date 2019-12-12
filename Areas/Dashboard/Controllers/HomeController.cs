@@ -9,6 +9,8 @@ using QuizNSwap.Areas.Dashboard.ViewModels;
 using QuizNSwap.Data.Models;
 using QuizNSwap.BusinessServices;
 using System.Security.Claims;
+using QuizNSwap.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace QuizNSwap.Areas.Dashboard.Controllers
 {
@@ -18,58 +20,74 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
     {
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
+        /*
         private readonly UserService userService;
         private readonly FolderService folderService;
         private readonly TopicService topicService;
+        */
+        private readonly QuizNSwapContext dbContext;
 
-        public HomeController(UserManager<User> userManager, SignInManager<User> signInManager, UserService userService, 
-            FolderService folderService, TopicService topicService)
+        public HomeController(UserManager<User> userManager, SignInManager<User> signInManager, QuizNSwapContext dbContext
+            /*UserService userService, 
+            FolderService folderService, TopicService topicService*/)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
+            /*
             this.userService = userService;
             this.folderService = folderService;
-            this.topicService = topicService;
+            this.topicService = topicService;*/
+            this.dbContext = dbContext;
         }
         /*
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) // will give the user's userId
         var userName = User.FindFirstValue(ClaimTypes.Name) // will give the user's userName
         var userEmail = User.FindFirstValue(ClaimTypes.Email) // will give the user's Email
         */
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             HomeViewModel homeViewModel = new HomeViewModel();
 
             // will give the user's userId
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            #region prepare folders info
-            var folderNamesWithId = userService.GetFoldersByUser(userId);
-            
-            foreach (Tuple<long, string> pair in folderNamesWithId)
-            {
-                var folder = new HomeViewModel.Folder()
-                {
-                    Name = pair.Item2,
-                    TopicCount = folderService.GetNumberTopicsPerFolder(userId, pair.Item1) 
-                };
-                homeViewModel.Folders.Add(folder);
-            }
-            #endregion
+            //get user folders + topics count
+            var foldersResult = await dbContext.Folders.Where(f => f.UserId == userId)
+                            .Select(f => new
+                            {
+                                f.Id,
+                                f.Name,
+                                f.Topics.Count
+                            }).ToListAsync();
 
-            #region prepare the topics info
-            var topicsNamesWithId = userService.GetTopicNamesAndIdNotInFolderWithIdByUser(userId);
-
-            foreach (Tuple<long, string> pair in topicsNamesWithId)
-            {
-                var topic = new HomeViewModel.Topic()
+            //get user topics NOT IN folder + count of questions
+            var topicsResult = await dbContext.Topics.
+                Where(t => t.UserId == userId && t.FolderId == null)
+                .Select( t => new
                 {
-                    Name = pair.Item2,
-                    QuestionCardCount = topicService.GetNumberQuestionCardsPerTopic(pair.Item1)
-                };
-                homeViewModel.Topics.Add(topic);
+                    t.Id,
+                    t.Name,
+                    t.QuestionCards.Count
+                })
+                .ToListAsync();
+
+            foreach (var folder in foldersResult)
+            {
+                homeViewModel.Folders.Add(new HomeViewModel.Folder
+                {
+                    Name = folder.Name,
+                    TopicCount = folder.Count
+                });
             }
-            #endregion
+
+            foreach (var topic in topicsResult)
+            {
+                homeViewModel.Topics.Add(new HomeViewModel.Topic
+                {
+                    Name = topic.Name,
+                    QuestionCardCount = topic.Count
+                });
+            }
 
             return View(homeViewModel);
         }

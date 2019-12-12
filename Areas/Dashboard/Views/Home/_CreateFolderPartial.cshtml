@@ -15,14 +15,17 @@
 
 <script type="text/javascript">
 
-    document.getElementById("btn_createFolderToggle").onclick = function toggleCreateFolderOverlay() {
+    document.getElementById("btn_createFolderToggle").addEventListener("click", () =>
+    {
         var x = document.getElementById("createFolder_div");
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {
             x.style.display = "none";
         }
-    }
+    })
+
+
 
     function createFolder() {
         const folderName_input = document.getElementById('folderName_input');

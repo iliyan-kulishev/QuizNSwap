@@ -43,12 +43,30 @@ namespace QuizNSwap.Areas.Dashboard.ViewModels
         {
             public string Name {get;set;}
             public int TopicCount {get; set;}
+
+            public static implicit operator Folder(QuizNSwap.Data.Models.Folder dbFolder)
+            {
+                return new Folder
+                {
+                    Name = dbFolder.Name,
+                    //TopicCount = dbFolder.Topics.Count;
+                };
+            }
         } 
 
         public class Topic
         {
             public string Name { get; set; }
             public int QuestionCardCount { get; set; }
+
+            public static implicit operator Topic(QuizNSwap.Data.Models.Topic dbTopic)
+            {
+                return new Topic
+                {
+                    Name = dbTopic.Name,
+                    QuestionCardCount = dbTopic.QuestionCards.Count
+                };
+            }
         }
 
     }

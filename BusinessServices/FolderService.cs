@@ -20,12 +20,22 @@ namespace QuizNSwap.BusinessServices
             this.dbContext = dbContext;
         }
 
-        public async Task<List<Folder>> GetFoldersByUser(string userId)
+        /*
+        public async Task<List<Folder>> GetFoldersWithTopicsByUser(string userId)
         {
-            return await dbContext.Folders.Where(f => f.UserId == userId).ToListAsync();
-        }
+            return await dbContext.Folders.Where(f => f.UserId == userId)
+                .Include("Topics").
+                Select(f => new
+                {
+                    f.Id,
+                    f.Name,
+                    f.UserId,
+                    f.Topics.Count
+                })
+                .ToListAsync();
+        }*/
 
-        public async Task<List<Topic>> GetTopicsNotInFolderByUser(string userId)
+        public async Task<List<Topic>> GetTopicsNotInFolderWithQuestionCardByUser(string userId)
         {
             return await dbContext.Topics.
                 Where(t => t.UserId == userId && t.FolderId == null).ToListAsync();
