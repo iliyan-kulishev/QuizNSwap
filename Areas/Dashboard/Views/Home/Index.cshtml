@@ -39,7 +39,7 @@ else
                             <a asp-area="Dashboard" asp-controller="FolderDetails" asp-action="Index" class="folder-component">
                                 <span class="icon-folder"></span>
                                 <div class="folder-component__div">
-                                    <p class="folder-component__number">@folder.TopicCount</p>
+                                    <p class="folder-component__number">@folder.TopicCount @((folder.TopicCount > 1 || folder.TopicCount == 0) ? "topics" : "topic")</p>
                                     <h6 class="folder-component__name">@folder.Name</h6>
                                 </div>
                             </a>
@@ -48,13 +48,6 @@ else
                 </ul>
             </div>
         </div>
-
-        //Folders container
-        <!-- <div class="wrapper--dashboard">
-        <ul class="grid">
-
-        </ul>
-        </div> -->
     }
     if (!Model.TopicsEmpty)
     {
@@ -70,7 +63,7 @@ else
                     {
                         <li class="topic-component">
                             <div class="topic-component__div">
-                                <p class="topic-component__number">@topic.QuestionCardCount questions</p>
+                                <p class="topic-component__number">@topic.QuestionCardCount @((topic.QuestionCardCount > 1 || topic.QuestionCardCount == 0) ? "questions" : "question")</p>
                                 <h6 class="topic-component__name">@topic.Name</h6>
                             </div>
                         </li>
@@ -81,22 +74,27 @@ else
 
 
         <div id="createFolder_div" style="display:none">
-            
-                <label class="" >Folder Name</label>
-                <input id="folderName_input" class="" type="text" />
-                <p class="">Folder name must be unique</p>
+            <p id="error_txt"></p>
+            <label class="">Folder Name</label>
+            <input id="folderName_input" class="" type="text" />
+            <p class="">Folder name must be unique</p>
 
-                <button class="btn btn--blue" type="submit">Create folder</button>          
+            <button id="btn_createFolder" class="btn btn--blue">Create folder</button>
         </div>
 
 
 
 
 
-        <script type="text/javascript">
 
-    document.getElementById("btn_createFolderToggle").addEventListener("click", () =>
-    {
+    }
+}
+
+<script >
+
+    const errorTxtElem = document.getElementById("error_txt");
+
+    document.getElementById("btn_createFolderToggle").addEventListener("click", () => {
         const x = document.getElementById("createFolder_div");
         if (x.style.display === "none") {
             x.style.display = "block";
@@ -105,9 +103,7 @@ else
         }
     })
 
-
-
-    function createFolder() {
+    document.getElementById("btn_createFolder").addEventListener("click", () => {
         const folderName_input = document.getElementById('folderName_input');
 
         const uri = 'api/folder';
@@ -120,24 +116,35 @@ else
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(viewModelJS)
+            body: JSON.stringify(
+                {
+                    name : viewModelJS
+                })
         })
-            .then(response => response.json())
-            .then(() => {
+            //.then(response => response.json())
+            .then((response) => {
                 //success
-                refreshPage();
+                console.log(response);
+                if (response.status == 200)
+                {
+                    location.reload();
+                }//OK
+                //bad request, empty input
+                if (response.status == 400)
+                {
+                    errorTxtElem.innerText = "Folder name is required.";
+                }
+                //occupied folder name
+                if (response.status == 500)
+                {
+                    errorTxtElem.innerText = "There already exists a folder with that name";
+                }
+
             })
             .catch(error => console.error('Unable to add folder.', error));
-    }
 
-    function refreshPage()
-    {
-        location.reload();
-    }
+    });
 
+</script>
 
-
-        </script>
-    }
-}
 

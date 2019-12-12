@@ -33,6 +33,10 @@ namespace QuizNSwap.Data
                 .HasIndex(u => u.Name)
                 .IsUnique();
 
+            modelBuilder.Entity<QuestionCard>()
+            .Property(q => q.IsImportant)
+            .HasDefaultValue(0);
+
 
             // Keys of Identity tables are mapped in IdentityDbContext.OnModelCreating method  
             // and if this method is not called, attempting to add migration throws an error

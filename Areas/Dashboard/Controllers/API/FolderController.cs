@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using QuizNSwap.Areas.Dashboard.Controllers.API.Models;
 using System.Security.Claims;
 using QuizNSwap.BusinessServices;
+using QuizNSwap.Data;
+using QuizNSwap.Data.Models;
 
 namespace QuizNSwap.Areas.Dashboard.Controllers.API
 {
@@ -14,28 +16,33 @@ namespace QuizNSwap.Areas.Dashboard.Controllers.API
     [ApiController]
     public class FolderController : ControllerBase
     {
-        private readonly FolderService folderService;
+        private readonly QuizNSwapContext dbContext;
 
-        public FolderController(FolderService folderService)
+        public FolderController(FolderService folderService, QuizNSwapContext dbContext)
         {
-            this.folderService = folderService;
+            this.dbContext = dbContext;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateFolder(/*[FromBody]*/ string folderName)
+        public async Task<IActionResult> CreateFolder([FromBody] FolderDTO folder)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var success = await folderService.AddFolder(userId, folderName);
+            var dbFolder = new Folder
+            {
+                Name = folder.Name,
+                UserId = userId
+            };
 
-            if (success > 0)
+            dbContext.Folders.Add(dbFolder);
+
+            var result = await dbContext.SaveChangesAsync();
+
+            if (result > 0)
             {
                 return Ok();
             }
-            else
-            {
-                return BadRequest();
-            }
+            else return BadRequest();
         }
 
 
