@@ -26,6 +26,8 @@ body {
         }
         li:before {
             content: '\e900';
+            font-family: 'icomoon';
+            margin-right: 8px;
         }
     }
 }
