@@ -27,11 +27,6 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
             return View();
         }
 
-        public IActionResult View()
-        {
-            return View();
-        }
-
         public IActionResult Create()
         {
             return View();
