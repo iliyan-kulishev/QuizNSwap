@@ -1,0 +1,55 @@
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Dashboard/Views/Shared/_Layout.cshtml";
+}
+
+<header class="topic-header topic-header--create">
+    <div class="topic-header__container">
+        <div class="topic-header__title">
+    <h1 class="topic-header__name">Create a new topic</h1>
+    <button class="btn btn--green btn--save">Save</button>
+    </div>
+    <textarea class="topic-header__textarea autoExpand" maxlength="255" placeholder="Your new topic name" class="AutoExpandTextarea-textarea"></textarea>
+    <label class="topic-header__label">Name</label>
+
+    </div>
+</header>
+<div class="wrapper--create wrapper--dashboard">
+
+<div class="">
+     <ul class="grid--questions">
+                   
+                        <li class="question">
+                            <span class="question__number">1.</span>
+                                <textarea data-autoresize class="question__textarea autoExpand" maxlength="255"></textarea>
+                                <label class="question__label">Question</label>
+                       
+                        </li>
+                        <li class="question">
+                            <span class="question__number">2.</span>
+                                <textarea data-autoresize class="question__textarea autoExpand" maxlength="255"></textarea>
+                                <label class="question__label">Question</label>
+                       
+                        </li>
+                        <li class="question">
+                            <span class="question__number">3.</span>
+                                <textarea data-autoresize class="question__textarea autoExpand" maxlength="255"></textarea>
+                                <label class="question__label">Question</label>
+                       
+                        </li>
+                         <li class="question--add">
+                            <button >
+                                <span class="icon-add"></span>
+                               <span> ADD A QUESTION</span>
+                            </button>
+                       
+                        </li>
+
+                       
+                        
+                    
+    </ul>
+</div>
+
+</div>
