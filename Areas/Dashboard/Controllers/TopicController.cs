@@ -24,13 +24,6 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
         {
             TopicViewModel topicViewModel = new TopicViewModel();
 
-            var 
-
-
-
-
-
-
             return View();
         }
     }
