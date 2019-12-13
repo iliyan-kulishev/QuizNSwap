@@ -4,34 +4,58 @@
     ViewData["Title"] = "Index";
 }
 
-
-<header class="folder-header">
-    <div class="folder-header__container">
-        <p class="folder-header__count">@Model.TopicCount @((Model.TopicCount > 1 || Model.TopicCount == 0) ? "topics" : "topic")</p>
-    <div class="folder-header__title">
-    <h1 class="folder-header__name">@Model.FolderName</h1>
-    <div class="folder-header__icons">
-        <span class="icon-delete"></span>
-        <span class="icon-createmode_editedit"></span>
-    </div>
-    </div>
-    </div>
-</header>
-<div class="wrapper--folder folder-view wrapper--dashboard">
-
-<div class="folder-views__topics">
-    <ul class="grid">
-        @foreach (FolderDetails.Topic topic in Model.Topics)
-        {
-            <li class="topic-component">
-                <div class="topic-component__div">
-                    <p class="topic-component__number">@topic.QuestionCardCount @((topic.QuestionCardCount > 1 || topic.QuestionCardCount == 0) ? "questions" : "question")</p>
-                    <h6 class="topic-component__name">@topic.Name</h6>
+@if (!Model.Empty)
+{
+    <header class="folder-header">
+        <div class="folder-header__container">
+            <p class="folder-header__count">@Model.TopicCount @((Model.TopicCount > 1 || Model.TopicCount == 0) ? "topics" : "topic")</p>
+            <div class="folder-header__title">
+                <h1 class="folder-header__name">@Model.FolderName</h1>
+                <div class="folder-header__icons">
+                    <span id="@Model.Id" class="icon-delete"></span>
+                    <span class="icon-createmode_editedit"></span>
                 </div>
-            </li>
-        }
+            </div>
+        </div>
+    </header>
+    <div class="wrapper--folder folder-view wrapper--dashboard">
 
-    </ul>
-</div>
+        <div class="folder-views__topics">
+            <ul class="grid">
+                @foreach (FolderDetails.Topic topic in Model.Topics)
+                {
+                    <li class="topic-component">
+                        <div class="topic-component__div">
+                            <p class="topic-component__number">@topic.QuestionCardCount @((topic.QuestionCardCount > 1 || topic.QuestionCardCount == 0) ? "questions" : "question")</p>
+                            <h6 class="topic-component__name">@topic.Name</h6>
+                        </div>
+                    </li>
+                }
 
-</div>
+            </ul>
+        </div>
+
+    </div>
+}
+
+
+
+
+<script>
+    const delIcon = document.getElementById("@Model.Id");
+
+    delIcon.addEventListener("click", () => {
+        const uri = "/api/folder/" + delIcon.id;
+        console.log(uri);
+
+        fetch(uri,
+            {
+                method: "DELETE",
+            })
+            .then((response) => {
+                console.log(response);
+                window.location = "/dashboard";
+            })
+            .catch(error => console.error('Unable to add folder.', error));
+    });
+</script>

@@ -45,6 +45,30 @@ namespace QuizNSwap.Areas.Dashboard.Controllers.API
             else return BadRequest();
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult DeleteFolder(int id)
+        {
+            //long folderIdNum = Convert.ToInt64(id);
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var folderResult = dbContext.Folders.FirstOrDefault(f => f.Id == id && f.UserId == userId);
+
+            if(folderResult == null)
+            {
+                return NotFound();
+            }
+
+            dbContext.Folders.Remove(folderResult);
+
+            dbContext.SaveChangesAsync();
+
+            return Ok();
+        }
+
+
+
+
 
     }
 }

@@ -7,9 +7,11 @@ namespace QuizNSwap.Areas.Dashboard.ViewModels
 {
     public class FolderDetails
     {
-        public int Id { get; set; } // for applying changes
+        public long Id { get; set; } // for applying changes
         public string FolderName { get; set; }
         public int TopicCount { get; set; }
+
+        public bool Empty { get { return (Id == null || Id == 0); }} 
         public List<Topic> Topics {get; set;} = new List<Topic>();
 
         public class Topic

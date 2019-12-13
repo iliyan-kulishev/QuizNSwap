@@ -23,47 +23,56 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
             this.dbContext = dbContext;
         }
 
-        public async Task<IActionResult> Index(int? id)
+        public async Task<IActionResult> Index(long? id)
         {
             FolderDetails folderViewModel = new FolderDetails();
 
-            // will give the user's userId
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            //get the particular folder(id, name, topic count) for the user by its id - DONE
-            //containing the topics'(id, name + Qcard count)
-            var thefolder = await dbContext.Folders.
-                Where(f => f.UserId == userId && f.Id == id)
-                .Select(f => new
-                {
-                    f.Id,
-                    f.Name,
-                    f.Topics.Count
-                }).ToListAsync();
-                
-            var topicsResult = await dbContext.Topics.
-                Where(t => t.UserId == userId && t.FolderId == id)
-                .Select(t => new
-                {
-                    t.Id,
-                    t.Name,
-                    t.QuestionCards.Count
-                }).ToListAsync();
-
-            folderViewModel.Id = (int)thefolder.FirstOrDefault().Id;
-            folderViewModel.FolderName = thefolder.FirstOrDefault().Name;
-
-            foreach (var topic in topicsResult)
+            if (id != null)
             {
-                folderViewModel.Topics.Add(new FolderDetails.Topic
+
+                // will give the user's userId
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                //get the particular folder(id, name, topic count) for the user by its id - DONE
+                //containing the topics'(id, name + Qcard count)
+                var thefolder = (await dbContext.Folders.
+                    Where(f => f.UserId == userId && f.Id == id)
+                    .Select(f => new
+                    {
+                        f.Id,
+                        f.Name,
+                        f.Topics.Count
+                    }).ToListAsync()).FirstOrDefault();
+
+                if (thefolder != null)
                 {
-                    Id = (int)topic.Id,
-                    Name = topic.Name,
-                    QuestionCardCount = topic.Count
-                });
+                    var topicsResult = await dbContext.Topics.
+                        Where(t => t.UserId == userId && t.FolderId == id)
+                        .Select(t => new
+                        {
+                            t.Id,
+                            t.Name,
+                            t.QuestionCards.Count
+                        }).ToListAsync();
+
+                    folderViewModel.Id = thefolder.Id;
+                    folderViewModel.FolderName = thefolder.Name;
+
+                    foreach (var topic in topicsResult)
+                    {
+                        folderViewModel.Topics.Add(new FolderDetails.Topic
+                        {
+                            Id = (int)topic.Id,
+                            Name = topic.Name,
+                            QuestionCardCount = topic.Count
+                        });
+                    }
+                }
             }
 
             return View(folderViewModel);
         }
+
+
     }
 }
