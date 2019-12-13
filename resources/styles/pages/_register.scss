@@ -29,6 +29,8 @@
 
     &__input:last-child {
         margin-bottom: 0;
+        grid-column: 1/3;
+        grid-row: 1/1;
     }
 
     &__input:focus {
@@ -44,6 +46,13 @@
         font-size: 14px;
         color: $dark50;
         margin: 0 0 32px 0;
+    }
+
+    &__password-div {
+        display: grid;
+        grid-template-columns: 80% 20%;
+        grid-template-rows: 1fr;
+        align-items: baseline;
     }
 }
 
