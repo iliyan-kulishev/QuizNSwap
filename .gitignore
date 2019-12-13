@@ -279,3 +279,7 @@ node_modules
 
 # Sqlite
 *.db
+*.db-*
+
+# Ignore Parcel assets
+wwwroot/assets
