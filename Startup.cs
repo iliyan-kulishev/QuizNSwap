@@ -87,7 +87,7 @@ with a shorter lifetime than the service.
                 {
                     endpoints
                         .MapControllerRoute(name: "areas",
-                        pattern: "{area:exists}/{controller}/{action}");
+                        pattern: "{area:exists}/{controller}/{action=Index}");
 
                     endpoints
                         .MapControllerRoute(name: "default",
