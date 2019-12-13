@@ -11,7 +11,7 @@ namespace QuizNSwap.Areas.Dashboard.ViewModels
         public string FolderName { get; set; }
         public int TopicCount { get; set; }
 
-        public bool Empty { get { return (Id == null || Id == 0); }} 
+        public bool Empty { get { return (Id == 0); }} 
         public List<Topic> Topics {get; set;} = new List<Topic>();
 
         public class Topic
