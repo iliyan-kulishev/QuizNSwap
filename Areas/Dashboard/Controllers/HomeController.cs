@@ -22,14 +22,14 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
         private readonly SignInManager<User> signInManager;
         private readonly QuizNSwapContext dbContext;
 
-        public HomeController(UserManager<User> userManager, SignInManager<User> signInManager, QuizNSwapContext dbContext
-            )
+        public HomeController(UserManager<User> userManager, SignInManager<User> signInManager, QuizNSwapContext dbContext)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
             this.dbContext = dbContext;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             HomeViewModel homeViewModel = new HomeViewModel();

@@ -12,10 +12,12 @@ namespace QuizNSwap.Controllers
     public class RegisterController : Controller
     {
         private readonly UserManager<QuizNSwap.Data.Models.User> userManager;
+        private readonly SignInManager<QuizNSwap.Data.Models.User> signInManager;
 
-        public RegisterController(UserManager<QuizNSwap.Data.Models.User> userMgr)
+        public RegisterController(UserManager<QuizNSwap.Data.Models.User> userMgr, SignInManager<QuizNSwap.Data.Models.User> signInManager)
         {
             userManager = userMgr;
+            this.signInManager = signInManager;
         }
 
         public IActionResult Index()
@@ -37,7 +39,8 @@ namespace QuizNSwap.Controllers
                 = await userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home", new { area = "Dashboard" });
+                    await signInManager.SignInAsync(user, isPersistent: false);                   
+                   return RedirectToAction("Index", "Home", new { area = "Dashboard" });      
                 }
                 else
                 {
@@ -49,6 +52,7 @@ namespace QuizNSwap.Controllers
             }
             return View("Index");
         }
+
 
 
 
