@@ -24,8 +24,12 @@
         <input class="register__input" asp-for="UserName" type="text"/>
         <label class="register__label" asp-for="Email">Email</label>
         <input class="register__input" asp-for="Email" type="text"/>
-        <label class="register__label" asp-for="Password">Password</label>
-        <input class="register__input" asp-for="Password" type="password"/>
+         <label class="register__label" asp-for="Password">Password</label>
+        <div class="register__password-div">
+        <a class="password-show">show</a>
+        <input data-password  class="register__input" asp-for="Password" type="password"/>
+        
+        </div>
         <p class="register__message-password">Password must contain at least 6 characters.</p>
 
         <button class="btn btn--blue" type="submit">Sign Up</button>
@@ -37,6 +41,10 @@
     <img class="illustrations__img--main" alt="illustration" src="/images/start-illustration.svg">
     </section>
 </div>
+
+        <script src="/assets/app.js"></script>
+
     
 </body>
 </html>
+

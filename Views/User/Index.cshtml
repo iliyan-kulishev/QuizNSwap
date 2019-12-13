@@ -22,9 +22,10 @@
 
                     <input class="login__input login__input--email" type="text" placeholder="Enter Email" 
                         asp-for="Email">
-
-                    <input class="login__input login__input--psw" placeholder="Enter Password"
-                         asp-for="Password">
+                    <div class="login__password-div">
+                    <a class="password-show">show</a>
+                    <input data-password class="login__input login__input--psw" type="password" placeholder="Enter Password" asp-for="Password">
+                    </div>
 
                     <button class="btn btn--blue" type="submit">Log In</button>
 
@@ -46,6 +47,8 @@
             <img class="illustrations__img--main" alt="illustration" src="/images/start-illustration.svg">
         </section>
     </div>
+
+    <script src="/assets/app.js"></script>
 </body>
 
 </html>
