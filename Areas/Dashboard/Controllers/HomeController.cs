@@ -20,30 +20,16 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
     {
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
-        /*
-        private readonly UserService userService;
-        private readonly FolderService folderService;
-        private readonly TopicService topicService;
-        */
         private readonly QuizNSwapContext dbContext;
 
         public HomeController(UserManager<User> userManager, SignInManager<User> signInManager, QuizNSwapContext dbContext
-            /*UserService userService, 
-            FolderService folderService, TopicService topicService*/)
+            )
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
-            /*
-            this.userService = userService;
-            this.folderService = folderService;
-            this.topicService = topicService;*/
             this.dbContext = dbContext;
         }
-        /*
-        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier) // will give the user's userId
-        var userName = User.FindFirstValue(ClaimTypes.Name) // will give the user's userName
-        var userEmail = User.FindFirstValue(ClaimTypes.Email) // will give the user's Email
-        */
+
         public async Task<IActionResult> Index()
         {
             HomeViewModel homeViewModel = new HomeViewModel();
