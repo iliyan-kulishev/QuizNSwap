@@ -25,7 +25,7 @@ else
     if (!Model.FoldersEmpty)
     {
 
-        <div class="wrapper--dashboard TWO">
+        <div class="wrapper--dashboard">
             <div class="folders">
                 <div class="folders__heading">
                     <h1 class="folders__heading--text">Folders</h1>
@@ -52,11 +52,11 @@ else
     if (!Model.TopicsEmpty)
     {
 
-        <div class="wrapper--dashboard TWO">
+        <div class="wrapper--dashboard">
             <div class="folders">
                 <div class="folders__heading">
                     <h1 class="folders__heading--text">Topics</h1>
-                    <a asp-area="Dashboard" asp-controller="CreateTopics" asp-action="Index" class="btn btn--green btn--add">CREATE Topic</a>
+                    <a asp-area="Dashboard" asp-controller="Topic" asp-action="Index" class="btn btn--green btn--add">CREATE Topic</a>
                 </div>
                 <ul class="grid">
                     @foreach (HomeViewModel.Topic topic in Model.Topics)
@@ -73,28 +73,37 @@ else
         </div>
 
 
-        <div id="createFolder_div" style="display:none">
+        <div class="createFolder">
+            <div class="visible__container">
+                <div class="title">
+                <a id="closeFolder" class="close"></a>
+                <h1>Create new folder</h1>
+                </div>
             <p id="error_txt"></p>
-            <label class="">Folder Name</label>
-            <input id="folderName_input" class="" type="text" />
-            <p class="">Folder name must be unique</p>
+           
+            <!-- <input id="folderName_input" class="" type="text" /> -->
+            <textarea data-autoresize class="question__textarea" id="folderName_input" maxlength="255"></textarea>
+             <label class="">Folder Name</label>
+            <!-- <p class="message-folder">Folder name must be unique</p> -->
 
             <button id="btn_createFolder" class="btn btn--blue">Create folder</button>
+            </div>
         </div>
     }
 }
 
-<script >
+<script>
 
     const errorTxtElem = document.getElementById("error_txt");
 
     document.getElementById("btn_createFolderToggle").addEventListener("click", () => {
-        const x = document.getElementById("createFolder_div");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
+        const overlay = document.getElementsByClassName("createFolder");
+        overlay[0].classList.toggle("visible");
+    })
+
+    document.getElementById("closeFolder").addEventListener("click",() =>{
+       const close = document.getElementsByClassName("createFolder");
+        close[0].classList.remove("visible");
     })
 
     document.getElementById("btn_createFolder").addEventListener("click", () => {

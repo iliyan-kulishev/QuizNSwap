@@ -18,8 +18,8 @@
 .register {
     display: grid;
     &__input {
-        border: 1px solid $dark5;
-        height: 48px;
+        border: 1px solid $dark25;
+        height: 36px;
         border-radius: 5px;
         margin: 4px 0 16px 0;
         padding: 0 12px;
@@ -43,8 +43,6 @@
     &__message-password {
         font-size: 14px;
         color: $dark50;
-    }
-    &__message-password {
         margin: 0 0 32px 0;
     }
 }

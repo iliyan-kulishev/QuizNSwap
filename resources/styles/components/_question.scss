@@ -39,6 +39,10 @@
     &__number {
         color: $dark50;
     }
+
+    &__text {
+        color: $dark75;
+    }
 }
 .question--add {
     border: 2px dashed $dark25;
