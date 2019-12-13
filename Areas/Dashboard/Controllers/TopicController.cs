@@ -20,18 +20,23 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
             this.dbContext = dbContext;
         }
 
-        public IActionResult Index()
+        private IActionResult Index()
         {
             TopicViewModel topicViewModel = new TopicViewModel();
 
-            var 
-
-
-
-
-
-
             return View();
         }
+
+        public IActionResult View()
+        {
+            return View();
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        
     }
 }
