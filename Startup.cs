@@ -13,7 +13,6 @@ using Microsoft.Extensions.Hosting;
 using QuizNSwap.Areas.Gameplay.SignalRHubs;
 using QuizNSwap.Data;
 using QuizNSwap.Data.Models;
-using QuizNSwap.BusinessServices;
 
 namespace QuizNSwap
 {
@@ -65,11 +64,6 @@ with a shorter lifetime than the service.
             //No redirection - just 404 
             services.ConfigureApplicationCookie(options => options.LoginPath = "/");
 
-
-            services.AddScoped<UserService>();
-            services.AddScoped<FolderService>();
-            services.AddScoped<TopicService>();
-            services.AddScoped<QuestionCardService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

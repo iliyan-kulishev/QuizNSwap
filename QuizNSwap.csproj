@@ -7,12 +7,16 @@
   <ItemGroup>
     <Compile Remove="Areas\Dashboard\Views\Shared\Components\**" />
     <Compile Remove="Areas\Start\**" />
+    <Compile Remove="BusinessServices\**" />
     <Content Remove="Areas\Dashboard\Views\Shared\Components\**" />
     <Content Remove="Areas\Start\**" />
+    <Content Remove="BusinessServices\**" />
     <EmbeddedResource Remove="Areas\Dashboard\Views\Shared\Components\**" />
     <EmbeddedResource Remove="Areas\Start\**" />
+    <EmbeddedResource Remove="BusinessServices\**" />
     <None Remove="Areas\Dashboard\Views\Shared\Components\**" />
     <None Remove="Areas\Start\**" />
+    <None Remove="BusinessServices\**" />
   </ItemGroup>
 
   <ItemGroup>
