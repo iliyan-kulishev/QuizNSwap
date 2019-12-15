@@ -12,6 +12,7 @@
             </h1>
             <p>Create topics and organize them into folders.</p>
             <a asp-area="Dashboard" asp-controller="Topic" asp-action="Index" class="btn btn--green btn--add">CREATE TOPIC</a>
+            <partial name="_CreateFolderButton" />
         </div>
 
         <div class="illustration--dashboard">
@@ -28,8 +29,7 @@ else
             <div class="folders">
                 <div class="folders__heading">
                     <h1 class="folders__heading--text">Folders</h1>
-                    @**Create folder click handler with javascript*@
-                    <a id="btn_createFolderToggle" class="btn btn--green btn--add">CREATE Folder</a>
+                    <partial name="_CreateFolderButton" />
                 </div>
                 <ul class="grid">
                     @foreach (HomeViewModel.Folder folder in Model.Folders)
