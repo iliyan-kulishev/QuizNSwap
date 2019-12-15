@@ -29,6 +29,11 @@ namespace QuizNSwap.Data
                 .HasIndex(u => u.Name)
                 .IsUnique();
 
+
+            modelBuilder.Entity<Folder>()
+                .HasIndex(u => u.Name)
+                .IsUnique();
+
             modelBuilder.Entity<Topic>()
                 .HasIndex(u => u.Name)
                 .IsUnique();

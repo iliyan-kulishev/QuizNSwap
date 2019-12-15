@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -17,7 +17,7 @@ namespace QuizNSwap.Data.Models
         public User User { get; set; }
         
         [Required]
-        public string Name {get; set;}
+        public string Name {get; set; } // making this unique with Fluent API in the context class
         public long? FolderId { get; set; } // can be null, not every topic is in a folder
         //navigation
         public Folder Folder { get; set; }
