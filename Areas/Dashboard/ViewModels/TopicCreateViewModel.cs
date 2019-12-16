@@ -18,27 +18,30 @@ namespace QuizNSwap.Areas.Dashboard.ViewModels
             public string HeaderText { get; set; } = "Create a new topic";
             public string FinalizeButtonText { get; set; } = "Create";
             public string TopicNamePlaceholder { get; set; } = "Your new topic name";
+            [Required]
+            public string TopicName { get; set; }//for persistence
+
         }
 
 
         public class Wrapper
         {
-            [Required]
-            public string TopicName { get; set; }//for persistence
             public int InitialCountQuestionCards { get; set; } = 1;
             public List<QuestionCard> QuestionCards { get; set; }
 
             public class QuestionCard
             {
-                public int ListingNumber { get; set; }
-                [Required(ErrorMessage = "Folder name is required.")]
+                public int ListingNumber { get; set; } = 1;
+                //[Required(ErrorMessage = "Question text is required.")]
                 public string Question { get; set; }
                 //I don't want to be after the user for generating whole bunch
                 //of question cards - empty with missing content and so on.
                 //Will just specify here what's the minimum requirement for the content
                 //inside the question card to be valid for inserion
                 //and the POST handler will check with this
-                public bool JunkContent { get; set; }
+                public bool IsJunkContent { get; set; } //for persistence
+
+                
             }
         }
 

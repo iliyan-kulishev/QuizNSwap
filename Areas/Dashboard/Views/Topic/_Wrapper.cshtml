@@ -1,21 +1,14 @@
 @model TopicCreateViewModel.Wrapper
 
-    <div class="wrapper--create wrapper--dashboard">
+<div class="wrapper--create wrapper--dashboard">
 
-        <div class="">
-            <ul id="list_questionCards" class="grid--questions">
-                @*foreach here *@
-                @for (int i = 1; i <= Model.InitialCountQuestionCards; i++)
-                {
-                    TopicCreateViewModel.Wrapper.QuestionCard qcard =
-                        new TopicCreateViewModel.Wrapper.QuestionCard()
-                        {
-                            ListingNumber = i
-                        };
-                    @await Html.PartialAsync("_QuestionCard", qcard)
-                }
-                @await Html.PartialAsync("_AddQuestionButton")
-            </ul>
-        </div>
-
+    <div class="">
+        <ul id="list_questionCards" class="grid--questions">
+            @await Html.PartialAsync("_AddQuestionButton")
+        </ul>
     </div>
+
+</div>
+
+@await Html.PartialAsync("_QuestionCardSample")
+

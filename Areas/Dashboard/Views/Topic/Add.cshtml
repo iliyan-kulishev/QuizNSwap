@@ -8,65 +8,131 @@
 
 
 <script>
+    //ELEMENTS
+    //get the hidden li loaded from the partial view
+    const hiddenQuestionCard = document.querySelector("li[data-sampleQuestionCard]");
+    //get the question number span element inside
+    const span_questionNumber = hiddenQuestionCard.querySelector("span.question__number");//won't need that
 
     const btnAddQuestion = document.getElementById("btn_addQuestion");
     const listQuestionCards = document.getElementById("list_questionCards");
+    const spanQuestionCountNum = document.getElementById("spanQuestionCountNum");
+    const spanQuestionCountText = document.getElementById("spanQuestionCountText");
+    let listingOrderCount = 0;
 
-    // ADD QUESTION
-    let listingOrder = @Model.WrapperContainer.InitialCountQuestionCards;
 
-    btnAddQuestion.onclick = () => {
-        //if there is at least one question card there - that would mean length >= 2 (add question button is always there)
-        if (listQuestionCards.children.length >= 2) {
-            const lengthChildren = listQuestionCards.children.length;
-            // Get the last question card
-            //have to be the child before the last one, since the addQuestion button
-            // wrapped in the <li> is also inside the <ul>
-            const lastQuestionCard = listQuestionCards.children[lengthChildren - 2];
-            //console.log(lastQuestionCard);
+    //EVENTS FOR CHANGE IN THE NUMBER OF QUESTION CARDS
 
-            // Copy the <li> element - with the child elements
-            const clone = lastQuestionCard.cloneNode(true);
-            //get the question number span element inside
-            let span_questionNumber = null;
-            for (let i = 0; i < clone.childNodes.length; i++) {
-                if (clone.childNodes[i].className == "question__number") {
-                    span_questionNumber = clone.childNodes[i];
-                    break;
-                }
-            }
-            listingOrder++;
-            span_questionNumber.textContent = listingOrder + ".";
 
-                // Append the cloned element before the last element (the add question button that is)
-                listQuestionCards.insertBefore(clone, listQuestionCards.children[lengthChildren - 1]);
-            //console.log(listQuestionCards);
-        }
 
-        /*
-        //only the add question button here,
-        //have to get the partial view for the question card ourselves
-        if (listQuestionCards.children.length == 1)
-        {
-            const uri = "Dashboard/Topic/GetQuestionCardPartial";
+    function refreshQuestionsCount(isAdd)
+    {
+        let contentNum = parseInt(spanQuestionCountNum.textContent, 10);
+        console.log(contentNum);
+        contentNum += isAdd ? 1 : -1;
+        
+        spanQuestionCountNum.textContent = contentNum;
 
-            fetch(uri).then(function (response) {
-	        // The API call was successful!
-	        return response.text();
-            }).then(function (html) {
+        spanQuestionCountText.textContent = (contentNum > 1 || contentNum == 0) ? "questions" : "question";
+    }
 
-	        // Convert the HTML string into a document object
-	        const parser = new DOMParser();
-	        const doc = parser.parseFromString(html, 'text/html');
 
-            }).catch(function (err) {
-	        // There was an error
-	        console.warn('Something went wrong.', err);
+    //ADD QUESTION
+    btnAddQuestion.addEventListener("click", addQuestionCard);
+
+
+    function addQuestionCard()
+    {
+        const newQuestionCard = nextQuestionCard();
+
+        const length = listQuestionCards.children.length;
+
+        // Append the cloned element before the last element (the add question button that is)
+        listQuestionCards.insertBefore(newQuestionCard, listQuestionCards.children[length - 1]);
+    }
+
+    function nextQuestionCard()
+    {
+        const newQuestionCard = hiddenQuestionCard.cloneNode(true);
+        document.body.append(newQuestionCard);
+  
+        stampNewQuestionCardwNumber(newQuestionCard);
+
+        configQuestionCardClosing(newQuestionCard);
+
+        //unhide it
+        newQuestionCard.style.display="block";
+
+        //refresh question count
+        refreshQuestionsCount(true);
+
+        return newQuestionCard;
+    }
+
+    function stampNewQuestionCardwNumber(newQuestionCardElem)
+    {
+        listingOrderCount++;
+        const span_questionNumber = newQuestionCardElem.querySelector("span[data-order-num]");
+        span_questionNumber.textContent = listingOrderCount + ".";
+    }
+
+    function configQuestionCardClosing(questionCardElem)
+    {
+        //get the delete Question button
+
+        let span_deleteQuestion = questionCardElem.querySelector("span[data-delete-question]");
+        //configure click handler for closing
+        span_deleteQuestion.addEventListener('click', (e) => {
+            span_deleteQuestion.parentNode.remove();
+
+            //refresh numbering for cards and counter up top
+
+            refreshQuestionsCount(false);
             });
-        }
-        */
-    };
+    }
 
+
+
+
+
+
+
+
+
+
+
+
+    function configQuestionCardDelete(questionCardElem)
+    {
+        //get the delete Question button
+
+        let span_deleteQuestion = questionCardElem.querySelector("span[data-delete-question]");
+        //configure click handler for deletion
+        //...
+        
+
+    }
+
+
+  
+
+
+
+
+
+
+
+
+    function numberQuestionCardDown()
+    {
+        listing--;
+        return listing;
+    }
+
+
+    function removeQuestionCard()
+    {
+    }
 
 
 </script>
