@@ -12,28 +12,41 @@
     //get the hidden li loaded from the partial view
     const hiddenQuestionCard = document.querySelector("li[data-sampleQuestionCard]");
     //get the question number span element inside
-    const span_questionNumber = hiddenQuestionCard.querySelector("span.question__number");//won't need that
+    //const span_questionNumber = hiddenQuestionCard.querySelector("span.question__number");//won't need that
 
     const btnAddQuestion = document.getElementById("btn_addQuestion");
     const listQuestionCards = document.getElementById("list_questionCards");
     const spanQuestionCountNum = document.getElementById("spanQuestionCountNum");
     const spanQuestionCountText = document.getElementById("spanQuestionCountText");
-    let listingOrderCount = 0;
+    let listingOrderCount = parseInt(spanQuestionCountNum.textContent, 10);//must be 0
+ 
+
 
 
     //EVENTS FOR CHANGE IN THE NUMBER OF QUESTION CARDS
 
-
-
-    function refreshQuestionsCount(isAdd)
+    function updateQuestionCardsOrder()
     {
-        let contentNum = parseInt(spanQuestionCountNum.textContent, 10);
-        console.log(contentNum);
-        contentNum += isAdd ? 1 : -1;
-        
-        spanQuestionCountNum.textContent = contentNum;
+        //grab all cards in the list
+        //number them from 1 til ...
+        //what if 0 cards hmmm
+        const length = listQuestionCards.children.length - 1;//again, because the add ? btn is last elem
+        for (let i = 0; i < length; i++)
+        {
+            stampQuestionCardwNumber(listQuestionCards.children[i], i+1);
+        }
+    }
 
-        spanQuestionCountText.textContent = (contentNum > 1 || contentNum == 0) ? "questions" : "question";
+    function updateOrderCount(isAdd)
+    {
+        listingOrderCount += isAdd ? 1 : -1;
+    }
+
+    function updateQuestionsCount()
+    {       
+        spanQuestionCountNum.textContent = listingOrderCount;
+
+        spanQuestionCountText.textContent = (listingOrderCount > 1 || listingOrderCount == 0) ? "questions" : "question";
     }
 
 
@@ -55,8 +68,9 @@
     {
         const newQuestionCard = hiddenQuestionCard.cloneNode(true);
         document.body.append(newQuestionCard);
-  
-        stampNewQuestionCardwNumber(newQuestionCard);
+
+        updateOrderCount(true);
+        stampQuestionCardwNumber(newQuestionCard);
 
         configQuestionCardClosing(newQuestionCard);
 
@@ -64,16 +78,15 @@
         newQuestionCard.style.display="block";
 
         //refresh question count
-        refreshQuestionsCount(true);
+        updateQuestionsCount();
 
         return newQuestionCard;
     }
 
-    function stampNewQuestionCardwNumber(newQuestionCardElem)
+    function stampQuestionCardwNumber(questionCardElem, optionalNum)
     {
-        listingOrderCount++;
-        const span_questionNumber = newQuestionCardElem.querySelector("span[data-order-num]");
-        span_questionNumber.textContent = listingOrderCount + ".";
+        const span_questionNumber = questionCardElem.querySelector("span[data-order-num]");
+        span_questionNumber.textContent = optionalNum != null ? optionalNum : listingOrderCount + ".";
     }
 
     function configQuestionCardClosing(questionCardElem)
@@ -86,8 +99,9 @@
             span_deleteQuestion.parentNode.remove();
 
             //refresh numbering for cards and counter up top
-
-            refreshQuestionsCount(false);
+            updateOrderCount(false);
+            updateQuestionsCount();
+            updateQuestionCardsOrder();
             });
     }
 
