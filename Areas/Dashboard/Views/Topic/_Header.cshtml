@@ -1,3 +1,16 @@
+@model TopicCreateViewModel.Header
 
-
-<h1 class="topic-header__name">@Model</h1>
+    <header class="topic-header topic-header--create">
+        <div class="topic-header__container">
+            @*Qs counter was here**@
+            @await Html.PartialAsync("_QuestionsCounter", Model.QuestionsCounter)
+            <div class="topic-header__title">
+                @await  Html.PartialAsync("_Heading", Model.HeaderText)
+                @*edit icons place, not needed here*@
+                @*Finalize button will read "Create" in this view*@
+                @await  Html.PartialAsync("_FinalizeButton", Model.FinalizeButtonText)
+            </div>
+            @*topic name area*@
+            @await Html.PartialAsync("_TopicName",Model.TopicNamePlaceholder)
+        </div>
+    </header>

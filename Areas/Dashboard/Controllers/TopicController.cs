@@ -38,6 +38,7 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
             return View("Edit", topicEditViewModel);
         }
 
+        /*
         [HttpPost]
         public async Task<IActionResult> CreateTopic(TopicCreateViewModel viewModel)
         {
@@ -70,6 +71,7 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
 
             return View("Add", viewModel);
         }
+        */
 
 
 
