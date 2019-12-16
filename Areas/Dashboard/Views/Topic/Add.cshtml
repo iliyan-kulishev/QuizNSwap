@@ -1,5 +1,72 @@
 @model TopicCreateViewModel
 
 
-@await  Html.PartialAsync("_Header", Model.HeaderContainer)
+@await Html.PartialAsync("_Header", Model.HeaderContainer)
 @await Html.PartialAsync("_Wrapper", Model.WrapperContainer)
+
+
+
+
+<script>
+
+    const btnAddQuestion = document.getElementById("btn_addQuestion");
+    const listQuestionCards = document.getElementById("list_questionCards");
+
+    // ADD QUESTION
+    let listingOrder = @Model.WrapperContainer.InitialCountQuestionCards;
+
+    btnAddQuestion.onclick = () => {
+        //if there is at least one question card there - that would mean length >= 2 (add question button is always there)
+        if (listQuestionCards.children.length >= 2) {
+            const lengthChildren = listQuestionCards.children.length;
+            // Get the last question card
+            //have to be the child before the last one, since the addQuestion button
+            // wrapped in the <li> is also inside the <ul>
+            const lastQuestionCard = listQuestionCards.children[lengthChildren - 2];
+            //console.log(lastQuestionCard);
+
+            // Copy the <li> element - with the child elements
+            const clone = lastQuestionCard.cloneNode(true);
+            //get the question number span element inside
+            let span_questionNumber = null;
+            for (let i = 0; i < clone.childNodes.length; i++) {
+                if (clone.childNodes[i].className == "question__number") {
+                    span_questionNumber = clone.childNodes[i];
+                    break;
+                }
+            }
+            listingOrder++;
+            span_questionNumber.textContent = listingOrder + ".";
+
+                // Append the cloned element before the last element (the add question button that is)
+                listQuestionCards.insertBefore(clone, listQuestionCards.children[lengthChildren - 1]);
+            //console.log(listQuestionCards);
+        }
+
+        /*
+        //only the add question button here,
+        //have to get the partial view for the question card ourselves
+        if (listQuestionCards.children.length == 1)
+        {
+            const uri = "Dashboard/Topic/GetQuestionCardPartial";
+
+            fetch(uri).then(function (response) {
+	        // The API call was successful!
+	        return response.text();
+            }).then(function (html) {
+
+	        // Convert the HTML string into a document object
+	        const parser = new DOMParser();
+	        const doc = parser.parseFromString(html, 'text/html');
+
+            }).catch(function (err) {
+	        // There was an error
+	        console.warn('Something went wrong.', err);
+            });
+        }
+        */
+    };
+
+
+
+</script>

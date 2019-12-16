@@ -25,7 +25,7 @@ namespace QuizNSwap.Areas.Dashboard.ViewModels
         {
             [Required]
             public string TopicName { get; set; }//for persistence
-            public int InitialCountQuestionCards { get; set; } = 3;
+            public int InitialCountQuestionCards { get; set; } = 1;
             public List<QuestionCard> QuestionCards { get; set; }
 
             public class QuestionCard
@@ -33,6 +33,12 @@ namespace QuizNSwap.Areas.Dashboard.ViewModels
                 public int ListingNumber { get; set; }
                 [Required(ErrorMessage = "Folder name is required.")]
                 public string Question { get; set; }
+                //I don't want to be after the user for generating whole bunch
+                //of question cards - empty with missing content and so on.
+                //Will just specify here what's the minimum requirement for the content
+                //inside the question card to be valid for inserion
+                //and the POST handler will check with this
+                public bool JunkContent { get; set; }
             }
         }
 
