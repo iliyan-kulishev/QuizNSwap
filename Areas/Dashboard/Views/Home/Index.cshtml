@@ -11,8 +11,9 @@
                 You don&apos;t have any topics.
             </h1>
             <p>Create topics and organize them into folders.</p>
-            <a asp-area="Dashboard" asp-controller="Topic" asp-action="Index" class="btn btn--green btn--add">CREATE TOPIC</a>
-            <partial name="_CreateFolderButton" />
+            <a asp-area="Dashboard" asp-controller="Topic" asp-action="Add" class="btn btn--green btn--add">CREATE TOPIC</a>
+            @*<partial name="_CreateFolderButton" />*@
+            @await Html.PartialAsync("_CreateFolderButton")
         </div>
 
         <div class="illustration--dashboard">
@@ -29,7 +30,8 @@ else
             <div class="folders">
                 <div class="folders__heading">
                     <h1 class="folders__heading--text">Folders</h1>
-                    <partial name="_CreateFolderButton" />
+                    @*<partial name="_CreateFolderButton" />*@
+                    @await Html.PartialAsync("_CreateFolderButton")
                 </div>
                 <ul class="grid">
                     @foreach (HomeViewModel.Folder folder in Model.Folders)
@@ -55,41 +57,44 @@ else
             <div class="folders">
                 <div class="folders__heading">
                     <h1 class="folders__heading--text">Topics</h1>
-                    <a asp-area="Dashboard" asp-controller="Topic" asp-action="Index" class="btn btn--green btn--add">CREATE Topic</a>
+                    <a asp-area="Dashboard" asp-controller="Topic" asp-action="Add" class="btn btn--green btn--add">CREATE Topic</a>
                 </div>
                 <ul class="grid">
                     @foreach (HomeViewModel.Topic topic in Model.Topics)
                     {
                         <li class="topic-component">
-                            <div class="topic-component__div">
-                                <p class="topic-component__number">@topic.QuestionCardCount @((topic.QuestionCardCount > 1 || topic.QuestionCardCount == 0) ? "questions" : "question")</p>
-                                <h6 class="topic-component__name">@topic.Name</h6>
-                            </div>
+                            <a asp-area="Dashboard" asp-controller="Topic" asp-action="Edit" asp-route-id="@topic.Id" class="topic-component">
+                                <span class="icon-topic"></span>@*NO SUCH CLASS LOL*@
+                                <div class="topic-component__div">
+                                    <p class="topic-component__number">@topic.QuestionCardCount @((topic.QuestionCardCount > 1 || topic.QuestionCardCount == 0) ? "questions" : "question")</p>
+                                    <h6 class="topic-component__name">@topic.Name</h6>
+                                </div>
+                            </a>
                         </li>
                     }
                 </ul>
             </div>
         </div>
-
-
-        <div class="createFolder">
-            <div class="visible__container">
-                <div class="title">
-                <a id="closeFolder" class="close"></a>
-                <h1>Create new folder</h1>
-                </div>
-            <p id="error_txt"></p>
-           
-            <!-- <input id="folderName_input" class="" type="text" /> -->
-            <textarea data-autoresize class="question__textarea" id="folderName_input" maxlength="255"></textarea>
-             <label class="">Folder Name</label>
-            <!-- <p class="message-folder">Folder name must be unique</p> -->
-
-            <button id="btn_createFolder" class="btn btn--blue">Create folder</button>
-            </div>
-        </div>
     }
 }
+
+<div class="createFolder">
+    <div class="visible__container">
+        <div class="title">
+            <a id="closeFolder" class="close"></a>
+            <h1>Create new folder</h1>
+        </div>
+        <p id="error_txt"></p>
+
+        <!-- <input id="folderName_input" class="" type="text" /> -->
+        <textarea data-autoresize class="question__textarea" id="folderName_input" maxlength="255"></textarea>
+        <label class="">Folder Name</label>
+        <!-- <p class="message-folder">Folder name must be unique</p> -->
+
+        <button id="btn_createFolder" class="btn btn--blue">Create folder</button>
+    </div>
+</div>
+
 
 <script>
 
@@ -100,8 +105,8 @@ else
         overlay[0].classList.toggle("visible");
     })
 
-    document.getElementById("closeFolder").addEventListener("click",() =>{
-       const close = document.getElementsByClassName("createFolder");
+    document.getElementById("closeFolder").addEventListener("click", () => {
+        const close = document.getElementsByClassName("createFolder");
         close[0].classList.remove("visible");
     })
 
@@ -120,25 +125,22 @@ else
             },
             body: JSON.stringify(
                 {
-                    name : viewModelJS
+                    name: viewModelJS
                 })
         })
             //.then(response => response.json())
             .then((response) => {
                 //success
                 console.log(response);
-                if (response.status == 200)
-                {
+                if (response.status == 200) {
                     location.reload();
                 }
                 //bad request, empty input
-                if (response.status == 400)
-                {
+                if (response.status == 400) {
                     errorTxtElem.innerText = "Folder name is required.";
                 }
                 //occupied folder name
-                if (response.status == 500)
-                {
+                if (response.status == 500) {
                     errorTxtElem.innerText = "There already exists a folder with that name";
                 }
             })
