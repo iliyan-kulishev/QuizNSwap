@@ -278,6 +278,7 @@ bin
 node_modules
 .cache
 
+# Apple 
 .DS_Store
 
 # Ignore Parcel assets
