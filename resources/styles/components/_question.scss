@@ -4,6 +4,16 @@
     @include shadow;
     border-radius: 5px;
     padding: $base-spacing * 1.5;
+    &__header {
+        height: 48px;
+        display: flex;
+        justify-content: space-between;
+        .icon-delete {
+            color: $dark50;
+            cursor: pointer;
+            font-size: 20px;
+        }
+    }
     &__textarea {
         height: 100%;
         width: 100%;
