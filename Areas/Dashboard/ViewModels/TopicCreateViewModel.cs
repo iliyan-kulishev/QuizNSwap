@@ -29,11 +29,14 @@ namespace QuizNSwap.Areas.Dashboard.ViewModels
             public int InitialCountQuestionCards { get; set; } = 1;
             public List<QuestionCard> QuestionCards { get; set; }
 
+
+
             public class QuestionCard
             {
                 public int ListingNumber { get; set; } = 1;
                 //[Required(ErrorMessage = "Question text is required.")]
-                public string Question { get; set; }
+                [Required]
+                public string Question { get; set; } // for display
                 //I don't want to be after the user for generating whole bunch
                 //of question cards - empty with missing content and so on.
                 //Will just specify here what's the minimum requirement for the content

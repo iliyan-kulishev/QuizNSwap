@@ -73,12 +73,6 @@ namespace QuizNSwap.Areas.Dashboard.Controllers
         }
         */
 
-        [HttpGet]
-        public IActionResult GetQuestionCardPartial()
-        {
-            return PartialView("_QuestionCard");
-        }
-
 
 
 

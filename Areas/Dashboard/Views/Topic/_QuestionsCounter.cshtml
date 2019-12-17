@@ -1,4 +1,6 @@
-<p id="paragraphQuestionCount" class="topic-header__count"><span id="spanQuestionCountNum">@Model</span> <span id="spanQuestionCountText">@((Model > 1 || Model == 0) ? "questions" : "question")</span></p>
+@model TopicCreateViewModel
+
+<p id="paragraphQuestionCount" class="topic-header__count"><span id="spanQuestionCountNum">@Model.HeaderContainer.QuestionsCounter</span> <span id="spanQuestionCountText">@((Model.HeaderContainer.QuestionsCounter > 1 || Model.HeaderContainer.QuestionsCounter == 0) ? "questions" : "question")</span></p>
 
 
 
