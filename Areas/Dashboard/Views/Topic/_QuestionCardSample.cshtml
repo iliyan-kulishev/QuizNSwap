@@ -1,10 +1,12 @@
 @model List<TopicCreateViewModel.Wrapper.QuestionCard>
 
 
-    <li class="question" style="display:none" data-sampleQuestionCard>
-        <span class="question__number" data-order-num></span>
-        <span class="icon-delete" data-delete-question></span>
-        <div><span data-error-msg-property-question></span></div>
-        <textarea data-autoresize class="question__textarea" maxlength="255"></textarea>
-        <label class="question__label">Question</label>
-    </li>
+<li class="question" style="display:none" data-sampleQuestionCard>
+    <div class="question__header">
+    <span class="question__number" data-order-num></span>
+    <span class="icon-delete" data-delete-question></span>
+    </div>
+    <div><span data-error-msg-property-question></span></div>
+    <textarea data-autoresize class="question__textarea" maxlength="255"></textarea>
+    <label class="question__label">Question</label>
+</li>
