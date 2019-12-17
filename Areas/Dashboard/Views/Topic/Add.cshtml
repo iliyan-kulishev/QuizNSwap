@@ -4,119 +4,138 @@
 @await Html.PartialAsync("_Header", Model)
 @await Html.PartialAsync("_Wrapper", Model.WrapperContainer.QuestionCards)
 
-@*Just empty and hidden question card to make copies from*@
-@await Html.PartialAsync("_QuestionCardSample",Model.WrapperContainer.QuestionCards)
+@*Just empty hidden question card to make copies from*@
+@await Html.PartialAsync("_QuestionCardSample", Model.WrapperContainer.QuestionCards)
 
 <form id="form" method="post" asp-area="Dashboard" asp-controller="Topic" asp-action="CreateTopic">
 </form>
 
-@*<div><span asp-validation-for=""></span></div>
-
-<div asp-validation-summary="All" ></div>*@
 
 
 
 
 
-    <script>
-        //ELEMENTS
-        //get the hidden li loaded from the partial view
-        const hiddenQuestionCard = document.querySelector("li[data-sampleQuestionCard]");
-        //get the question number span element inside
-        //const span_questionNumber = hiddenQuestionCard.querySelector("span.question__number");//won't need that
+@*<div><span asp-validation-for=""></span></div> -- gotta see what attributes this is rendered to 
 
-        const btnAddQuestion = document.getElementById("btn_addQuestion");
-        const listQuestionCards = document.getElementById("list_questionCards");
-        const spanQuestionCountNum = document.getElementById("spanQuestionCountNum");
-        const spanQuestionCountText = document.getElementById("spanQuestionCountText");
-        let listingOrderCount = parseInt(spanQuestionCountNum.textContent, 10);//must be 0
+    <div asp-validation-summary="All" ></div>*@
 
 
 
 
-        //EVENTS FOR CHANGE IN THE NUMBER OF QUESTION CARDS
 
-        function updateQuestionCardsOrder() {
-            //grab all cards in the list
-            //number them from 1 til ...
-            //what if 0 cards hmmm
-            const length = listQuestionCards.children.length - 1;//again, because the add ? btn is last elem
-            for (let i = 0; i < length; i++) {
-                stampQuestionCardwNumber(listQuestionCards.children[i], i + 1);
-            }
+<script>
+    //ELEMENTS
+    //get the hidden li loaded from the partial view
+    const hiddenQuestionCard = document.querySelector("li[data-sampleQuestionCard]");
+    //get the question number span element inside
+    //const span_questionNumber = hiddenQuestionCard.querySelector("span.question__number");//won't need that
+
+    const btnAddQuestion = document.getElementById("btn_addQuestion");
+    const listQuestionCards = document.getElementById("list_questionCards");
+    const spanQuestionCountNum = document.getElementById("spanQuestionCountNum");
+    const spanQuestionCountText = document.getElementById("spanQuestionCountText");
+    let listingOrderCount = parseInt(spanQuestionCountNum.textContent, 10);//must be 0
+
+
+
+
+    //EVENTS FOR CHANGE IN THE NUMBER OF QUESTION CARDS
+
+    function updateQuestionCardsOrder() {
+        //grab all cards in the list
+        //number them from 1 til ...
+        //what if 0 cards hmmm
+        const length = listQuestionCards.children.length - 1;//again, because the add ? btn is last elem
+        for (let i = 0; i < length; i++) {
+            stampQuestionCardwNumber(listQuestionCards.children[i], i + 1);
+            //validation attributes update
+            stampQuestionCardwValidationAttributes(listQuestionCards.children[i], i); //0 based there
         }
+    }
 
-        function updateOrderCount(isAdd) {
-            listingOrderCount += isAdd ? 1 : -1;
-        }
+    function updateOrderCount(isAdd) {
+        listingOrderCount += isAdd ? 1 : -1;
+    }
 
-        function updateQuestionsCount() {
-            spanQuestionCountNum.textContent = listingOrderCount;
+    function updateQuestionsCount() {
+        spanQuestionCountNum.textContent = listingOrderCount;
 
-            spanQuestionCountText.textContent = (listingOrderCount > 1 || listingOrderCount == 0) ? "questions" : "question";
-        }
-
-
-        //ADD QUESTION
-        btnAddQuestion.addEventListener("click", addQuestionCard);
+        spanQuestionCountText.textContent = (listingOrderCount > 1 || listingOrderCount == 0) ? "questions" : "question";
+    }
 
 
-        function addQuestionCard() {
-            const newQuestionCard = nextQuestionCard();
+    //ADD QUESTION
+    btnAddQuestion.addEventListener("click", addQuestionCard);
 
-            const length = listQuestionCards.children.length;
 
-            // Append the cloned element before the last element (the add question button that is)
-            listQuestionCards.insertBefore(newQuestionCard, listQuestionCards.children[length - 1]);
-        }
+    function addQuestionCard() {
+        const newQuestionCard = nextQuestionCard();
 
-        function nextQuestionCard() {
-            const newQuestionCard = hiddenQuestionCard.cloneNode(true);
-            document.body.append(newQuestionCard);
+        const length = listQuestionCards.children.length;
 
-            updateOrderCount(true);
-            stampQuestionCardwNumber(newQuestionCard);
+        // Append the cloned element before the last element (the add question button that is)
+        listQuestionCards.insertBefore(newQuestionCard, listQuestionCards.children[length - 1]);
+    }
 
-            configQuestionCardClosing(newQuestionCard);
+    function nextQuestionCard() {
+        const newQuestionCard = hiddenQuestionCard.cloneNode(true);
+        document.body.append(newQuestionCard);
 
-            //unhide it
-            newQuestionCard.style.display = "block";
+        updateOrderCount(true);
+        stampQuestionCardwNumber(newQuestionCard);
 
-            //PUT ATTRIBUTE FOR VALIDATION
-            const textAreaInput = newQuestionCard.querySelector("textarea");
-            //name ="[0].Question"
-            let nameAttr = "[" + (listingOrderCount-1) + "].Question";
-            textAreaInput.setAttribute("name", nameAttr);
-            textAreaInput.setAttribute("form", "form");
-            console.log(textAreaInput);
+        configQuestionCardClosing(newQuestionCard);
 
-            //refresh question count
+        //unhide it
+        newQuestionCard.style.display = "block";
+
+        //validation attributes update
+        stampQuestionCardwValidationAttributes(newQuestionCard);
+
+        //refresh question count
+        updateQuestionsCount();
+
+        return newQuestionCard;
+    }
+
+    function stampQuestionCardwValidationAttributes(questionCardElement, optionalIndex) {
+        //name ="[0].Question"
+        let nameAttr = "[" + (optionalIndex != null ? optionalIndex : (listingOrderCount - 1)) + "].Question"; //0 based index,
+        console.log(nameAttr);
+        //ELEMENT FOR PROPERTY VALIDATION ERROR MESSAGE
+        const errorMsgElement = questionCardElement.querySelector("span[data-error-msg-property-question]");
+        errorMsgElement.setAttribute("name", nameAttr);
+        errorMsgElement.setAttribute("form", "form");
+
+        console.log(errorMsgElement);
+        //PUT ATTRIBUTE FOR VALIDATION OF TEXT INPUT
+        const textAreaInput = questionCardElement.querySelector("textarea");
+        textAreaInput.setAttribute("name", nameAttr);
+        textAreaInput.setAttribute("form", "form");
+        console.log(textAreaInput);
+    }
+
+    function stampQuestionCardwNumber(questionCardElem, optionalNum) {
+        const span_questionNumber = questionCardElem.querySelector("span[data-order-num]");
+        span_questionNumber.textContent = optionalNum != null ? optionalNum : listingOrderCount + ".";
+    }
+
+    function configQuestionCardClosing(questionCardElem) {
+        //get the delete Question button
+        let span_deleteQuestion = questionCardElem.querySelector("span[data-delete-question]");
+        //configure click handler for closing
+        span_deleteQuestion.addEventListener('click', (e) => {
+            span_deleteQuestion.parentNode.remove();
+
+            //refresh numbering for cards and counter up top
+            updateOrderCount(false);
             updateQuestionsCount();
-
-            return newQuestionCard;
-        }
-
-        function stampQuestionCardwNumber(questionCardElem, optionalNum) {
-            const span_questionNumber = questionCardElem.querySelector("span[data-order-num]");
-            span_questionNumber.textContent = optionalNum != null ? optionalNum : listingOrderCount + ".";
-        }
-
-        function configQuestionCardClosing(questionCardElem) {
-            //get the delete Question button
-            let span_deleteQuestion = questionCardElem.querySelector("span[data-delete-question]");
-            //configure click handler for closing
-            span_deleteQuestion.addEventListener('click', (e) => {
-                span_deleteQuestion.parentNode.remove();
-
-                //refresh numbering for cards and counter up top
-                updateOrderCount(false);
-                updateQuestionsCount();
-                updateQuestionCardsOrder();
-            });
-        }
+            updateQuestionCardsOrder();
+        });
+    }
 
 
 
 
 
-    </script>
+</script>

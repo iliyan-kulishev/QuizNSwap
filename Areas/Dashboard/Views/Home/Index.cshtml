@@ -11,8 +11,7 @@
                 You don&apos;t have any topics.
             </h1>
             <p>Create topics and organize them into folders.</p>
-            <a asp-area="Dashboard" asp-controller="Topic" asp-action="Add" class="btn btn--green btn--add">CREATE TOPIC</a>
-            @*<partial name="_CreateFolderButton" />*@
+            @await Html.PartialAsync("_CreateTopicButton")
             @await Html.PartialAsync("_CreateFolderButton")
         </div>
 
@@ -24,15 +23,15 @@
 }
 else
 {
-    if (!Model.FoldersEmpty)
-    {
-        <div class="wrapper--dashboard">
-            <div class="folders">
-                <div class="folders__heading">
-                    <h1 class="folders__heading--text">Folders</h1>
-                    @*<partial name="_CreateFolderButton" />*@
+    <div class="wrapper--dashboard">
+        <div class="folders">
+            <div class="folders__heading">
+                <h1 class="folders__heading--text">Folders</h1>
+                @*<partial name="_CreateFolderButton" />*@                
                     @await Html.PartialAsync("_CreateFolderButton")
-                </div>
+i            </div>
+            @if (!Model.FoldersEmpty)
+            {
                 <ul class="grid">
                     @foreach (HomeViewModel.Folder folder in Model.Folders)
                     {
@@ -47,18 +46,18 @@ else
                         </li>
                     }
                 </ul>
-            </div>
+            }
         </div>
-    }
-    if (!Model.TopicsEmpty)
-    {
+    </div>
 
-        <div class="wrapper--dashboard">
-            <div class="folders">
-                <div class="folders__heading">
-                    <h1 class="folders__heading--text">Topics</h1>
-                    <a asp-area="Dashboard" asp-controller="Topic" asp-action="Add" class="btn btn--green btn--add">CREATE Topic</a>
-                </div>
+    <div class="wrapper--dashboard">
+        <div class="folders">
+            <div class="folders__heading">
+                <h1 class="folders__heading--text">Topics</h1>
+                    @await Html.PartialAsync("_CreateTopicButton")
+            </div>
+            @if (!Model.TopicsEmpty)
+            {
                 <ul class="grid">
                     @foreach (HomeViewModel.Topic topic in Model.Topics)
                     {
@@ -73,9 +72,9 @@ else
                         </li>
                     }
                 </ul>
-            </div>
+            }
         </div>
-    }
+    </div>
 }
 
 <div class="createFolder">
