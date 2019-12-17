@@ -3,7 +3,7 @@
     background-color: $white;
     @include shadow;
     border-radius: 5px;
-    padding: $base-spacing * 1.5;
+    padding: $base-spacing * 2;
     &__header {
         height: 48px;
         display: flex;
